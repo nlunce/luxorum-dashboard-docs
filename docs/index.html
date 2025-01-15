@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Luxorum Dashboard Documentation – Luxorum Dashboard Docs</title>
+<title>Luxorum Dashboard – Luxorum Dashboard Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,6 +102,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -409,32 +413,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-luxorum-dashboard" id="toc-welcome-to-luxorum-dashboard" class="nav-link active" data-scroll-target="#welcome-to-luxorum-dashboard"><span class="header-section-number">1</span> Welcome to Luxorum Dashboard</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">1.1</span> Overview</a></li>
-  <li><a href="#architecture-highlights" id="toc-architecture-highlights" class="nav-link" data-scroll-target="#architecture-highlights"><span class="header-section-number">1.2</span> Architecture Highlights</a>
+  <li><a href="#system-overview" id="toc-system-overview" class="nav-link" data-scroll-target="#system-overview">System Overview</a></li>
+  <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components">Core Components</a>
   <ul class="collapse">
-  <li><a href="#technology-stack" id="toc-technology-stack" class="nav-link" data-scroll-target="#technology-stack"><span class="header-section-number">1.2.1</span> Technology Stack</a></li>
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features"><span class="header-section-number">1.2.2</span> Key Features</a></li>
+  <li><a href="#frontend-services" id="toc-frontend-services" class="nav-link" data-scroll-target="#frontend-services">Frontend Services</a></li>
+  <li><a href="#backend-infrastructure" id="toc-backend-infrastructure" class="nav-link" data-scroll-target="#backend-infrastructure">Backend Infrastructure</a></li>
   </ul></li>
-  <li><a href="#documentation-structure" id="toc-documentation-structure" class="nav-link" data-scroll-target="#documentation-structure"><span class="header-section-number">1.3</span> Documentation Structure</a>
+  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a>
   <ul class="collapse">
-  <li><a href="#core-documentation" id="toc-core-documentation" class="nav-link" data-scroll-target="#core-documentation"><span class="header-section-number">1.3.1</span> Core Documentation</a></li>
-  <li><a href="#development-guides" id="toc-development-guides" class="nav-link" data-scroll-target="#development-guides"><span class="header-section-number">1.3.2</span> Development Guides</a></li>
+  <li><a href="#quote-generation" id="toc-quote-generation" class="nav-link" data-scroll-target="#quote-generation">Quote Generation</a></li>
+  <li><a href="#payment-processing" id="toc-payment-processing" class="nav-link" data-scroll-target="#payment-processing">Payment Processing</a></li>
+  <li><a href="#document-management" id="toc-document-management" class="nav-link" data-scroll-target="#document-management">Document Management</a></li>
   </ul></li>
-  <li><a href="#project-organization" id="toc-project-organization" class="nav-link" data-scroll-target="#project-organization"><span class="header-section-number">1.4</span> Project Organization</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">1.5</span> Getting Started</a></li>
-  <li><a href="#development-standards" id="toc-development-standards" class="nav-link" data-scroll-target="#development-standards"><span class="header-section-number">1.6</span> Development Standards</a>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
   <ul class="collapse">
-  <li><a href="#code-quality" id="toc-code-quality" class="nav-link" data-scroll-target="#code-quality"><span class="header-section-number">1.6.1</span> Code Quality</a></li>
-  <li><a href="#performance-goals" id="toc-performance-goals" class="nav-link" data-scroll-target="#performance-goals"><span class="header-section-number">1.6.2</span> Performance Goals</a></li>
-  <li><a href="#security-measures" id="toc-security-measures" class="nav-link" data-scroll-target="#security-measures"><span class="header-section-number">1.6.3</span> Security Measures</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#quick-setup" id="toc-quick-setup" class="nav-link" data-scroll-target="#quick-setup">Quick Setup</a></li>
   </ul></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing"><span class="header-section-number">1.7</span> Contributing</a></li>
-  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support"><span class="header-section-number">1.8</span> Support</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license"><span class="header-section-number">1.9</span> License</a></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><span class="header-section-number">1.10</span> Acknowledgments</a></li>
+  <li><a href="#documentation-structure" id="toc-documentation-structure" class="nav-link" data-scroll-target="#documentation-structure">Documentation Structure</a>
+  <ul class="collapse">
+  <li><a href="#implementation-guides" id="toc-implementation-guides" class="nav-link" data-scroll-target="#implementation-guides">Implementation Guides</a></li>
+  <li><a href="#technical-guides" id="toc-technical-guides" class="nav-link" data-scroll-target="#technical-guides">Technical Guides</a></li>
   </ul></li>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project Structure</a></li>
+  <li><a href="#development-standards" id="toc-development-standards" class="nav-link" data-scroll-target="#development-standards">Development Standards</a>
+  <ul class="collapse">
+  <li><a href="#aws-integration" id="toc-aws-integration" class="nav-link" data-scroll-target="#aws-integration">AWS Integration</a></li>
+  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security">Security</a></li>
+  <li><a href="#performance" id="toc-performance" class="nav-link" data-scroll-target="#performance">Performance</a></li>
+  </ul></li>
+  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support">Support</a></li>
   </ul>
 </nav>
     </div>
@@ -443,8 +454,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Luxorum Dashboard Documentation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Technical Documentation and Implementation Guide</p>
+<div class="quarto-title-block"><div><h1 class="title">Luxorum Dashboard</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Developer Documentation</p>
 </div>
 
 
@@ -461,197 +472,333 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome-to-luxorum-dashboard" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Welcome to Luxorum Dashboard</h1>
-<section id="overview" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1</span> Overview</h2>
-<p>Luxorum Dashboard is a modern, secure, and scalable web application built with cutting-edge technologies. This documentation provides comprehensive guidance for developers working with the dashboard’s architecture, implementation details, and best practices.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Welcome to the Luxorum Dashboard documentation. Our system provides end-to-end quote generation, payment processing, and document management functionality through a modern web application.</p>
+<section id="system-overview" class="level2">
+<h2 class="anchored" data-anchor-id="system-overview">System Overview</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'darkMode': false,
+    'fontFamily': 'arial',
+    'primaryBorderColor': '#666666',
+    'primaryTextColor': '#333333',
+    'lineColor': '#666666',
+    'backgroundColor': '#ffffff'
+  }
+}}%%
+flowchart TD
+    %% User Interface
+    subgraph UI[User Interface]
+        LP["Landing Page&lt;br&gt;Marketing Site"]
+        SP["Start Process"]
+        DB["Dashboard"]
+    end
+
+    %% Security Layer
+    subgraph SL[Security Layer]
+        AC["Amazon Cognito&lt;br&gt;User Authentication"]
+    end
+
+    %% Quote Generation
+    subgraph QG[Quote Generation]
+        BQF["Basic Quote Form"]
+        subgraph IA[Initial Assessment]
+            ID["Initial Data"]
+            HO["Home Ownership"]
+            AD["Address"]
+            MB["Monthly Bill"]
+            HD["Home Details"]
+        end
+        QC["Quote Calculator λ"]
+
+        subgraph DA[Detailed Assessment]
+            DD["Detailed Data"]
+            UU["Utility Upload"]
+            UH["Usage History"]
+            SP2["System Preferences"]
+        end
+        PG["Proposal Generator λ"]
+    end
+
+    %% External Services
+    subgraph EX[External Services]
+        FIN["Installer's Financier"]
+        DOC["Installer's DocuSign"]
+    end
+
+    %% Processing
+    subgraph PR[Processing]
+        subgraph PP[Payment Processing]
+            SP3["Stripe Payment λ"]
+        end
+        
+        subgraph DP[Document Processing]
+            DH["Document Handler λ"]
+        end
+    end
+
+    %% Data Storage
+    subgraph DS[Data Storage]
+        DDB[(DynamoDB)]
+        S3[(S3 Storage)]
+        PS[(Parameter Store)]
+    end
+
+    %% Communication System
+    subgraph CS[Communication System]
+        EH["Email Handler λ"]
+        SES["Amazon SES"]
+    end
+
+    %% API Gateway
+    AG{"API Gateway&lt;br&gt;Central Router"}
+
+    %% Connections
+    LP --&gt; SP
+    SP --&gt; BQF
+    BQF --&gt; AC
+    AC --&gt; DB
+    BQF --&gt; QC
+    QC --&gt; AG
+    PG --&gt; AG
+    AG --&gt; FIN
+    AG --&gt; DOC
+    SP3 --&gt; AG
+    DH --&gt; AG
+    AG --&gt; DDB
+    AG --&gt; S3
+    AG --&gt; PS
+    PS --&gt; QC
+    PS --&gt; PG
+    PS --&gt; SP3
+    PS --&gt; DH
+    PS --&gt; EH
+    AG --&gt; EH
+    EH --&gt; SES
+
+    %% Status Flows
+    QC -. Quote Ready .-&gt; AG
+    PG -. Proposal Ready .-&gt; AG
+    SP3 -. Payment Confirmed .-&gt; AG
+    FIN -. Credit Status .-&gt; AG
+    DOC -. Contract Status .-&gt; AG
+
+    classDef default fill:#f9f9f9,stroke:#666,stroke-width:1px
+    classDef gateway fill:#e8f4f8,stroke:#666,stroke-width:2px
+    classDef lambda fill:#f5f5f5,stroke:#666,stroke-width:1px
+
+    class AG gateway
+    class QC,PG,SP3,DH,EH lambda
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><a href="https://www.mermaidchart.com/raw/8a52966e-4947-49a1-af68-0de9f9f0a259?theme=light&amp;version=v0.1&amp;format=svg">Fullscreen</a></p>
 </section>
-<section id="architecture-highlights" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="architecture-highlights"><span class="header-section-number">1.2</span> Architecture Highlights</h2>
-<section id="technology-stack" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="technology-stack"><span class="header-section-number">1.2.1</span> Technology Stack</h3>
+<section id="core-components" class="level2">
+<h2 class="anchored" data-anchor-id="core-components">Core Components</h2>
+<section id="frontend-services" class="level3">
+<h3 class="anchored" data-anchor-id="frontend-services">Frontend Services</h3>
 <ul>
-<li><strong>Frontend</strong>: Next.js 14+ with App Router and React Server Components</li>
-<li><strong>Backend</strong>: Next.js API Routes and Server Actions</li>
-<li><strong>Authentication</strong>: AWS Cognito with MFA support</li>
-<li><strong>Configuration</strong>: AWS Parameter Store for secure config management</li>
-<li><strong>Database</strong>: PostgreSQL with Prisma ORM</li>
-<li><strong>State Management</strong>: React Server Components + Client Hooks</li>
-<li><strong>Styling</strong>: Tailwind CSS with custom design system</li>
+<li>Quote Generation System</li>
+<li>Payment Processing Interface</li>
+<li>Document Management</li>
+<li>User Dashboard</li>
 </ul>
 </section>
-<section id="key-features" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="key-features"><span class="header-section-number">1.2.2</span> Key Features</h3>
+<section id="backend-infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="backend-infrastructure">Backend Infrastructure</h3>
 <ul>
-<li>Secure authentication and authorization</li>
-<li>Real-time data visualization</li>
-<li>Responsive dashboard layouts</li>
-<li>Performance monitoring</li>
-<li>User management</li>
-<li>Automated reporting</li>
-<li>Data export capabilities</li>
-<li>Advanced analytics</li>
+<li>AWS API Gateway</li>
+<li>DynamoDB for user &amp; system data</li>
+<li>S3 for document storage</li>
+<li>Amazon SES for communications</li>
+<li>Stripe payment integration</li>
 </ul>
 </section>
 </section>
-<section id="documentation-structure" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="documentation-structure"><span class="header-section-number">1.3</span> Documentation Structure</h2>
-<section id="core-documentation" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="core-documentation"><span class="header-section-number">1.3.1</span> Core Documentation</h3>
-<ol type="1">
-<li><a href="architecture/index.qmd">Architecture Guide</a>
+<section id="key-features" class="level2">
+<h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
+<section id="quote-generation" class="level3">
+<h3 class="anchored" data-anchor-id="quote-generation">Quote Generation</h3>
 <ul>
-<li>System design</li>
-<li>Component architecture</li>
-<li>Data flow patterns</li>
-</ul></li>
-<li><a href="./auth/index.html">Authentication System</a>
-<ul>
-<li>User authentication</li>
-<li>Session management</li>
-<li>Security implementations</li>
-</ul></li>
-<li><a href="features/index.qmd">Dashboard Features</a>
-<ul>
-<li>Component library</li>
-<li>Data visualization</li>
-<li>User interface patterns</li>
-</ul></li>
-<li><a href="./api/index.html">API Documentation</a>
-<ul>
-<li>Endpoint specifications</li>
-<li>Data models</li>
-<li>Integration guides</li>
-</ul></li>
-</ol>
+<li>Basic quote form collection</li>
+<li>Initial assessment processing</li>
+<li>Detailed quote calculation</li>
+<li>Proposal generation</li>
+</ul>
 </section>
-<section id="development-guides" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="development-guides"><span class="header-section-number">1.3.2</span> Development Guides</h3>
-<ol type="1">
-<li><a href="guides/getting-started.qmd">Getting Started</a>
+<section id="payment-processing" class="level3">
+<h3 class="anchored" data-anchor-id="payment-processing">Payment Processing</h3>
 <ul>
-<li>Environment setup</li>
-<li>Local development</li>
-<li>Testing procedures</li>
-</ul></li>
-<li><a href="guides/contributing.qmd">Contributing Guidelines</a>
+<li>Credit check integration</li>
+<li>Stripe payment processing</li>
+<li>Payment confirmation system</li>
+<li>Transaction management</li>
+</ul>
+</section>
+<section id="document-management" class="level3">
+<h3 class="anchored" data-anchor-id="document-management">Document Management</h3>
 <ul>
-<li>Code standards</li>
-<li>Pull request process</li>
-<li>Review guidelines</li>
-</ul></li>
-<li><a href="guides/deployment.qmd">Deployment Guide</a>
-<ul>
-<li>Build process</li>
-<li>Environment configuration</li>
-<li>Monitoring setup</li>
-</ul></li>
-</ol>
+<li>Automated document generation</li>
+<li>S3 storage integration</li>
+<li>Document status tracking</li>
+<li>Secure file handling</li>
+</ul>
 </section>
 </section>
-<section id="project-organization" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="project-organization"><span class="header-section-number">1.4</span> Project Organization</h2>
-<pre><code>luxorum-dashboard/
-├── app/                  # Next.js application routes
-├── components/          # React components
-├── lib/                 # Shared utilities
-├── public/              # Static assets
-├── styles/              # Global styles
-├── prisma/              # Database schema
-└── docs/                # Documentation (you are here)</code></pre>
 </section>
-<section id="getting-started" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">1.5</span> Getting Started</h2>
-<ol type="1">
-<li><p><strong>Prerequisites</strong></p>
+<section id="getting-started" class="level1">
+<h1>Getting Started</h1>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
 <ul>
+<li>AWS Account with required services:
+<ul>
+<li>API Gateway</li>
+<li>DynamoDB</li>
+<li>S3</li>
+<li>SES</li>
+<li>Cognito</li>
+</ul></li>
 <li>Node.js 18+</li>
-<li>PostgreSQL 14+</li>
-<li>AWS Account</li>
+<li>Stripe account</li>
 <li>Git</li>
-</ul></li>
-<li><p><strong>Quick Start</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Clone repository</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">git</span> clone https://github.com/your-org/luxorum-dashboard.git</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Install dependencies</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">cd</span> luxorum-dashboard</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">npm</span> install</span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># Setup environment</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">cp</span> .env.example .env.local</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># Start development server</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>First Steps</strong></p>
+</ul>
+</section>
+<section id="quick-setup" class="level2">
+<h2 class="anchored" data-anchor-id="quick-setup">Quick Setup</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">git</span> clone https://github.com/your-org/luxorum-dashboard.git</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">cd</span> luxorum-dashboard</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">npm</span> install</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">cp</span> .env.example .env.local</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">npm</span> run dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="documentation-structure" class="level1">
+<h1>Documentation Structure</h1>
+<section id="implementation-guides" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-guides">Implementation Guides</h2>
+<ol type="1">
+<li><a href="features/quotes/index.qmd">Quote System</a>
 <ul>
-<li>Review the <a href="architecture/index.qmd">Architecture Guide</a></li>
-<li>Set up your <a href="guides/getting-started.qmd">Development Environment</a></li>
-<li>Understand the <a href="./auth/index.html">Authentication System</a></li>
+<li>Form implementation</li>
+<li>Calculator logic</li>
+<li>Proposal generation</li>
+</ul></li>
+<li><a href="features/payments/index.qmd">Payment System</a>
+<ul>
+<li>Stripe integration</li>
+<li>Transaction handling</li>
+<li>Payment confirmation</li>
+</ul></li>
+<li><a href="features/documents/index.qmd">Document System</a>
+<ul>
+<li>Generation workflow</li>
+<li>Storage management</li>
+<li>Status tracking</li>
+</ul></li>
+<li><a href="./auth/index.html">Authentication</a>
+<ul>
+<li>Cognito integration</li>
+<li>Session management</li>
+<li>Security implementation</li>
 </ul></li>
 </ol>
 </section>
-<section id="development-standards" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="development-standards"><span class="header-section-number">1.6</span> Development Standards</h2>
-<section id="code-quality" class="level3" data-number="1.6.1">
-<h3 data-number="1.6.1" class="anchored" data-anchor-id="code-quality"><span class="header-section-number">1.6.1</span> Code Quality</h3>
+<section id="technical-guides" class="level2">
+<h2 class="anchored" data-anchor-id="technical-guides">Technical Guides</h2>
+<ol type="1">
+<li><a href="guides/aws-setup.qmd">AWS Setup</a></li>
+<li><a href="guides/api-integration.qmd">API Integration</a></li>
+<li><a href="guides/database.qmd">Database Schema</a></li>
+</ol>
+</section>
+</section>
+<section id="project-structure" class="level1">
+<h1>Project Structure</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">src/</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">├──</span> app/</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">│</span>   ├── api/          <span class="co"># API routes</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">│</span>   │   ├── quotes/</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">│</span>   │   ├── payments/</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">│</span>   │   └── documents/</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">│</span>   └── <span class="er">(</span><span class="ex">routes</span><span class="kw">)</span><span class="ex">/</span>     <span class="co"># Page routes</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">├──</span> components/</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="ex">│</span>   ├── quotes/       <span class="co"># Quote generation</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="ex">│</span>   ├── payments/     <span class="co"># Payment processing</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="ex">│</span>   └── documents/    <span class="co"># Document handling</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="ex">├──</span> lib/</span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="ex">│</span>   ├── aws/         <span class="co"># AWS service integrations</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="ex">│</span>   ├── stripe/      <span class="co"># Payment processing</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="ex">│</span>   └── utils/       <span class="co"># Shared utilities</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="ex">└──</span> styles/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="development-standards" class="level1">
+<h1>Development Standards</h1>
+<section id="aws-integration" class="level2">
+<h2 class="anchored" data-anchor-id="aws-integration">AWS Integration</h2>
 <ul>
-<li>TypeScript for type safety</li>
-<li>ESLint for code linting</li>
-<li>Prettier for code formatting</li>
-<li>Jest for unit testing</li>
-<li>Cypress for E2E testing</li>
+<li>API Gateway best practices</li>
+<li>DynamoDB data modeling</li>
+<li>S3 security configuration</li>
+<li>SES implementation guidelines</li>
 </ul>
 </section>
-<section id="performance-goals" class="level3" data-number="1.6.2">
-<h3 data-number="1.6.2" class="anchored" data-anchor-id="performance-goals"><span class="header-section-number">1.6.2</span> Performance Goals</h3>
+<section id="security" class="level2">
+<h2 class="anchored" data-anchor-id="security">Security</h2>
 <ul>
-<li>Lighthouse score &gt; 90</li>
-<li>First Contentful Paint &lt; 1.5s</li>
-<li>Time to Interactive &lt; 3.5s</li>
-<li>Core Web Vitals compliance</li>
+<li>Cognito authentication flow</li>
+<li>API security measures</li>
+<li>Document access control</li>
+<li>Payment data protection</li>
 </ul>
 </section>
-<section id="security-measures" class="level3" data-number="1.6.3">
-<h3 data-number="1.6.3" class="anchored" data-anchor-id="security-measures"><span class="header-section-number">1.6.3</span> Security Measures</h3>
+<section id="performance" class="level2">
+<h2 class="anchored" data-anchor-id="performance">Performance</h2>
 <ul>
-<li>Regular security audits</li>
-<li>Dependency vulnerability scanning</li>
-<li>OWASP compliance</li>
-<li>Data encryption at rest and in transit</li>
+<li>API response optimization</li>
+<li>Document processing efficiency</li>
+<li>Payment processing reliability</li>
+<li>System scalability</li>
 </ul>
 </section>
 </section>
-<section id="contributing" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="contributing"><span class="header-section-number">1.7</span> Contributing</h2>
-<p>We welcome contributions from the community. Please refer to our <a href="guides/contributing.qmd">Contributing Guidelines</a> for detailed information on how to:</p>
+<section id="support" class="level1">
+<h1>Support</h1>
 <ul>
-<li>Report issues</li>
-<li>Submit pull requests</li>
-<li>Propose new features</li>
-<li>Improve documentation</li>
+<li><a href="support/aws-guide.qmd">AWS Integration Guide</a></li>
+<li><a href="./support/common-issues.html">Common Issues</a></li>
+<li><a href="support/contact.qmd">Contact Support</a></li>
 </ul>
-</section>
-<section id="support" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="support"><span class="header-section-number">1.8</span> Support</h2>
-<p>For technical support: - Check the <a href="./support/faq.html">FAQ</a> - Review <a href="./support/common-issues.html">Common Issues</a> - Contact the development team</p>
-</section>
-<section id="license" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="license"><span class="header-section-number">1.9</span> License</h2>
-<p>This project is licensed under [appropriate license] - see the <a href="./license.html">LICENSE</a> file for details.</p>
-</section>
-<section id="acknowledgments" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="acknowledgments"><span class="header-section-number">1.10</span> Acknowledgments</h2>
-<p>Special thanks to all contributors and maintainers who have helped make this project possible.</p>
 <hr>
-<p><em>Last updated: 01-14-2025</em></p>
-<p><strong>Note</strong>: This documentation is continuously updated. For the latest information, please check the repository regularly.</p>
+<p>Last updated: January 14, 2025</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This documentation is continuously updated. Check our repository for the latest changes.</p>
+</div>
+</div>
 
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1268,174 +1415,279 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Luxorum Dashboard Documentation"</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="an">subtitle:</span><span class="co"> "Technical Documentation and Implementation Guide"</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="an">format:</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">  html:</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">    toc: true</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">    toc-depth: 3</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">    number-sections: true</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">    highlight-style: github</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Luxorum Dashboard"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="an">subtitle:</span><span class="co"> "Developer Documentation"</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">---</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu"># Introduction</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>Welcome to the Luxorum Dashboard documentation. Our system provides end-to-end quote generation, payment processing, and document management functionality through a modern web application.</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="fu">## System Overview</span></span>
 <span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="fu"># Welcome to Luxorum Dashboard</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="fu">## Overview</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a></span>
-<span id="cb3-16"><a href="#cb3-16"></a>Luxorum Dashboard is a modern, secure, and scalable web application built with cutting-edge technologies. This documentation provides comprehensive guidance for developers working with the dashboard's architecture, implementation details, and best practices.</span>
-<span id="cb3-17"><a href="#cb3-17"></a></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="fu">## Architecture Highlights</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="fu">### Technology Stack</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="ss">- </span>**Frontend**: Next.js 14+ with App Router and React Server Components</span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="ss">- </span>**Backend**: Next.js API Routes and Server Actions</span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="ss">- </span>**Authentication**: AWS Cognito with MFA support</span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="ss">- </span>**Configuration**: AWS Parameter Store for secure config management</span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="ss">- </span>**Database**: PostgreSQL with Prisma ORM</span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="ss">- </span>**State Management**: React Server Components + Client Hooks</span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="ss">- </span>**Styling**: Tailwind CSS with custom design system</span>
-<span id="cb3-28"><a href="#cb3-28"></a></span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="fu">### Key Features</span></span>
-<span id="cb3-30"><a href="#cb3-30"></a><span class="ss">- </span>Secure authentication and authorization</span>
-<span id="cb3-31"><a href="#cb3-31"></a><span class="ss">- </span>Real-time data visualization</span>
-<span id="cb3-32"><a href="#cb3-32"></a><span class="ss">- </span>Responsive dashboard layouts</span>
-<span id="cb3-33"><a href="#cb3-33"></a><span class="ss">- </span>Performance monitoring</span>
-<span id="cb3-34"><a href="#cb3-34"></a><span class="ss">- </span>User management</span>
-<span id="cb3-35"><a href="#cb3-35"></a><span class="ss">- </span>Automated reporting</span>
-<span id="cb3-36"><a href="#cb3-36"></a><span class="ss">- </span>Data export capabilities</span>
-<span id="cb3-37"><a href="#cb3-37"></a><span class="ss">- </span>Advanced analytics</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="in">```{mermaid}</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="in">%%{init: {</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="in">  'theme': 'neutral',</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="in">  'themeVariables': {</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="in">    'darkMode': false,</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="in">    'fontFamily': 'arial',</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="in">    'primaryBorderColor': '#666666',</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="in">    'primaryTextColor': '#333333',</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="in">    'lineColor': '#666666',</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="in">    'backgroundColor': '#ffffff'</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="in">  }</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="in">}}%%</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="in">flowchart TD</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="in">    %% User Interface</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="in">    subgraph UI[User Interface]</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="in">        LP["Landing Page&lt;br&gt;Marketing Site"]</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="in">        SP["Start Process"]</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="in">        DB["Dashboard"]</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="in">    end</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="in">    %% Security Layer</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="in">    subgraph SL[Security Layer]</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="in">        AC["Amazon Cognito&lt;br&gt;User Authentication"]</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="in">    end</span></span>
 <span id="cb3-38"><a href="#cb3-38"></a></span>
-<span id="cb3-39"><a href="#cb3-39"></a><span class="fu">## Documentation Structure</span></span>
-<span id="cb3-40"><a href="#cb3-40"></a></span>
-<span id="cb3-41"><a href="#cb3-41"></a><span class="fu">### Core Documentation</span></span>
-<span id="cb3-42"><a href="#cb3-42"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Architecture Guide</span><span class="co">](architecture/index.qmd)</span></span>
-<span id="cb3-43"><a href="#cb3-43"></a><span class="ss">   - </span>System design</span>
-<span id="cb3-44"><a href="#cb3-44"></a><span class="ss">   - </span>Component architecture</span>
-<span id="cb3-45"><a href="#cb3-45"></a><span class="ss">   - </span>Data flow patterns</span>
-<span id="cb3-46"><a href="#cb3-46"></a></span>
-<span id="cb3-47"><a href="#cb3-47"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Authentication System</span><span class="co">](auth/index.qmd)</span></span>
-<span id="cb3-48"><a href="#cb3-48"></a><span class="ss">   - </span>User authentication</span>
-<span id="cb3-49"><a href="#cb3-49"></a><span class="ss">   - </span>Session management</span>
-<span id="cb3-50"><a href="#cb3-50"></a><span class="ss">   - </span>Security implementations</span>
-<span id="cb3-51"><a href="#cb3-51"></a></span>
-<span id="cb3-52"><a href="#cb3-52"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Dashboard Features</span><span class="co">](features/index.qmd)</span></span>
-<span id="cb3-53"><a href="#cb3-53"></a><span class="ss">   - </span>Component library</span>
-<span id="cb3-54"><a href="#cb3-54"></a><span class="ss">   - </span>Data visualization</span>
-<span id="cb3-55"><a href="#cb3-55"></a><span class="ss">   - </span>User interface patterns</span>
-<span id="cb3-56"><a href="#cb3-56"></a></span>
-<span id="cb3-57"><a href="#cb3-57"></a><span class="ss">4. </span><span class="co">[</span><span class="ot">API Documentation</span><span class="co">](api/index.qmd)</span></span>
-<span id="cb3-58"><a href="#cb3-58"></a><span class="ss">   - </span>Endpoint specifications</span>
-<span id="cb3-59"><a href="#cb3-59"></a><span class="ss">   - </span>Data models</span>
-<span id="cb3-60"><a href="#cb3-60"></a><span class="ss">   - </span>Integration guides</span>
-<span id="cb3-61"><a href="#cb3-61"></a></span>
-<span id="cb3-62"><a href="#cb3-62"></a><span class="fu">### Development Guides</span></span>
-<span id="cb3-63"><a href="#cb3-63"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Getting Started</span><span class="co">](guides/getting-started.qmd)</span></span>
-<span id="cb3-64"><a href="#cb3-64"></a><span class="ss">   - </span>Environment setup</span>
-<span id="cb3-65"><a href="#cb3-65"></a><span class="ss">   - </span>Local development</span>
-<span id="cb3-66"><a href="#cb3-66"></a><span class="ss">   - </span>Testing procedures</span>
-<span id="cb3-67"><a href="#cb3-67"></a></span>
-<span id="cb3-68"><a href="#cb3-68"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Contributing Guidelines</span><span class="co">](guides/contributing.qmd)</span></span>
-<span id="cb3-69"><a href="#cb3-69"></a><span class="ss">   - </span>Code standards</span>
-<span id="cb3-70"><a href="#cb3-70"></a><span class="ss">   - </span>Pull request process</span>
-<span id="cb3-71"><a href="#cb3-71"></a><span class="ss">   - </span>Review guidelines</span>
-<span id="cb3-72"><a href="#cb3-72"></a></span>
-<span id="cb3-73"><a href="#cb3-73"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Deployment Guide</span><span class="co">](guides/deployment.qmd)</span></span>
-<span id="cb3-74"><a href="#cb3-74"></a><span class="ss">   - </span>Build process</span>
-<span id="cb3-75"><a href="#cb3-75"></a><span class="ss">   - </span>Environment configuration</span>
-<span id="cb3-76"><a href="#cb3-76"></a><span class="ss">   - </span>Monitoring setup</span>
-<span id="cb3-77"><a href="#cb3-77"></a></span>
-<span id="cb3-78"><a href="#cb3-78"></a><span class="fu">## Project Organization</span></span>
-<span id="cb3-79"><a href="#cb3-79"></a></span>
-<span id="cb3-80"><a href="#cb3-80"></a><span class="in">```</span></span>
-<span id="cb3-81"><a href="#cb3-81"></a><span class="in">luxorum-dashboard/</span></span>
-<span id="cb3-82"><a href="#cb3-82"></a><span class="in">├── app/                  # Next.js application routes</span></span>
-<span id="cb3-83"><a href="#cb3-83"></a><span class="in">├── components/          # React components</span></span>
-<span id="cb3-84"><a href="#cb3-84"></a><span class="in">├── lib/                 # Shared utilities</span></span>
-<span id="cb3-85"><a href="#cb3-85"></a><span class="in">├── public/              # Static assets</span></span>
-<span id="cb3-86"><a href="#cb3-86"></a><span class="in">├── styles/              # Global styles</span></span>
-<span id="cb3-87"><a href="#cb3-87"></a><span class="in">├── prisma/              # Database schema</span></span>
-<span id="cb3-88"><a href="#cb3-88"></a><span class="in">└── docs/                # Documentation (you are here)</span></span>
-<span id="cb3-89"><a href="#cb3-89"></a><span class="in">```</span></span>
-<span id="cb3-90"><a href="#cb3-90"></a></span>
-<span id="cb3-91"><a href="#cb3-91"></a><span class="fu">## Getting Started</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="in">    %% Quote Generation</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="in">    subgraph QG[Quote Generation]</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="in">        BQF["Basic Quote Form"]</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="in">        subgraph IA[Initial Assessment]</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="in">            ID["Initial Data"]</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="in">            HO["Home Ownership"]</span></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="in">            AD["Address"]</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="in">            MB["Monthly Bill"]</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a><span class="in">            HD["Home Details"]</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="in">        end</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a><span class="in">        QC["Quote Calculator λ"]</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a></span>
+<span id="cb3-51"><a href="#cb3-51"></a><span class="in">        subgraph DA[Detailed Assessment]</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a><span class="in">            DD["Detailed Data"]</span></span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="in">            UU["Utility Upload"]</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a><span class="in">            UH["Usage History"]</span></span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="in">            SP2["System Preferences"]</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="in">        end</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a><span class="in">        PG["Proposal Generator λ"]</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="in">    end</span></span>
+<span id="cb3-59"><a href="#cb3-59"></a></span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="in">    %% External Services</span></span>
+<span id="cb3-61"><a href="#cb3-61"></a><span class="in">    subgraph EX[External Services]</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a><span class="in">        FIN["Installer's Financier"]</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a><span class="in">        DOC["Installer's DocuSign"]</span></span>
+<span id="cb3-64"><a href="#cb3-64"></a><span class="in">    end</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a></span>
+<span id="cb3-66"><a href="#cb3-66"></a><span class="in">    %% Processing</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a><span class="in">    subgraph PR[Processing]</span></span>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="in">        subgraph PP[Payment Processing]</span></span>
+<span id="cb3-69"><a href="#cb3-69"></a><span class="in">            SP3["Stripe Payment λ"]</span></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="in">        end</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a><span class="in">        </span></span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="in">        subgraph DP[Document Processing]</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="in">            DH["Document Handler λ"]</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a><span class="in">        end</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="in">    end</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a></span>
+<span id="cb3-77"><a href="#cb3-77"></a><span class="in">    %% Data Storage</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a><span class="in">    subgraph DS[Data Storage]</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="in">        DDB[(DynamoDB)]</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a><span class="in">        S3[(S3 Storage)]</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a><span class="in">        PS[(Parameter Store)]</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a><span class="in">    end</span></span>
+<span id="cb3-83"><a href="#cb3-83"></a></span>
+<span id="cb3-84"><a href="#cb3-84"></a><span class="in">    %% Communication System</span></span>
+<span id="cb3-85"><a href="#cb3-85"></a><span class="in">    subgraph CS[Communication System]</span></span>
+<span id="cb3-86"><a href="#cb3-86"></a><span class="in">        EH["Email Handler λ"]</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a><span class="in">        SES["Amazon SES"]</span></span>
+<span id="cb3-88"><a href="#cb3-88"></a><span class="in">    end</span></span>
+<span id="cb3-89"><a href="#cb3-89"></a></span>
+<span id="cb3-90"><a href="#cb3-90"></a><span class="in">    %% API Gateway</span></span>
+<span id="cb3-91"><a href="#cb3-91"></a><span class="in">    AG{"API Gateway&lt;br&gt;Central Router"}</span></span>
 <span id="cb3-92"><a href="#cb3-92"></a></span>
-<span id="cb3-93"><a href="#cb3-93"></a><span class="ss">1. </span>**Prerequisites**</span>
-<span id="cb3-94"><a href="#cb3-94"></a><span class="ss">   - </span>Node.js 18+</span>
-<span id="cb3-95"><a href="#cb3-95"></a><span class="ss">   - </span>PostgreSQL 14+</span>
-<span id="cb3-96"><a href="#cb3-96"></a><span class="ss">   - </span>AWS Account</span>
-<span id="cb3-97"><a href="#cb3-97"></a><span class="ss">   - </span>Git</span>
-<span id="cb3-98"><a href="#cb3-98"></a></span>
-<span id="cb3-99"><a href="#cb3-99"></a><span class="ss">2. </span>**Quick Start**</span>
-<span id="cb3-100"><a href="#cb3-100"></a>   <span class="in">```bash</span></span>
-<span id="cb3-101"><a href="#cb3-101"></a>   <span class="co"># Clone repository</span></span>
-<span id="cb3-102"><a href="#cb3-102"></a>   <span class="fu">git</span> clone https://github.com/your-org/luxorum-dashboard.git</span>
-<span id="cb3-103"><a href="#cb3-103"></a>   </span>
-<span id="cb3-104"><a href="#cb3-104"></a>   <span class="co"># Install dependencies</span></span>
-<span id="cb3-105"><a href="#cb3-105"></a>   <span class="bu">cd</span> luxorum-dashboard</span>
-<span id="cb3-106"><a href="#cb3-106"></a>   <span class="ex">npm</span> install</span>
-<span id="cb3-107"><a href="#cb3-107"></a>   </span>
-<span id="cb3-108"><a href="#cb3-108"></a>   <span class="co"># Setup environment</span></span>
-<span id="cb3-109"><a href="#cb3-109"></a>   <span class="fu">cp</span> .env.example .env.local</span>
-<span id="cb3-110"><a href="#cb3-110"></a>   </span>
-<span id="cb3-111"><a href="#cb3-111"></a>   <span class="co"># Start development server</span></span>
-<span id="cb3-112"><a href="#cb3-112"></a>   <span class="ex">npm</span> run dev</span>
-<span id="cb3-113"><a href="#cb3-113"></a>   <span class="in">```</span></span>
-<span id="cb3-114"><a href="#cb3-114"></a></span>
-<span id="cb3-115"><a href="#cb3-115"></a><span class="ss">3. </span>**First Steps**</span>
-<span id="cb3-116"><a href="#cb3-116"></a><span class="ss">   - </span>Review the <span class="co">[</span><span class="ot">Architecture Guide</span><span class="co">](architecture/index.qmd)</span></span>
-<span id="cb3-117"><a href="#cb3-117"></a><span class="ss">   - </span>Set up your <span class="co">[</span><span class="ot">Development Environment</span><span class="co">](guides/getting-started.qmd)</span></span>
-<span id="cb3-118"><a href="#cb3-118"></a><span class="ss">   - </span>Understand the <span class="co">[</span><span class="ot">Authentication System</span><span class="co">](auth/index.qmd)</span></span>
-<span id="cb3-119"><a href="#cb3-119"></a></span>
-<span id="cb3-120"><a href="#cb3-120"></a><span class="fu">## Development Standards</span></span>
-<span id="cb3-121"><a href="#cb3-121"></a></span>
-<span id="cb3-122"><a href="#cb3-122"></a><span class="fu">### Code Quality</span></span>
-<span id="cb3-123"><a href="#cb3-123"></a><span class="ss">- </span>TypeScript for type safety</span>
-<span id="cb3-124"><a href="#cb3-124"></a><span class="ss">- </span>ESLint for code linting</span>
-<span id="cb3-125"><a href="#cb3-125"></a><span class="ss">- </span>Prettier for code formatting</span>
-<span id="cb3-126"><a href="#cb3-126"></a><span class="ss">- </span>Jest for unit testing</span>
-<span id="cb3-127"><a href="#cb3-127"></a><span class="ss">- </span>Cypress for E2E testing</span>
-<span id="cb3-128"><a href="#cb3-128"></a></span>
-<span id="cb3-129"><a href="#cb3-129"></a><span class="fu">### Performance Goals</span></span>
-<span id="cb3-130"><a href="#cb3-130"></a><span class="ss">- </span>Lighthouse score &gt; 90</span>
-<span id="cb3-131"><a href="#cb3-131"></a><span class="ss">- </span>First Contentful Paint &lt; 1.5s</span>
-<span id="cb3-132"><a href="#cb3-132"></a><span class="ss">- </span>Time to Interactive &lt; 3.5s</span>
-<span id="cb3-133"><a href="#cb3-133"></a><span class="ss">- </span>Core Web Vitals compliance</span>
+<span id="cb3-93"><a href="#cb3-93"></a><span class="in">    %% Connections</span></span>
+<span id="cb3-94"><a href="#cb3-94"></a><span class="in">    LP --&gt; SP</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a><span class="in">    SP --&gt; BQF</span></span>
+<span id="cb3-96"><a href="#cb3-96"></a><span class="in">    BQF --&gt; AC</span></span>
+<span id="cb3-97"><a href="#cb3-97"></a><span class="in">    AC --&gt; DB</span></span>
+<span id="cb3-98"><a href="#cb3-98"></a><span class="in">    BQF --&gt; QC</span></span>
+<span id="cb3-99"><a href="#cb3-99"></a><span class="in">    QC --&gt; AG</span></span>
+<span id="cb3-100"><a href="#cb3-100"></a><span class="in">    PG --&gt; AG</span></span>
+<span id="cb3-101"><a href="#cb3-101"></a><span class="in">    AG --&gt; FIN</span></span>
+<span id="cb3-102"><a href="#cb3-102"></a><span class="in">    AG --&gt; DOC</span></span>
+<span id="cb3-103"><a href="#cb3-103"></a><span class="in">    SP3 --&gt; AG</span></span>
+<span id="cb3-104"><a href="#cb3-104"></a><span class="in">    DH --&gt; AG</span></span>
+<span id="cb3-105"><a href="#cb3-105"></a><span class="in">    AG --&gt; DDB</span></span>
+<span id="cb3-106"><a href="#cb3-106"></a><span class="in">    AG --&gt; S3</span></span>
+<span id="cb3-107"><a href="#cb3-107"></a><span class="in">    AG --&gt; PS</span></span>
+<span id="cb3-108"><a href="#cb3-108"></a><span class="in">    PS --&gt; QC</span></span>
+<span id="cb3-109"><a href="#cb3-109"></a><span class="in">    PS --&gt; PG</span></span>
+<span id="cb3-110"><a href="#cb3-110"></a><span class="in">    PS --&gt; SP3</span></span>
+<span id="cb3-111"><a href="#cb3-111"></a><span class="in">    PS --&gt; DH</span></span>
+<span id="cb3-112"><a href="#cb3-112"></a><span class="in">    PS --&gt; EH</span></span>
+<span id="cb3-113"><a href="#cb3-113"></a><span class="in">    AG --&gt; EH</span></span>
+<span id="cb3-114"><a href="#cb3-114"></a><span class="in">    EH --&gt; SES</span></span>
+<span id="cb3-115"><a href="#cb3-115"></a></span>
+<span id="cb3-116"><a href="#cb3-116"></a><span class="in">    %% Status Flows</span></span>
+<span id="cb3-117"><a href="#cb3-117"></a><span class="in">    QC -. Quote Ready .-&gt; AG</span></span>
+<span id="cb3-118"><a href="#cb3-118"></a><span class="in">    PG -. Proposal Ready .-&gt; AG</span></span>
+<span id="cb3-119"><a href="#cb3-119"></a><span class="in">    SP3 -. Payment Confirmed .-&gt; AG</span></span>
+<span id="cb3-120"><a href="#cb3-120"></a><span class="in">    FIN -. Credit Status .-&gt; AG</span></span>
+<span id="cb3-121"><a href="#cb3-121"></a><span class="in">    DOC -. Contract Status .-&gt; AG</span></span>
+<span id="cb3-122"><a href="#cb3-122"></a></span>
+<span id="cb3-123"><a href="#cb3-123"></a><span class="in">    classDef default fill:#f9f9f9,stroke:#666,stroke-width:1px</span></span>
+<span id="cb3-124"><a href="#cb3-124"></a><span class="in">    classDef gateway fill:#e8f4f8,stroke:#666,stroke-width:2px</span></span>
+<span id="cb3-125"><a href="#cb3-125"></a><span class="in">    classDef lambda fill:#f5f5f5,stroke:#666,stroke-width:1px</span></span>
+<span id="cb3-126"><a href="#cb3-126"></a></span>
+<span id="cb3-127"><a href="#cb3-127"></a><span class="in">    class AG gateway</span></span>
+<span id="cb3-128"><a href="#cb3-128"></a><span class="in">    class QC,PG,SP3,DH,EH lambda</span></span>
+<span id="cb3-129"><a href="#cb3-129"></a><span class="in">```</span></span>
+<span id="cb3-130"><a href="#cb3-130"></a></span>
+<span id="cb3-131"><a href="#cb3-131"></a><span class="co">[</span><span class="ot">Fullscreen</span><span class="co">](https://www.mermaidchart.com/raw/8a52966e-4947-49a1-af68-0de9f9f0a259?theme=light&amp;version=v0.1&amp;format=svg)</span></span>
+<span id="cb3-132"><a href="#cb3-132"></a></span>
+<span id="cb3-133"><a href="#cb3-133"></a><span class="fu">## Core Components</span></span>
 <span id="cb3-134"><a href="#cb3-134"></a></span>
-<span id="cb3-135"><a href="#cb3-135"></a><span class="fu">### Security Measures</span></span>
-<span id="cb3-136"><a href="#cb3-136"></a><span class="ss">- </span>Regular security audits</span>
-<span id="cb3-137"><a href="#cb3-137"></a><span class="ss">- </span>Dependency vulnerability scanning</span>
-<span id="cb3-138"><a href="#cb3-138"></a><span class="ss">- </span>OWASP compliance</span>
-<span id="cb3-139"><a href="#cb3-139"></a><span class="ss">- </span>Data encryption at rest and in transit</span>
+<span id="cb3-135"><a href="#cb3-135"></a><span class="fu">### Frontend Services</span></span>
+<span id="cb3-136"><a href="#cb3-136"></a><span class="ss">- </span>Quote Generation System</span>
+<span id="cb3-137"><a href="#cb3-137"></a><span class="ss">- </span>Payment Processing Interface</span>
+<span id="cb3-138"><a href="#cb3-138"></a><span class="ss">- </span>Document Management</span>
+<span id="cb3-139"><a href="#cb3-139"></a><span class="ss">- </span>User Dashboard</span>
 <span id="cb3-140"><a href="#cb3-140"></a></span>
-<span id="cb3-141"><a href="#cb3-141"></a><span class="fu">## Contributing</span></span>
-<span id="cb3-142"><a href="#cb3-142"></a></span>
-<span id="cb3-143"><a href="#cb3-143"></a>We welcome contributions from the community. Please refer to our <span class="co">[</span><span class="ot">Contributing Guidelines</span><span class="co">](guides/contributing.qmd)</span> for detailed information on how to:</span>
-<span id="cb3-144"><a href="#cb3-144"></a></span>
-<span id="cb3-145"><a href="#cb3-145"></a><span class="ss">- </span>Report issues</span>
-<span id="cb3-146"><a href="#cb3-146"></a><span class="ss">- </span>Submit pull requests</span>
-<span id="cb3-147"><a href="#cb3-147"></a><span class="ss">- </span>Propose new features</span>
-<span id="cb3-148"><a href="#cb3-148"></a><span class="ss">- </span>Improve documentation</span>
+<span id="cb3-141"><a href="#cb3-141"></a><span class="fu">### Backend Infrastructure</span></span>
+<span id="cb3-142"><a href="#cb3-142"></a><span class="ss">- </span>AWS API Gateway</span>
+<span id="cb3-143"><a href="#cb3-143"></a><span class="ss">- </span>DynamoDB for user &amp; system data</span>
+<span id="cb3-144"><a href="#cb3-144"></a><span class="ss">- </span>S3 for document storage</span>
+<span id="cb3-145"><a href="#cb3-145"></a><span class="ss">- </span>Amazon SES for communications</span>
+<span id="cb3-146"><a href="#cb3-146"></a><span class="ss">- </span>Stripe payment integration</span>
+<span id="cb3-147"><a href="#cb3-147"></a></span>
+<span id="cb3-148"><a href="#cb3-148"></a><span class="fu">## Key Features</span></span>
 <span id="cb3-149"><a href="#cb3-149"></a></span>
-<span id="cb3-150"><a href="#cb3-150"></a><span class="fu">## Support</span></span>
-<span id="cb3-151"><a href="#cb3-151"></a></span>
-<span id="cb3-152"><a href="#cb3-152"></a>For technical support:</span>
-<span id="cb3-153"><a href="#cb3-153"></a><span class="ss">- </span>Check the <span class="co">[</span><span class="ot">FAQ</span><span class="co">](support/faq.qmd)</span></span>
-<span id="cb3-154"><a href="#cb3-154"></a><span class="ss">- </span>Review <span class="co">[</span><span class="ot">Common Issues</span><span class="co">](support/common-issues.qmd)</span></span>
-<span id="cb3-155"><a href="#cb3-155"></a><span class="ss">- </span>Contact the development team</span>
-<span id="cb3-156"><a href="#cb3-156"></a></span>
-<span id="cb3-157"><a href="#cb3-157"></a><span class="fu">## License</span></span>
-<span id="cb3-158"><a href="#cb3-158"></a></span>
-<span id="cb3-159"><a href="#cb3-159"></a>This project is licensed under <span class="co">[</span><span class="ot">appropriate license</span><span class="co">]</span> - see the <span class="co">[</span><span class="ot">LICENSE</span><span class="co">](license.qmd)</span> file for details.</span>
-<span id="cb3-160"><a href="#cb3-160"></a></span>
-<span id="cb3-161"><a href="#cb3-161"></a><span class="fu">## Acknowledgments</span></span>
-<span id="cb3-162"><a href="#cb3-162"></a></span>
-<span id="cb3-163"><a href="#cb3-163"></a>Special thanks to all contributors and maintainers who have helped make this project possible.</span>
-<span id="cb3-164"><a href="#cb3-164"></a></span>
-<span id="cb3-165"><a href="#cb3-165"></a>---</span>
-<span id="cb3-166"><a href="#cb3-166"></a></span>
-<span id="cb3-167"><a href="#cb3-167"></a>*Last updated: 01-14-2025*</span>
-<span id="cb3-168"><a href="#cb3-168"></a></span>
-<span id="cb3-169"><a href="#cb3-169"></a>**Note**: This documentation is continuously updated. For the latest information, please check the repository regularly.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb3-150"><a href="#cb3-150"></a><span class="fu">### Quote Generation</span></span>
+<span id="cb3-151"><a href="#cb3-151"></a><span class="ss">- </span>Basic quote form collection</span>
+<span id="cb3-152"><a href="#cb3-152"></a><span class="ss">- </span>Initial assessment processing</span>
+<span id="cb3-153"><a href="#cb3-153"></a><span class="ss">- </span>Detailed quote calculation</span>
+<span id="cb3-154"><a href="#cb3-154"></a><span class="ss">- </span>Proposal generation</span>
+<span id="cb3-155"><a href="#cb3-155"></a></span>
+<span id="cb3-156"><a href="#cb3-156"></a><span class="fu">### Payment Processing</span></span>
+<span id="cb3-157"><a href="#cb3-157"></a><span class="ss">- </span>Credit check integration</span>
+<span id="cb3-158"><a href="#cb3-158"></a><span class="ss">- </span>Stripe payment processing</span>
+<span id="cb3-159"><a href="#cb3-159"></a><span class="ss">- </span>Payment confirmation system</span>
+<span id="cb3-160"><a href="#cb3-160"></a><span class="ss">- </span>Transaction management</span>
+<span id="cb3-161"><a href="#cb3-161"></a></span>
+<span id="cb3-162"><a href="#cb3-162"></a><span class="fu">### Document Management</span></span>
+<span id="cb3-163"><a href="#cb3-163"></a><span class="ss">- </span>Automated document generation</span>
+<span id="cb3-164"><a href="#cb3-164"></a><span class="ss">- </span>S3 storage integration</span>
+<span id="cb3-165"><a href="#cb3-165"></a><span class="ss">- </span>Document status tracking</span>
+<span id="cb3-166"><a href="#cb3-166"></a><span class="ss">- </span>Secure file handling</span>
+<span id="cb3-167"><a href="#cb3-167"></a></span>
+<span id="cb3-168"><a href="#cb3-168"></a><span class="fu"># Getting Started</span></span>
+<span id="cb3-169"><a href="#cb3-169"></a></span>
+<span id="cb3-170"><a href="#cb3-170"></a><span class="fu">## Prerequisites</span></span>
+<span id="cb3-171"><a href="#cb3-171"></a></span>
+<span id="cb3-172"><a href="#cb3-172"></a><span class="ss">- </span>AWS Account with required services:</span>
+<span id="cb3-173"><a href="#cb3-173"></a><span class="ss">  - </span>API Gateway</span>
+<span id="cb3-174"><a href="#cb3-174"></a><span class="ss">  - </span>DynamoDB</span>
+<span id="cb3-175"><a href="#cb3-175"></a><span class="ss">  - </span>S3</span>
+<span id="cb3-176"><a href="#cb3-176"></a><span class="ss">  - </span>SES</span>
+<span id="cb3-177"><a href="#cb3-177"></a><span class="ss">  - </span>Cognito</span>
+<span id="cb3-178"><a href="#cb3-178"></a><span class="ss">- </span>Node.js 18+</span>
+<span id="cb3-179"><a href="#cb3-179"></a><span class="ss">- </span>Stripe account</span>
+<span id="cb3-180"><a href="#cb3-180"></a><span class="ss">- </span>Git</span>
+<span id="cb3-181"><a href="#cb3-181"></a></span>
+<span id="cb3-182"><a href="#cb3-182"></a><span class="fu">## Quick Setup</span></span>
+<span id="cb3-183"><a href="#cb3-183"></a></span>
+<span id="cb3-184"><a href="#cb3-184"></a><span class="in">```bash</span></span>
+<span id="cb3-185"><a href="#cb3-185"></a><span class="fu">git</span> clone https://github.com/your-org/luxorum-dashboard.git</span>
+<span id="cb3-186"><a href="#cb3-186"></a><span class="bu">cd</span> luxorum-dashboard</span>
+<span id="cb3-187"><a href="#cb3-187"></a><span class="ex">npm</span> install</span>
+<span id="cb3-188"><a href="#cb3-188"></a><span class="fu">cp</span> .env.example .env.local</span>
+<span id="cb3-189"><a href="#cb3-189"></a><span class="ex">npm</span> run dev</span>
+<span id="cb3-190"><a href="#cb3-190"></a><span class="in">```</span></span>
+<span id="cb3-191"><a href="#cb3-191"></a></span>
+<span id="cb3-192"><a href="#cb3-192"></a><span class="fu"># Documentation Structure</span></span>
+<span id="cb3-193"><a href="#cb3-193"></a></span>
+<span id="cb3-194"><a href="#cb3-194"></a><span class="fu">## Implementation Guides</span></span>
+<span id="cb3-195"><a href="#cb3-195"></a></span>
+<span id="cb3-196"><a href="#cb3-196"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Quote System</span><span class="co">](features/quotes/index.qmd)</span></span>
+<span id="cb3-197"><a href="#cb3-197"></a><span class="ss">   - </span>Form implementation</span>
+<span id="cb3-198"><a href="#cb3-198"></a><span class="ss">   - </span>Calculator logic</span>
+<span id="cb3-199"><a href="#cb3-199"></a><span class="ss">   - </span>Proposal generation</span>
+<span id="cb3-200"><a href="#cb3-200"></a></span>
+<span id="cb3-201"><a href="#cb3-201"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Payment System</span><span class="co">](features/payments/index.qmd)</span></span>
+<span id="cb3-202"><a href="#cb3-202"></a><span class="ss">   - </span>Stripe integration</span>
+<span id="cb3-203"><a href="#cb3-203"></a><span class="ss">   - </span>Transaction handling</span>
+<span id="cb3-204"><a href="#cb3-204"></a><span class="ss">   - </span>Payment confirmation</span>
+<span id="cb3-205"><a href="#cb3-205"></a></span>
+<span id="cb3-206"><a href="#cb3-206"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Document System</span><span class="co">](features/documents/index.qmd)</span></span>
+<span id="cb3-207"><a href="#cb3-207"></a><span class="ss">   - </span>Generation workflow</span>
+<span id="cb3-208"><a href="#cb3-208"></a><span class="ss">   - </span>Storage management</span>
+<span id="cb3-209"><a href="#cb3-209"></a><span class="ss">   - </span>Status tracking</span>
+<span id="cb3-210"><a href="#cb3-210"></a></span>
+<span id="cb3-211"><a href="#cb3-211"></a><span class="ss">4. </span><span class="co">[</span><span class="ot">Authentication</span><span class="co">](auth/index.qmd)</span></span>
+<span id="cb3-212"><a href="#cb3-212"></a><span class="ss">   - </span>Cognito integration</span>
+<span id="cb3-213"><a href="#cb3-213"></a><span class="ss">   - </span>Session management</span>
+<span id="cb3-214"><a href="#cb3-214"></a><span class="ss">   - </span>Security implementation</span>
+<span id="cb3-215"><a href="#cb3-215"></a></span>
+<span id="cb3-216"><a href="#cb3-216"></a><span class="fu">## Technical Guides</span></span>
+<span id="cb3-217"><a href="#cb3-217"></a></span>
+<span id="cb3-218"><a href="#cb3-218"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">AWS Setup</span><span class="co">](guides/aws-setup.qmd)</span></span>
+<span id="cb3-219"><a href="#cb3-219"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">API Integration</span><span class="co">](guides/api-integration.qmd)</span></span>
+<span id="cb3-220"><a href="#cb3-220"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Database Schema</span><span class="co">](guides/database.qmd)</span></span>
+<span id="cb3-221"><a href="#cb3-221"></a></span>
+<span id="cb3-222"><a href="#cb3-222"></a><span class="fu"># Project Structure</span></span>
+<span id="cb3-223"><a href="#cb3-223"></a></span>
+<span id="cb3-224"><a href="#cb3-224"></a><span class="in">```bash</span></span>
+<span id="cb3-225"><a href="#cb3-225"></a><span class="ex">src/</span></span>
+<span id="cb3-226"><a href="#cb3-226"></a><span class="ex">├──</span> app/</span>
+<span id="cb3-227"><a href="#cb3-227"></a><span class="ex">│</span>   ├── api/          <span class="co"># API routes</span></span>
+<span id="cb3-228"><a href="#cb3-228"></a><span class="ex">│</span>   │   ├── quotes/</span>
+<span id="cb3-229"><a href="#cb3-229"></a><span class="ex">│</span>   │   ├── payments/</span>
+<span id="cb3-230"><a href="#cb3-230"></a><span class="ex">│</span>   │   └── documents/</span>
+<span id="cb3-231"><a href="#cb3-231"></a><span class="ex">│</span>   └── <span class="er">(</span><span class="ex">routes</span><span class="kw">)</span><span class="ex">/</span>     <span class="co"># Page routes</span></span>
+<span id="cb3-232"><a href="#cb3-232"></a><span class="ex">├──</span> components/</span>
+<span id="cb3-233"><a href="#cb3-233"></a><span class="ex">│</span>   ├── quotes/       <span class="co"># Quote generation</span></span>
+<span id="cb3-234"><a href="#cb3-234"></a><span class="ex">│</span>   ├── payments/     <span class="co"># Payment processing</span></span>
+<span id="cb3-235"><a href="#cb3-235"></a><span class="ex">│</span>   └── documents/    <span class="co"># Document handling</span></span>
+<span id="cb3-236"><a href="#cb3-236"></a><span class="ex">├──</span> lib/</span>
+<span id="cb3-237"><a href="#cb3-237"></a><span class="ex">│</span>   ├── aws/         <span class="co"># AWS service integrations</span></span>
+<span id="cb3-238"><a href="#cb3-238"></a><span class="ex">│</span>   ├── stripe/      <span class="co"># Payment processing</span></span>
+<span id="cb3-239"><a href="#cb3-239"></a><span class="ex">│</span>   └── utils/       <span class="co"># Shared utilities</span></span>
+<span id="cb3-240"><a href="#cb3-240"></a><span class="ex">└──</span> styles/</span>
+<span id="cb3-241"><a href="#cb3-241"></a><span class="in">```</span></span>
+<span id="cb3-242"><a href="#cb3-242"></a></span>
+<span id="cb3-243"><a href="#cb3-243"></a><span class="fu"># Development Standards</span></span>
+<span id="cb3-244"><a href="#cb3-244"></a></span>
+<span id="cb3-245"><a href="#cb3-245"></a><span class="fu">## AWS Integration</span></span>
+<span id="cb3-246"><a href="#cb3-246"></a><span class="ss">- </span>API Gateway best practices</span>
+<span id="cb3-247"><a href="#cb3-247"></a><span class="ss">- </span>DynamoDB data modeling</span>
+<span id="cb3-248"><a href="#cb3-248"></a><span class="ss">- </span>S3 security configuration</span>
+<span id="cb3-249"><a href="#cb3-249"></a><span class="ss">- </span>SES implementation guidelines</span>
+<span id="cb3-250"><a href="#cb3-250"></a></span>
+<span id="cb3-251"><a href="#cb3-251"></a><span class="fu">## Security</span></span>
+<span id="cb3-252"><a href="#cb3-252"></a><span class="ss">- </span>Cognito authentication flow</span>
+<span id="cb3-253"><a href="#cb3-253"></a><span class="ss">- </span>API security measures</span>
+<span id="cb3-254"><a href="#cb3-254"></a><span class="ss">- </span>Document access control</span>
+<span id="cb3-255"><a href="#cb3-255"></a><span class="ss">- </span>Payment data protection</span>
+<span id="cb3-256"><a href="#cb3-256"></a></span>
+<span id="cb3-257"><a href="#cb3-257"></a><span class="fu">## Performance</span></span>
+<span id="cb3-258"><a href="#cb3-258"></a><span class="ss">- </span>API response optimization</span>
+<span id="cb3-259"><a href="#cb3-259"></a><span class="ss">- </span>Document processing efficiency</span>
+<span id="cb3-260"><a href="#cb3-260"></a><span class="ss">- </span>Payment processing reliability</span>
+<span id="cb3-261"><a href="#cb3-261"></a><span class="ss">- </span>System scalability</span>
+<span id="cb3-262"><a href="#cb3-262"></a></span>
+<span id="cb3-263"><a href="#cb3-263"></a><span class="fu"># Support</span></span>
+<span id="cb3-264"><a href="#cb3-264"></a></span>
+<span id="cb3-265"><a href="#cb3-265"></a><span class="ss">- </span><span class="co">[</span><span class="ot">AWS Integration Guide</span><span class="co">](support/aws-guide.qmd)</span></span>
+<span id="cb3-266"><a href="#cb3-266"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Common Issues</span><span class="co">](support/common-issues.qmd)</span></span>
+<span id="cb3-267"><a href="#cb3-267"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Contact Support</span><span class="co">](support/contact.qmd)</span></span>
+<span id="cb3-268"><a href="#cb3-268"></a></span>
+<span id="cb3-269"><a href="#cb3-269"></a>---</span>
+<span id="cb3-270"><a href="#cb3-270"></a></span>
+<span id="cb3-271"><a href="#cb3-271"></a>Last updated: January 14, 2025</span>
+<span id="cb3-272"><a href="#cb3-272"></a></span>
+<span id="cb3-273"><a href="#cb3-273"></a>::: {.callout-note}</span>
+<span id="cb3-274"><a href="#cb3-274"></a>This documentation is continuously updated. Check our repository for the latest changes.</span>
+<span id="cb3-275"><a href="#cb3-275"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

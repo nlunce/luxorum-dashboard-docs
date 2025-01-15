@@ -1,169 +1,273 @@
 ---
-title: "Luxorum Dashboard Documentation"
-subtitle: "Technical Documentation and Implementation Guide"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    highlight-style: github
+title: "Luxorum Dashboard"
+subtitle: "Developer Documentation"
 ---
 
-# Welcome to Luxorum Dashboard
+# Introduction
 
-## Overview
+Welcome to the Luxorum Dashboard documentation. Our system provides end-to-end quote generation, payment processing, and document management functionality through a modern web application.
 
-Luxorum Dashboard is a modern, secure, and scalable web application built with cutting-edge technologies. This documentation provides comprehensive guidance for developers working with the dashboard's architecture, implementation details, and best practices.
+## System Overview
 
-## Architecture Highlights
+```{mermaid}
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'darkMode': false,
+    'fontFamily': 'arial',
+    'primaryBorderColor': '#666666',
+    'primaryTextColor': '#333333',
+    'lineColor': '#666666',
+    'backgroundColor': '#ffffff'
+  }
+}}%%
+flowchart TD
+    %% User Interface
+    subgraph UI[User Interface]
+        LP["Landing Page<br>Marketing Site"]
+        SP["Start Process"]
+        DB["Dashboard"]
+    end
 
-### Technology Stack
-- **Frontend**: Next.js 14+ with App Router and React Server Components
-- **Backend**: Next.js API Routes and Server Actions
-- **Authentication**: AWS Cognito with MFA support
-- **Configuration**: AWS Parameter Store for secure config management
-- **Database**: PostgreSQL with Prisma ORM
-- **State Management**: React Server Components + Client Hooks
-- **Styling**: Tailwind CSS with custom design system
+    %% Security Layer
+    subgraph SL[Security Layer]
+        AC["Amazon Cognito<br>User Authentication"]
+    end
 
-### Key Features
-- Secure authentication and authorization
-- Real-time data visualization
-- Responsive dashboard layouts
-- Performance monitoring
-- User management
-- Automated reporting
-- Data export capabilities
-- Advanced analytics
+    %% Quote Generation
+    subgraph QG[Quote Generation]
+        BQF["Basic Quote Form"]
+        subgraph IA[Initial Assessment]
+            ID["Initial Data"]
+            HO["Home Ownership"]
+            AD["Address"]
+            MB["Monthly Bill"]
+            HD["Home Details"]
+        end
+        QC["Quote Calculator λ"]
 
-## Documentation Structure
+        subgraph DA[Detailed Assessment]
+            DD["Detailed Data"]
+            UU["Utility Upload"]
+            UH["Usage History"]
+            SP2["System Preferences"]
+        end
+        PG["Proposal Generator λ"]
+    end
 
-### Core Documentation
-1. [Architecture Guide](architecture/index.qmd)
-   - System design
-   - Component architecture
-   - Data flow patterns
+    %% External Services
+    subgraph EX[External Services]
+        FIN["Installer's Financier"]
+        DOC["Installer's DocuSign"]
+    end
 
-2. [Authentication System](auth/index.qmd)
-   - User authentication
+    %% Processing
+    subgraph PR[Processing]
+        subgraph PP[Payment Processing]
+            SP3["Stripe Payment λ"]
+        end
+        
+        subgraph DP[Document Processing]
+            DH["Document Handler λ"]
+        end
+    end
+
+    %% Data Storage
+    subgraph DS[Data Storage]
+        DDB[(DynamoDB)]
+        S3[(S3 Storage)]
+        PS[(Parameter Store)]
+    end
+
+    %% Communication System
+    subgraph CS[Communication System]
+        EH["Email Handler λ"]
+        SES["Amazon SES"]
+    end
+
+    %% API Gateway
+    AG{"API Gateway<br>Central Router"}
+
+    %% Connections
+    LP --> SP
+    SP --> BQF
+    BQF --> AC
+    AC --> DB
+    BQF --> QC
+    QC --> AG
+    PG --> AG
+    AG --> FIN
+    AG --> DOC
+    SP3 --> AG
+    DH --> AG
+    AG --> DDB
+    AG --> S3
+    AG --> PS
+    PS --> QC
+    PS --> PG
+    PS --> SP3
+    PS --> DH
+    PS --> EH
+    AG --> EH
+    EH --> SES
+
+    %% Status Flows
+    QC -. Quote Ready .-> AG
+    PG -. Proposal Ready .-> AG
+    SP3 -. Payment Confirmed .-> AG
+    FIN -. Credit Status .-> AG
+    DOC -. Contract Status .-> AG
+
+    classDef default fill:#f9f9f9,stroke:#666,stroke-width:1px
+    classDef gateway fill:#e8f4f8,stroke:#666,stroke-width:2px
+    classDef lambda fill:#f5f5f5,stroke:#666,stroke-width:1px
+
+    class AG gateway
+    class QC,PG,SP3,DH,EH lambda
+```
+
+[Fullscreen](https://www.mermaidchart.com/raw/8a52966e-4947-49a1-af68-0de9f9f0a259?theme=light&version=v0.1&format=svg)
+
+## Core Components
+
+### Frontend Services
+- Quote Generation System
+- Payment Processing Interface
+- Document Management
+- User Dashboard
+
+### Backend Infrastructure
+- AWS API Gateway
+- DynamoDB for user & system data
+- S3 for document storage
+- Amazon SES for communications
+- Stripe payment integration
+
+## Key Features
+
+### Quote Generation
+- Basic quote form collection
+- Initial assessment processing
+- Detailed quote calculation
+- Proposal generation
+
+### Payment Processing
+- Credit check integration
+- Stripe payment processing
+- Payment confirmation system
+- Transaction management
+
+### Document Management
+- Automated document generation
+- S3 storage integration
+- Document status tracking
+- Secure file handling
+
+# Getting Started
+
+## Prerequisites
+
+- AWS Account with required services:
+  - API Gateway
+  - DynamoDB
+  - S3
+  - SES
+  - Cognito
+- Node.js 18+
+- Stripe account
+- Git
+
+## Quick Setup
+
+```bash
+git clone https://github.com/your-org/luxorum-dashboard.git
+cd luxorum-dashboard
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+# Documentation Structure
+
+## Implementation Guides
+
+1. [Quote System](features/quotes/index.qmd)
+   - Form implementation
+   - Calculator logic
+   - Proposal generation
+
+2. [Payment System](features/payments/index.qmd)
+   - Stripe integration
+   - Transaction handling
+   - Payment confirmation
+
+3. [Document System](features/documents/index.qmd)
+   - Generation workflow
+   - Storage management
+   - Status tracking
+
+4. [Authentication](auth/index.qmd)
+   - Cognito integration
    - Session management
-   - Security implementations
+   - Security implementation
 
-3. [Dashboard Features](features/index.qmd)
-   - Component library
-   - Data visualization
-   - User interface patterns
+## Technical Guides
 
-4. [API Documentation](api/index.qmd)
-   - Endpoint specifications
-   - Data models
-   - Integration guides
+1. [AWS Setup](guides/aws-setup.qmd)
+2. [API Integration](guides/api-integration.qmd)
+3. [Database Schema](guides/database.qmd)
 
-### Development Guides
-1. [Getting Started](guides/getting-started.qmd)
-   - Environment setup
-   - Local development
-   - Testing procedures
+# Project Structure
 
-2. [Contributing Guidelines](guides/contributing.qmd)
-   - Code standards
-   - Pull request process
-   - Review guidelines
-
-3. [Deployment Guide](guides/deployment.qmd)
-   - Build process
-   - Environment configuration
-   - Monitoring setup
-
-## Project Organization
-
-```
-luxorum-dashboard/
-├── app/                  # Next.js application routes
-├── components/          # React components
-├── lib/                 # Shared utilities
-├── public/              # Static assets
-├── styles/              # Global styles
-├── prisma/              # Database schema
-└── docs/                # Documentation (you are here)
+```bash
+src/
+├── app/
+│   ├── api/          # API routes
+│   │   ├── quotes/
+│   │   ├── payments/
+│   │   └── documents/
+│   └── (routes)/     # Page routes
+├── components/
+│   ├── quotes/       # Quote generation
+│   ├── payments/     # Payment processing
+│   └── documents/    # Document handling
+├── lib/
+│   ├── aws/         # AWS service integrations
+│   ├── stripe/      # Payment processing
+│   └── utils/       # Shared utilities
+└── styles/
 ```
 
-## Getting Started
+# Development Standards
 
-1. **Prerequisites**
-   - Node.js 18+
-   - PostgreSQL 14+
-   - AWS Account
-   - Git
+## AWS Integration
+- API Gateway best practices
+- DynamoDB data modeling
+- S3 security configuration
+- SES implementation guidelines
 
-2. **Quick Start**
-   ```bash
-   # Clone repository
-   git clone https://github.com/your-org/luxorum-dashboard.git
-   
-   # Install dependencies
-   cd luxorum-dashboard
-   npm install
-   
-   # Setup environment
-   cp .env.example .env.local
-   
-   # Start development server
-   npm run dev
-   ```
+## Security
+- Cognito authentication flow
+- API security measures
+- Document access control
+- Payment data protection
 
-3. **First Steps**
-   - Review the [Architecture Guide](architecture/index.qmd)
-   - Set up your [Development Environment](guides/getting-started.qmd)
-   - Understand the [Authentication System](auth/index.qmd)
+## Performance
+- API response optimization
+- Document processing efficiency
+- Payment processing reliability
+- System scalability
 
-## Development Standards
+# Support
 
-### Code Quality
-- TypeScript for type safety
-- ESLint for code linting
-- Prettier for code formatting
-- Jest for unit testing
-- Cypress for E2E testing
-
-### Performance Goals
-- Lighthouse score > 90
-- First Contentful Paint < 1.5s
-- Time to Interactive < 3.5s
-- Core Web Vitals compliance
-
-### Security Measures
-- Regular security audits
-- Dependency vulnerability scanning
-- OWASP compliance
-- Data encryption at rest and in transit
-
-## Contributing
-
-We welcome contributions from the community. Please refer to our [Contributing Guidelines](guides/contributing.qmd) for detailed information on how to:
-
-- Report issues
-- Submit pull requests
-- Propose new features
-- Improve documentation
-
-## Support
-
-For technical support:
-- Check the [FAQ](support/faq.qmd)
-- Review [Common Issues](support/common-issues.qmd)
-- Contact the development team
-
-## License
-
-This project is licensed under [appropriate license] - see the [LICENSE](license.qmd) file for details.
-
-## Acknowledgments
-
-Special thanks to all contributors and maintainers who have helped make this project possible.
+- [AWS Integration Guide](support/aws-guide.qmd)
+- [Common Issues](support/common-issues.qmd)
+- [Contact Support](support/contact.qmd)
 
 ---
 
-*Last updated: 01-14-2025*
+Last updated: January 14, 2025
 
-**Note**: This documentation is continuously updated. For the latest information, please check the repository regularly.
+::: {.callout-note}
+This documentation is continuously updated. Check our repository for the latest changes.
+:::

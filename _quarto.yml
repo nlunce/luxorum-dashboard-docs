@@ -85,6 +85,8 @@ website:
 
 format:
   html:
+    mermaid:
+      theme: forest
     theme:
       light: flatly
       dark: darkly

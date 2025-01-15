@@ -595,9 +595,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Luxorum Dashboard Documentation",
+    "title": "Luxorum Dashboard",
     "section": "",
-    "text": "Luxorum Dashboard is a modern, secure, and scalable web application built with cutting-edge technologies. This documentation provides comprehensive guidance for developers working with the dashboard’s architecture, implementation details, and best practices.\n\n\n\n\n\n\nFrontend: Next.js 14+ with App Router and React Server Components\nBackend: Next.js API Routes and Server Actions\nAuthentication: AWS Cognito with MFA support\nConfiguration: AWS Parameter Store for secure config management\nDatabase: PostgreSQL with Prisma ORM\nState Management: React Server Components + Client Hooks\nStyling: Tailwind CSS with custom design system\n\n\n\n\n\nSecure authentication and authorization\nReal-time data visualization\nResponsive dashboard layouts\nPerformance monitoring\nUser management\nAutomated reporting\nData export capabilities\nAdvanced analytics\n\n\n\n\n\n\n\n\nArchitecture Guide\n\nSystem design\nComponent architecture\nData flow patterns\n\nAuthentication System\n\nUser authentication\nSession management\nSecurity implementations\n\nDashboard Features\n\nComponent library\nData visualization\nUser interface patterns\n\nAPI Documentation\n\nEndpoint specifications\nData models\nIntegration guides\n\n\n\n\n\n\nGetting Started\n\nEnvironment setup\nLocal development\nTesting procedures\n\nContributing Guidelines\n\nCode standards\nPull request process\nReview guidelines\n\nDeployment Guide\n\nBuild process\nEnvironment configuration\nMonitoring setup\n\n\n\n\n\n\nluxorum-dashboard/\n├── app/                  # Next.js application routes\n├── components/          # React components\n├── lib/                 # Shared utilities\n├── public/              # Static assets\n├── styles/              # Global styles\n├── prisma/              # Database schema\n└── docs/                # Documentation (you are here)\n\n\n\n\nPrerequisites\n\nNode.js 18+\nPostgreSQL 14+\nAWS Account\nGit\n\nQuick Start\n# Clone repository\ngit clone https://github.com/your-org/luxorum-dashboard.git\n\n# Install dependencies\ncd luxorum-dashboard\nnpm install\n\n# Setup environment\ncp .env.example .env.local\n\n# Start development server\nnpm run dev\nFirst Steps\n\nReview the Architecture Guide\nSet up your Development Environment\nUnderstand the Authentication System\n\n\n\n\n\n\n\n\nTypeScript for type safety\nESLint for code linting\nPrettier for code formatting\nJest for unit testing\nCypress for E2E testing\n\n\n\n\n\nLighthouse score &gt; 90\nFirst Contentful Paint &lt; 1.5s\nTime to Interactive &lt; 3.5s\nCore Web Vitals compliance\n\n\n\n\n\nRegular security audits\nDependency vulnerability scanning\nOWASP compliance\nData encryption at rest and in transit\n\n\n\n\n\nWe welcome contributions from the community. Please refer to our Contributing Guidelines for detailed information on how to:\n\nReport issues\nSubmit pull requests\nPropose new features\nImprove documentation\n\n\n\n\nFor technical support: - Check the FAQ - Review Common Issues - Contact the development team\n\n\n\nThis project is licensed under [appropriate license] - see the LICENSE file for details.\n\n\n\nSpecial thanks to all contributors and maintainers who have helped make this project possible.\n\nLast updated: 01-14-2025\nNote: This documentation is continuously updated. For the latest information, please check the repository regularly.",
+    "text": "Welcome to the Luxorum Dashboard documentation. Our system provides end-to-end quote generation, payment processing, and document management functionality through a modern web application.\n\n\n\n\n\n\n\n%%{init: {\n  'theme': 'neutral',\n  'themeVariables': {\n    'darkMode': false,\n    'fontFamily': 'arial',\n    'primaryBorderColor': '#666666',\n    'primaryTextColor': '#333333',\n    'lineColor': '#666666',\n    'backgroundColor': '#ffffff'\n  }\n}}%%\nflowchart TD\n    %% User Interface\n    subgraph UI[User Interface]\n        LP[\"Landing Page&lt;br&gt;Marketing Site\"]\n        SP[\"Start Process\"]\n        DB[\"Dashboard\"]\n    end\n\n    %% Security Layer\n    subgraph SL[Security Layer]\n        AC[\"Amazon Cognito&lt;br&gt;User Authentication\"]\n    end\n\n    %% Quote Generation\n    subgraph QG[Quote Generation]\n        BQF[\"Basic Quote Form\"]\n        subgraph IA[Initial Assessment]\n            ID[\"Initial Data\"]\n            HO[\"Home Ownership\"]\n            AD[\"Address\"]\n            MB[\"Monthly Bill\"]\n            HD[\"Home Details\"]\n        end\n        QC[\"Quote Calculator λ\"]\n\n        subgraph DA[Detailed Assessment]\n            DD[\"Detailed Data\"]\n            UU[\"Utility Upload\"]\n            UH[\"Usage History\"]\n            SP2[\"System Preferences\"]\n        end\n        PG[\"Proposal Generator λ\"]\n    end\n\n    %% External Services\n    subgraph EX[External Services]\n        FIN[\"Installer's Financier\"]\n        DOC[\"Installer's DocuSign\"]\n    end\n\n    %% Processing\n    subgraph PR[Processing]\n        subgraph PP[Payment Processing]\n            SP3[\"Stripe Payment λ\"]\n        end\n        \n        subgraph DP[Document Processing]\n            DH[\"Document Handler λ\"]\n        end\n    end\n\n    %% Data Storage\n    subgraph DS[Data Storage]\n        DDB[(DynamoDB)]\n        S3[(S3 Storage)]\n        PS[(Parameter Store)]\n    end\n\n    %% Communication System\n    subgraph CS[Communication System]\n        EH[\"Email Handler λ\"]\n        SES[\"Amazon SES\"]\n    end\n\n    %% API Gateway\n    AG{\"API Gateway&lt;br&gt;Central Router\"}\n\n    %% Connections\n    LP --&gt; SP\n    SP --&gt; BQF\n    BQF --&gt; AC\n    AC --&gt; DB\n    BQF --&gt; QC\n    QC --&gt; AG\n    PG --&gt; AG\n    AG --&gt; FIN\n    AG --&gt; DOC\n    SP3 --&gt; AG\n    DH --&gt; AG\n    AG --&gt; DDB\n    AG --&gt; S3\n    AG --&gt; PS\n    PS --&gt; QC\n    PS --&gt; PG\n    PS --&gt; SP3\n    PS --&gt; DH\n    PS --&gt; EH\n    AG --&gt; EH\n    EH --&gt; SES\n\n    %% Status Flows\n    QC -. Quote Ready .-&gt; AG\n    PG -. Proposal Ready .-&gt; AG\n    SP3 -. Payment Confirmed .-&gt; AG\n    FIN -. Credit Status .-&gt; AG\n    DOC -. Contract Status .-&gt; AG\n\n    classDef default fill:#f9f9f9,stroke:#666,stroke-width:1px\n    classDef gateway fill:#e8f4f8,stroke:#666,stroke-width:2px\n    classDef lambda fill:#f5f5f5,stroke:#666,stroke-width:1px\n\n    class AG gateway\n    class QC,PG,SP3,DH,EH lambda\n\n\n\n\n\n\nFullscreen\n\n\n\n\n\n\nQuote Generation System\nPayment Processing Interface\nDocument Management\nUser Dashboard\n\n\n\n\n\nAWS API Gateway\nDynamoDB for user & system data\nS3 for document storage\nAmazon SES for communications\nStripe payment integration\n\n\n\n\n\n\n\n\nBasic quote form collection\nInitial assessment processing\nDetailed quote calculation\nProposal generation\n\n\n\n\n\nCredit check integration\nStripe payment processing\nPayment confirmation system\nTransaction management\n\n\n\n\n\nAutomated document generation\nS3 storage integration\nDocument status tracking\nSecure file handling",
     "crumbs": [
       "Overview"
     ]
@@ -736,11 +736,231 @@
   {
     "objectID": "documentation-roadmap.html",
     "href": "documentation-roadmap.html",
-    "title": "",
+    "title": "Documentation Roadmap",
     "section": "",
-    "text": "Code",
+    "text": "Note\n\n\n\nStatus Key: - 🔴 Not Started - 🟡 In Progress - 🟢 Completed - 📝 Needs Review\n\n\n\n\n\n\n\n🟢 [architecture/_index.qmd] High-level system overview\n🔴 [architecture/components.qmd] Component architecture details\n\nClient/Server component separation\nComponent interaction patterns\nState management approach\n\n🔴 [architecture/infrastructure.qmd] Infrastructure setup\n\nAWS resource architecture\nTerraform implementation\nMonitoring setup\n\n\n\n\n\n\n🔴 [setup/_index.qmd] Setup overview\n🔴 [setup/terraform/cognito.qmd] Cognito setup\n\nUser pool configuration\nApp client setup\nMFA configuration\n\n🔴 [setup/terraform/parameter-store.qmd] Parameter store\n\nSecret management\nEnvironment configuration\nAccess patterns\n\n🔴 [setup/terraform/iam.qmd] IAM configuration\n\nRole definitions\nPolicy setup\nPermission boundaries\n\n🔴 [setup/terraform/monitoring.qmd] Monitoring setup\n\nCloudWatch configuration\nAlert setup\nLogging patterns\n\n🔴 [setup/config-setup.qmd] Application configuration\n\nEnvironment variables\nRuntime configuration\nType definitions\n\n\n\n\n\n\n🔴 [implementation/login-flow.qmd] Login flow\n\nForm implementation\nValidation logic\nError handling\nSuccess flows\n\n🔴 [implementation/signup-flow.qmd] Signup flow\n\nRegistration process\nEmail verification\nMFA setup\nError states\n\n🔴 [implementation/components.qmd] Components\n\nForm components\nUI elements\nShared utilities\n\n🔴 [implementation/middleware.qmd] Middleware\n\nAuth protection\nRoute handling\nError management\n\n🔴 [implementation/session-mgmt.qmd] Session management\n\nToken handling\nCookie management\nRefresh logic\n\n🔴 [implementation/data-access.qmd] Data access\n\nAuthorization patterns\nData fetching\nCaching strategy\n\n\n\n\n\n\n🔴 [security.qmd] Security considerations\n\nBest practices\nOWASP compliance\nSecurity headers\nRate limiting\n\n\n\n\n\n\n\n\n\nSetup documentation\n\nCognito configuration\nParameter store setup\nBasic infrastructure\n\nCore flows\n\nLogin implementation\nSignup process\nSession management\n\nSecurity documentation\n\nAuthentication patterns\nToken handling\nError management\n\n\n\n\n\n\nComponent documentation\n\nForm implementations\nUI elements\nShared utilities\n\nMiddleware documentation\n\nRoute protection\nRequest handling\nError flows\n\nInfrastructure details\n\nMonitoring setup\nLogging patterns\nAlert configuration\n\n\n\n\n\n\nAdvanced features\n\nMFA implementation\nPassword recovery\nAccount management\n\nPerformance optimization\n\nCaching strategies\nBundle optimization\nLoad testing\n\nDeveloper guides\n\nLocal setup\nTesting patterns\nDeployment process\n\n\n\n\n\n\n\n\nEach document should include: - Clear title and description - Code examples when relevant - Diagrams where helpful - Links to related docs - Troubleshooting section\n\n\n\nInclude: - TypeScript interfaces - Implementation examples - Error handling - Test examples\n\n\n\nFor implementation docs: - Unit test examples - Integration test patterns - E2E test scenarios\n\n\n\n\n\nTechnical accuracy\n\nCode validation\nArchitecture correctness\nSecurity review\n\nDocumentation quality\n\nClarity check\nExample verification\nLink validation\n\nUser experience\n\nNavigation flow\nSearch functionality\nMobile responsiveness\n\n\n\n\n\n\nPrioritize high-priority items\nAssign documentation owners\nSet up review process\nCreate documentation schedule\nRegular progress reviews\n\n\n\n\n\n\n\nSection\nStatus\nOwner\nDue Date\nNotes\n\n\n\n\nArchitecture Overview\n🟢\n-\n-\nComplete\n\n\nCognito Setup\n🔴\n-\n-\nNot started\n\n\nLogin Flow\n🔴\n-\n-\nNot started\n\n\nSecurity Guide\n🔴\n-\n-\nNot started",
     "crumbs": [
       "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "documentation-roadmap.html#authentication-system",
+    "href": "documentation-roadmap.html#authentication-system",
+    "title": "Documentation Roadmap",
+    "section": "",
+    "text": "🟢 [architecture/_index.qmd] High-level system overview\n🔴 [architecture/components.qmd] Component architecture details\n\nClient/Server component separation\nComponent interaction patterns\nState management approach\n\n🔴 [architecture/infrastructure.qmd] Infrastructure setup\n\nAWS resource architecture\nTerraform implementation\nMonitoring setup\n\n\n\n\n\n\n🔴 [setup/_index.qmd] Setup overview\n🔴 [setup/terraform/cognito.qmd] Cognito setup\n\nUser pool configuration\nApp client setup\nMFA configuration\n\n🔴 [setup/terraform/parameter-store.qmd] Parameter store\n\nSecret management\nEnvironment configuration\nAccess patterns\n\n🔴 [setup/terraform/iam.qmd] IAM configuration\n\nRole definitions\nPolicy setup\nPermission boundaries\n\n🔴 [setup/terraform/monitoring.qmd] Monitoring setup\n\nCloudWatch configuration\nAlert setup\nLogging patterns\n\n🔴 [setup/config-setup.qmd] Application configuration\n\nEnvironment variables\nRuntime configuration\nType definitions\n\n\n\n\n\n\n🔴 [implementation/login-flow.qmd] Login flow\n\nForm implementation\nValidation logic\nError handling\nSuccess flows\n\n🔴 [implementation/signup-flow.qmd] Signup flow\n\nRegistration process\nEmail verification\nMFA setup\nError states\n\n🔴 [implementation/components.qmd] Components\n\nForm components\nUI elements\nShared utilities\n\n🔴 [implementation/middleware.qmd] Middleware\n\nAuth protection\nRoute handling\nError management\n\n🔴 [implementation/session-mgmt.qmd] Session management\n\nToken handling\nCookie management\nRefresh logic\n\n🔴 [implementation/data-access.qmd] Data access\n\nAuthorization patterns\nData fetching\nCaching strategy\n\n\n\n\n\n\n🔴 [security.qmd] Security considerations\n\nBest practices\nOWASP compliance\nSecurity headers\nRate limiting",
+    "crumbs": [
+      "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "documentation-roadmap.html#priority-queue",
+    "href": "documentation-roadmap.html#priority-queue",
+    "title": "Documentation Roadmap",
+    "section": "",
+    "text": "Setup documentation\n\nCognito configuration\nParameter store setup\nBasic infrastructure\n\nCore flows\n\nLogin implementation\nSignup process\nSession management\n\nSecurity documentation\n\nAuthentication patterns\nToken handling\nError management\n\n\n\n\n\n\nComponent documentation\n\nForm implementations\nUI elements\nShared utilities\n\nMiddleware documentation\n\nRoute protection\nRequest handling\nError flows\n\nInfrastructure details\n\nMonitoring setup\nLogging patterns\nAlert configuration\n\n\n\n\n\n\nAdvanced features\n\nMFA implementation\nPassword recovery\nAccount management\n\nPerformance optimization\n\nCaching strategies\nBundle optimization\nLoad testing\n\nDeveloper guides\n\nLocal setup\nTesting patterns\nDeployment process",
+    "crumbs": [
+      "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "documentation-roadmap.html#documentation-guidelines",
+    "href": "documentation-roadmap.html#documentation-guidelines",
+    "title": "Documentation Roadmap",
+    "section": "",
+    "text": "Each document should include: - Clear title and description - Code examples when relevant - Diagrams where helpful - Links to related docs - Troubleshooting section\n\n\n\nInclude: - TypeScript interfaces - Implementation examples - Error handling - Test examples\n\n\n\nFor implementation docs: - Unit test examples - Integration test patterns - E2E test scenarios",
+    "crumbs": [
+      "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "documentation-roadmap.html#review-process",
+    "href": "documentation-roadmap.html#review-process",
+    "title": "Documentation Roadmap",
+    "section": "",
+    "text": "Technical accuracy\n\nCode validation\nArchitecture correctness\nSecurity review\n\nDocumentation quality\n\nClarity check\nExample verification\nLink validation\n\nUser experience\n\nNavigation flow\nSearch functionality\nMobile responsiveness",
+    "crumbs": [
+      "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "documentation-roadmap.html#next-steps",
+    "href": "documentation-roadmap.html#next-steps",
+    "title": "Documentation Roadmap",
+    "section": "",
+    "text": "Prioritize high-priority items\nAssign documentation owners\nSet up review process\nCreate documentation schedule\nRegular progress reviews",
+    "crumbs": [
+      "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "documentation-roadmap.html#progress-tracking",
+    "href": "documentation-roadmap.html#progress-tracking",
+    "title": "Documentation Roadmap",
+    "section": "",
+    "text": "Section\nStatus\nOwner\nDue Date\nNotes\n\n\n\n\nArchitecture Overview\n🟢\n-\n-\nComplete\n\n\nCognito Setup\n🔴\n-\n-\nNot started\n\n\nLogin Flow\n🔴\n-\n-\nNot started\n\n\nSecurity Guide\n🔴\n-\n-\nNot started",
+    "crumbs": [
+      "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "index.html#technology-stack",
+    "href": "index.html#technology-stack",
+    "title": "Luxorum Dashboard",
+    "section": "",
+    "text": "graph TD\n    A[Frontend] --&gt; B[Next.js 14+]\n    A --&gt; C[React Server Components]\n    A --&gt; D[TypeScript]\n    A --&gt; E[TailwindCSS]\n    \n    F[Backend] --&gt; G[Next.js API Routes]\n    F --&gt; H[Prisma ORM]\n    F --&gt; I[PostgreSQL]\n    \n    J[Infrastructure] --&gt; K[AWS Cognito]\n    J --&gt; L[Parameter Store]\n    J --&gt; M[CloudWatch]",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#core-features",
+    "href": "index.html#core-features",
+    "title": "Luxorum Dashboard",
+    "section": "",
+    "text": "Authentication: Secure user authentication via AWS Cognito\nDashboard: Real-time data visualization and analytics\nUser Management: Complete user lifecycle management\nReporting: Automated report generation and export\nAnalytics: Advanced data analysis capabilities",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Luxorum Dashboard",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nAWS Account with required services:\n\nAPI Gateway\nDynamoDB\nS3\nSES\nCognito\n\nNode.js 18+\nStripe account\nGit",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#quick-setup",
+    "href": "index.html#quick-setup",
+    "title": "Luxorum Dashboard",
+    "section": "Quick Setup",
+    "text": "Quick Setup\ngit clone https://github.com/your-org/luxorum-dashboard.git\ncd luxorum-dashboard\nnpm install\ncp .env.example .env.local\nnpm run dev",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#core-guides",
+    "href": "index.html#core-guides",
+    "title": "Luxorum Dashboard",
+    "section": "Core Guides",
+    "text": "Core Guides\n\nArchitecture\n\nSystem design patterns\nComponent structure\nData flow\n\nAuthentication\n\nUser authentication\nSession management\nSecurity setup\n\nFeatures\n\nComponent library\nData visualization\nUI patterns\n\nAPI\n\nEndpoint documentation\nData models\nIntegration guides",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-resources",
+    "href": "index.html#developer-resources",
+    "title": "Luxorum Dashboard",
+    "section": "Developer Resources",
+    "text": "Developer Resources\n\nSetup Guide\nContributing\nDeployment",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#code-quality",
+    "href": "index.html#code-quality",
+    "title": "Luxorum Dashboard",
+    "section": "Code Quality",
+    "text": "Code Quality\n\nTypeScript for type safety\nESLint & Prettier\nJest & Cypress testing",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#performance-targets",
+    "href": "index.html#performance-targets",
+    "title": "Luxorum Dashboard",
+    "section": "Performance Targets",
+    "text": "Performance Targets\n\nLighthouse score: 90+\nFCP: &lt; 1.5s\nTTI: &lt; 3.5s",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#security",
+    "href": "index.html#security",
+    "title": "Luxorum Dashboard",
+    "section": "Security",
+    "text": "Security\n\nCognito authentication flow\nAPI security measures\nDocument access control\nPayment data protection",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#system-overview",
+    "href": "index.html#system-overview",
+    "title": "Luxorum Dashboard",
+    "section": "",
+    "text": "%%{init: {\n  'theme': 'neutral',\n  'themeVariables': {\n    'darkMode': false,\n    'fontFamily': 'arial',\n    'primaryBorderColor': '#666666',\n    'primaryTextColor': '#333333',\n    'lineColor': '#666666',\n    'backgroundColor': '#ffffff'\n  }\n}}%%\nflowchart TD\n    %% User Interface\n    subgraph UI[User Interface]\n        LP[\"Landing Page&lt;br&gt;Marketing Site\"]\n        SP[\"Start Process\"]\n        DB[\"Dashboard\"]\n    end\n\n    %% Security Layer\n    subgraph SL[Security Layer]\n        AC[\"Amazon Cognito&lt;br&gt;User Authentication\"]\n    end\n\n    %% Quote Generation\n    subgraph QG[Quote Generation]\n        BQF[\"Basic Quote Form\"]\n        subgraph IA[Initial Assessment]\n            ID[\"Initial Data\"]\n            HO[\"Home Ownership\"]\n            AD[\"Address\"]\n            MB[\"Monthly Bill\"]\n            HD[\"Home Details\"]\n        end\n        QC[\"Quote Calculator λ\"]\n\n        subgraph DA[Detailed Assessment]\n            DD[\"Detailed Data\"]\n            UU[\"Utility Upload\"]\n            UH[\"Usage History\"]\n            SP2[\"System Preferences\"]\n        end\n        PG[\"Proposal Generator λ\"]\n    end\n\n    %% External Services\n    subgraph EX[External Services]\n        FIN[\"Installer's Financier\"]\n        DOC[\"Installer's DocuSign\"]\n    end\n\n    %% Processing\n    subgraph PR[Processing]\n        subgraph PP[Payment Processing]\n            SP3[\"Stripe Payment λ\"]\n        end\n        \n        subgraph DP[Document Processing]\n            DH[\"Document Handler λ\"]\n        end\n    end\n\n    %% Data Storage\n    subgraph DS[Data Storage]\n        DDB[(DynamoDB)]\n        S3[(S3 Storage)]\n        PS[(Parameter Store)]\n    end\n\n    %% Communication System\n    subgraph CS[Communication System]\n        EH[\"Email Handler λ\"]\n        SES[\"Amazon SES\"]\n    end\n\n    %% API Gateway\n    AG{\"API Gateway&lt;br&gt;Central Router\"}\n\n    %% Connections\n    LP --&gt; SP\n    SP --&gt; BQF\n    BQF --&gt; AC\n    AC --&gt; DB\n    BQF --&gt; QC\n    QC --&gt; AG\n    PG --&gt; AG\n    AG --&gt; FIN\n    AG --&gt; DOC\n    SP3 --&gt; AG\n    DH --&gt; AG\n    AG --&gt; DDB\n    AG --&gt; S3\n    AG --&gt; PS\n    PS --&gt; QC\n    PS --&gt; PG\n    PS --&gt; SP3\n    PS --&gt; DH\n    PS --&gt; EH\n    AG --&gt; EH\n    EH --&gt; SES\n\n    %% Status Flows\n    QC -. Quote Ready .-&gt; AG\n    PG -. Proposal Ready .-&gt; AG\n    SP3 -. Payment Confirmed .-&gt; AG\n    FIN -. Credit Status .-&gt; AG\n    DOC -. Contract Status .-&gt; AG\n\n    classDef default fill:#f9f9f9,stroke:#666,stroke-width:1px\n    classDef gateway fill:#e8f4f8,stroke:#666,stroke-width:2px\n    classDef lambda fill:#f5f5f5,stroke:#666,stroke-width:1px\n\n    class AG gateway\n    class QC,PG,SP3,DH,EH lambda\n\n\n\n\n\n\nFullscreen",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#core-components",
+    "href": "index.html#core-components",
+    "title": "Luxorum Dashboard",
+    "section": "",
+    "text": "Quote Generation System\nPayment Processing Interface\nDocument Management\nUser Dashboard\n\n\n\n\n\nAWS API Gateway\nDynamoDB for user & system data\nS3 for document storage\nAmazon SES for communications\nStripe payment integration",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#key-features",
+    "href": "index.html#key-features",
+    "title": "Luxorum Dashboard",
+    "section": "",
+    "text": "Basic quote form collection\nInitial assessment processing\nDetailed quote calculation\nProposal generation\n\n\n\n\n\nCredit check integration\nStripe payment processing\nPayment confirmation system\nTransaction management\n\n\n\n\n\nAutomated document generation\nS3 storage integration\nDocument status tracking\nSecure file handling",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#implementation-guides",
+    "href": "index.html#implementation-guides",
+    "title": "Luxorum Dashboard",
+    "section": "Implementation Guides",
+    "text": "Implementation Guides\n\nQuote System\n\nForm implementation\nCalculator logic\nProposal generation\n\nPayment System\n\nStripe integration\nTransaction handling\nPayment confirmation\n\nDocument System\n\nGeneration workflow\nStorage management\nStatus tracking\n\nAuthentication\n\nCognito integration\nSession management\nSecurity implementation",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#technical-guides",
+    "href": "index.html#technical-guides",
+    "title": "Luxorum Dashboard",
+    "section": "Technical Guides",
+    "text": "Technical Guides\n\nAWS Setup\nAPI Integration\nDatabase Schema",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#aws-integration",
+    "href": "index.html#aws-integration",
+    "title": "Luxorum Dashboard",
+    "section": "AWS Integration",
+    "text": "AWS Integration\n\nAPI Gateway best practices\nDynamoDB data modeling\nS3 security configuration\nSES implementation guidelines",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#performance",
+    "href": "index.html#performance",
+    "title": "Luxorum Dashboard",
+    "section": "Performance",
+    "text": "Performance\n\nAPI response optimization\nDocument processing efficiency\nPayment processing reliability\nSystem scalability",
+    "crumbs": [
+      "Overview"
     ]
   }
 ]
