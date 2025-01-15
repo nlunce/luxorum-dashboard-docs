@@ -2,9 +2,109 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "luxorum-dashboard-docs",
+    "title": "Luxorum Dashboard Documentation",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.",
+    "text": "Luxorum Dashboard is a modern, secure, and scalable web application built with cutting-edge technologies. This documentation provides comprehensive guidance for developers working with the dashboard’s architecture, implementation details, and best practices.\n\n\n\n\n\n\nFrontend: Next.js 14+ with App Router and React Server Components\nBackend: Next.js API Routes and Server Actions\nAuthentication: AWS Cognito with MFA support\nConfiguration: AWS Parameter Store for secure config management\nDatabase: PostgreSQL with Prisma ORM\nState Management: React Server Components + Client Hooks\nStyling: Tailwind CSS with custom design system\n\n\n\n\n\nSecure authentication and authorization\nReal-time data visualization\nResponsive dashboard layouts\nPerformance monitoring\nUser management\nAutomated reporting\nData export capabilities\nAdvanced analytics\n\n\n\n\n\n\n\n\nArchitecture Guide\n\nSystem design\nComponent architecture\nData flow patterns\n\nAuthentication System\n\nUser authentication\nSession management\nSecurity implementations\n\nDashboard Features\n\nComponent library\nData visualization\nUser interface patterns\n\nAPI Documentation\n\nEndpoint specifications\nData models\nIntegration guides\n\n\n\n\n\n\nGetting Started\n\nEnvironment setup\nLocal development\nTesting procedures\n\nContributing Guidelines\n\nCode standards\nPull request process\nReview guidelines\n\nDeployment Guide\n\nBuild process\nEnvironment configuration\nMonitoring setup\n\n\n\n\n\n\nluxorum-dashboard/\n├── app/                  # Next.js application routes\n├── components/          # React components\n├── lib/                 # Shared utilities\n├── public/              # Static assets\n├── styles/              # Global styles\n├── prisma/              # Database schema\n└── docs/                # Documentation (you are here)\n\n\n\n\nPrerequisites\n\nNode.js 18+\nPostgreSQL 14+\nAWS Account\nGit\n\nQuick Start\n# Clone repository\ngit clone https://github.com/your-org/luxorum-dashboard.git\n\n# Install dependencies\ncd luxorum-dashboard\nnpm install\n\n# Setup environment\ncp .env.example .env.local\n\n# Start development server\nnpm run dev\nFirst Steps\n\nReview the Architecture Guide\nSet up your Development Environment\nUnderstand the Authentication System\n\n\n\n\n\n\n\n\nTypeScript for type safety\nESLint for code linting\nPrettier for code formatting\nJest for unit testing\nCypress for E2E testing\n\n\n\n\n\nLighthouse score &gt; 90\nFirst Contentful Paint &lt; 1.5s\nTime to Interactive &lt; 3.5s\nCore Web Vitals compliance\n\n\n\n\n\nRegular security audits\nDependency vulnerability scanning\nOWASP compliance\nData encryption at rest and in transit\n\n\n\n\n\nWe welcome contributions from the community. Please refer to our Contributing Guidelines for detailed information on how to:\n\nReport issues\nSubmit pull requests\nPropose new features\nImprove documentation\n\n\n\n\nFor technical support: - Check the FAQ - Review Common Issues - Contact the development team\n\n\n\nThis project is licensed under [appropriate license] - see the LICENSE file for details.\n\n\n\nSpecial thanks to all contributors and maintainers who have helped make this project possible.\n\nLast updated: 01-14-2025\nNote: This documentation is continuously updated. For the latest information, please check the repository regularly.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "Luxorum Dashboard is a modern, secure, and scalable web application built with cutting-edge technologies. This documentation provides comprehensive guidance for developers working with the dashboard’s architecture, implementation details, and best practices.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#architecture-highlights",
+    "href": "index.html#architecture-highlights",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "Frontend: Next.js 14+ with App Router and React Server Components\nBackend: Next.js API Routes and Server Actions\nAuthentication: AWS Cognito with MFA support\nConfiguration: AWS Parameter Store for secure config management\nDatabase: PostgreSQL with Prisma ORM\nState Management: React Server Components + Client Hooks\nStyling: Tailwind CSS with custom design system\n\n\n\n\n\nSecure authentication and authorization\nReal-time data visualization\nResponsive dashboard layouts\nPerformance monitoring\nUser management\nAutomated reporting\nData export capabilities\nAdvanced analytics",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#documentation-structure",
+    "href": "index.html#documentation-structure",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "Architecture Guide\n\nSystem design\nComponent architecture\nData flow patterns\n\nAuthentication System\n\nUser authentication\nSession management\nSecurity implementations\n\nDashboard Features\n\nComponent library\nData visualization\nUser interface patterns\n\nAPI Documentation\n\nEndpoint specifications\nData models\nIntegration guides\n\n\n\n\n\n\nGetting Started\n\nEnvironment setup\nLocal development\nTesting procedures\n\nContributing Guidelines\n\nCode standards\nPull request process\nReview guidelines\n\nDeployment Guide\n\nBuild process\nEnvironment configuration\nMonitoring setup",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#project-organization",
+    "href": "index.html#project-organization",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "luxorum-dashboard/\n├── app/                  # Next.js application routes\n├── components/          # React components\n├── lib/                 # Shared utilities\n├── public/              # Static assets\n├── styles/              # Global styles\n├── prisma/              # Database schema\n└── docs/                # Documentation (you are here)",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "Prerequisites\n\nNode.js 18+\nPostgreSQL 14+\nAWS Account\nGit\n\nQuick Start\n# Clone repository\ngit clone https://github.com/your-org/luxorum-dashboard.git\n\n# Install dependencies\ncd luxorum-dashboard\nnpm install\n\n# Setup environment\ncp .env.example .env.local\n\n# Start development server\nnpm run dev\nFirst Steps\n\nReview the Architecture Guide\nSet up your Development Environment\nUnderstand the Authentication System",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#development-standards",
+    "href": "index.html#development-standards",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "TypeScript for type safety\nESLint for code linting\nPrettier for code formatting\nJest for unit testing\nCypress for E2E testing\n\n\n\n\n\nLighthouse score &gt; 90\nFirst Contentful Paint &lt; 1.5s\nTime to Interactive &lt; 3.5s\nCore Web Vitals compliance\n\n\n\n\n\nRegular security audits\nDependency vulnerability scanning\nOWASP compliance\nData encryption at rest and in transit",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#contributing",
+    "href": "index.html#contributing",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "We welcome contributions from the community. Please refer to our Contributing Guidelines for detailed information on how to:\n\nReport issues\nSubmit pull requests\nPropose new features\nImprove documentation",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#support",
+    "href": "index.html#support",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "For technical support: - Check the FAQ - Review Common Issues - Contact the development team",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "This project is licensed under [appropriate license] - see the LICENSE file for details.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "Luxorum Dashboard Documentation",
+    "section": "",
+    "text": "Special thanks to all contributors and maintainers who have helped make this project possible.\n\nLast updated: 01-14-2025\nNote: This documentation is continuously updated. For the latest information, please check the repository regularly.",
     "crumbs": [
       "Overview"
     ]
