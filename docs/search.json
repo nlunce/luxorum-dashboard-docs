@@ -15,5 +15,82 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "auth-implementation-guide.html",
+    "href": "auth-implementation-guide.html",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "",
+    "text": "# Technology Stack\n\nNext.js 14+ with App Router\nTypeScript\nAWS Cognito User Pools\nZod for validation\nReact Server Components"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#environment-variables",
+    "href": "auth-implementation-guide.html#environment-variables",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "2.1 Environment Variables",
+    "text": "2.1 Environment Variables\n// .env.local\nNEXT_PUBLIC_COGNITO_USER_POOL_ID=\"region_poolid\"\nNEXT_PUBLIC_COGNITO_CLIENT_ID=\"clientid\"\nNEXT_PUBLIC_COGNITO_DOMAIN=\"domain.auth.region.amazoncognito.com\""
+  },
+  {
+    "objectID": "auth-implementation-guide.html#cognito-configuration",
+    "href": "auth-implementation-guide.html#cognito-configuration",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "2.2 Cognito Configuration",
+    "text": "2.2 Cognito Configuration\n// lib/cognito.ts\nimport { CognitoUserPool } from 'amazon-cognito-identity-js'\n\nexport const userPool = new CognitoUserPool({\n  UserPoolId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID!,\n  ClientId: process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID!\n})"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#zod-schemas",
+    "href": "auth-implementation-guide.html#zod-schemas",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "2.3 Zod Schemas",
+    "text": "2.3 Zod Schemas\n// lib/validations/auth.ts\nimport { z } from 'zod'\n\nexport const loginSchema = z.object({\n  email: z.string().email('Invalid email address'),\n  password: z.string().min(8, 'Password must be at least 8 characters')\n})\n\nexport const signupSchema = loginSchema.extend({\n  name: z.string().min(2, 'Name must be at least 2 characters'),\n  confirmPassword: z.string()\n}).refine((data) =&gt; data.password === data.confirmPassword, {\n  message: \"Passwords don't match\",\n  path: [\"confirmPassword\"]\n})\n\nexport type LoginInput = z.infer&lt;typeof loginSchema&gt;\nexport type SignupInput = z.infer&lt;typeof signupSchema&gt;"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#auth-form-component",
+    "href": "auth-implementation-guide.html#auth-form-component",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "3.1 Auth Form Component",
+    "text": "3.1 Auth Form Component\n// components/AuthForm.tsx\n'use client'\n\nimport { useFormState, useFormStatus } from 'react-dom'\nimport { loginSchema, type LoginInput } from '@/lib/validations/auth'\n\nconst initialState = {\n  errors: null,\n  message: null\n}\n\nexport function AuthForm() {\n  const [state, formAction] = useFormState(login, initialState)\n  const { pending } = useFormStatus()\n\n  return (\n    &lt;form action={formAction} className=\"space-y-4\"&gt;\n      &lt;input\n        type=\"email\"\n        name=\"email\"\n        placeholder=\"Email\"\n        className=\"w-full p-2 border rounded\"\n      /&gt;\n      {state.errors?.email && (\n        &lt;p className=\"text-red-500\"&gt;{state.errors.email}&lt;/p&gt;\n      )}\n      &lt;input\n        type=\"password\"\n        name=\"password\"\n        placeholder=\"Password\"\n        className=\"w-full p-2 border rounded\"\n      /&gt;\n      {state.errors?.password && (\n        &lt;p className=\"text-red-500\"&gt;{state.errors.password}&lt;/p&gt;\n      )}\n      &lt;button\n        type=\"submit\"\n        disabled={pending}\n        className=\"w-full bg-blue-500 text-white p-2 rounded\"\n      &gt;\n        {pending ? 'Loading...' : 'Login'}\n      &lt;/button&gt;\n    &lt;/form&gt;\n  )\n}"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#app-router-structure",
+    "href": "auth-implementation-guide.html#app-router-structure",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "4.1 App Router Structure",
+    "text": "4.1 App Router Structure\napp/\n├── (auth)/\n│   ├── login/\n│   │   ├── page.tsx\n│   │   └── actions.ts\n│   └── signup/\n│       ├── page.tsx\n│       └── actions.ts\n├── api/\n│   └── auth/\n│       └── [...nextauth]/\n│           └── route.ts\n└── middleware.ts"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#server-actions",
+    "href": "auth-implementation-guide.html#server-actions",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "4.2 Server Actions",
+    "text": "4.2 Server Actions\n// app/(auth)/login/actions.ts\n'use server'\n\nimport { cookies } from 'next/headers'\nimport { loginSchema } from '@/lib/validations/auth'\nimport { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js'\nimport { userPool } from '@/lib/cognito'\nimport { redirect } from 'next/navigation'\n\nexport async function login(prevState: any, formData: FormData) {\n  const rawInput = {\n    email: formData.get('email'),\n    password: formData.get('password')\n  }\n  \n  // Validate input with Zod\n  const validationResult = loginSchema.safeParse(rawInput)\n  \n  if (!validationResult.success) {\n    return {\n      errors: validationResult.error.flatten().fieldErrors,\n      message: 'Invalid input'\n    }\n  }\n  \n  const { email, password } = validationResult.data\n  \n  try {\n    const authenticationDetails = new AuthenticationDetails({\n      Username: email,\n      Password: password\n    })\n    \n    const cognitoUser = new CognitoUser({\n      Username: email,\n      Pool: userPool\n    })\n    \n    const session = await new Promise((resolve, reject) =&gt; {\n      cognitoUser.authenticateUser(authenticationDetails, {\n        onSuccess: resolve,\n        onFailure: reject\n      })\n    })\n    \n    // Set session cookie\n    cookies().set('session', session.getIdToken().getJwtToken(), {\n      httpOnly: true,\n      secure: process.env.NODE_ENV === 'production',\n      sameSite: 'lax'\n    })\n    \n    redirect('/dashboard')\n  } catch (error) {\n    return {\n      errors: null,\n      message: 'Invalid credentials'\n    }\n  }\n}"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#middleware",
+    "href": "auth-implementation-guide.html#middleware",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "4.3 Middleware",
+    "text": "4.3 Middleware\n// middleware.ts\nimport { NextResponse } from 'next/server'\nimport type { NextRequest } from 'next/server'\nimport { CognitoJwtVerifier } from 'aws-jwt-verify'\n\nconst jwtVerifier = CognitoJwtVerifier.create({\n  userPoolId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID!,\n  clientId: process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID!,\n  tokenUse: 'id'\n})\n\nexport async function middleware(request: NextRequest) {\n  const token = request.cookies.get('session')?.value\n  \n  if (!token) {\n    return NextResponse.redirect(new URL('/login', request.url))\n  }\n  \n  try {\n    await jwtVerifier.verify(token)\n    return NextResponse.next()\n  } catch {\n    return NextResponse.redirect(new URL('/login', request.url))\n  }\n}\n\nexport const config = {\n  matcher: ['/dashboard/:path*']\n}"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#protected-api-routes",
+    "href": "auth-implementation-guide.html#protected-api-routes",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "5.1 Protected API Routes",
+    "text": "5.1 Protected API Routes\n// app/api/protected/route.ts\nimport { NextRequest } from 'next/server'\nimport { cookies } from 'next/headers'\nimport { verifyToken } from '@/lib/auth'\n\nexport async function GET(request: NextRequest) {\n  const token = cookies().get('session')?.value\n  \n  if (!token) {\n    return Response.json(\n      { error: 'Unauthorized' },\n      { status: 401 }\n    )\n  }\n  \n  try {\n    const decoded = await verifyToken(token)\n    // Access data based on user permissions\n    return Response.json({ data: 'Protected data' })\n  } catch {\n    return Response.json(\n      { error: 'Invalid token' },\n      { status: 401 }\n    )\n  }\n}"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#data-transfer-objects",
+    "href": "auth-implementation-guide.html#data-transfer-objects",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "5.2 Data Transfer Objects",
+    "text": "5.2 Data Transfer Objects\n// lib/dto.ts\nimport { z } from 'zod'\n\nconst metadataSchema = z.object({\n  timestamp: z.string(),\n  requestId: z.string(),\n  userId: z.string()\n})\n\nexport function createDTO&lt;T&gt;(\n  data: T,\n  userId: string\n) {\n  return {\n    data,\n    metadata: {\n      timestamp: new Date().toISOString(),\n      requestId: crypto.randomUUID(),\n      userId\n    }\n  }\n}\n\nexport type DTOMetadata = z.infer&lt;typeof metadataSchema&gt;"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#cognito-session-handling",
+    "href": "auth-implementation-guide.html#cognito-session-handling",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "6.1 Cognito Session Handling",
+    "text": "6.1 Cognito Session Handling\n// lib/session.ts\nimport { CognitoUserSession } from 'amazon-cognito-identity-js'\n\nexport class SessionManager {\n  static async refreshSession(\n    cognitoUser: CognitoUser\n  ): Promise&lt;CognitoUserSession&gt; {\n    return new Promise((resolve, reject) =&gt; {\n      cognitoUser.getSession((err: Error | null, session: CognitoUserSession) =&gt; {\n        if (err) {\n          reject(err)\n          return\n        }\n        \n        if (!session.isValid()) {\n          cognitoUser.refreshSession(\n            session.getRefreshToken(),\n            (err, newSession) =&gt; {\n              if (err) {\n                reject(err)\n                return\n              }\n              resolve(newSession)\n            }\n          )\n        } else {\n          resolve(session)\n        }\n      })\n    })\n  }\n}"
   }
 ]
