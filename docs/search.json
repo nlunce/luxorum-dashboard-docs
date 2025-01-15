@@ -1,12 +1,51 @@
 [
   {
-    "objectID": "documentation-roadmap.html",
-    "href": "documentation-roadmap.html",
+    "objectID": "license.html",
+    "href": "license.html",
     "title": "",
     "section": "",
-    "text": "Code",
+    "text": "Code"
+  },
+  {
+    "objectID": "api/index.html",
+    "href": "api/index.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAPIOverview Code",
     "crumbs": [
-      "Documentation Roadmap"
+      "Documentation",
+      "API",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "deployment/index.html",
+    "href": "deployment/index.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationDeploymentOverview Code",
+    "crumbs": [
+      "Documentation",
+      "Deployment",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "support/faq.html",
+    "href": "support/faq.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationGetting Started Code",
+    "crumbs": [
+      "Documentation",
+      "Getting Started"
     ]
   },
   {
@@ -59,131 +98,80 @@
     "text": "5.2 Environment Specific Parameters\n# Development\naws ssm put-parameter \\\n  --name \"/auth/dev/cognito/user-pool-id\" \\\n  --value \"your-dev-pool-id\" \\\n  --type \"SecureString\"\n\n# Production\naws ssm put-parameter \\\n  --name \"/auth/prod/cognito/user-pool-id\" \\\n  --value \"your-prod-pool-id\" \\\n  --type \"SecureString\""
   },
   {
-    "objectID": "auth/architecture.html",
-    "href": "auth/architecture.html",
+    "objectID": "features/dashboard.html",
+    "href": "features/dashboard.html",
     "title": "",
     "section": "",
-    "text": "Code"
+    "text": "DocumentationFeaturesDashboard Code",
+    "crumbs": [
+      "Documentation",
+      "Features",
+      "Dashboard"
+    ]
   },
   {
-    "objectID": "auth/architecture/infrastructure.html",
-    "href": "auth/architecture/infrastructure.html",
+    "objectID": "auth/implementation/components.html",
+    "href": "auth/implementation/components.html",
     "title": "",
     "section": "",
-    "text": "DocumentationAuthenticationArchitectureInfrastructure Code",
+    "text": "DocumentationAuthenticationImplementationComponents Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Implementation",
+      "Components"
+    ]
+  },
+  {
+    "objectID": "auth/implementation/login-flow.html",
+    "href": "auth/implementation/login-flow.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationImplementationLogin Flow Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Implementation",
+      "Login Flow"
+    ]
+  },
+  {
+    "objectID": "auth/implementation/data-access.html",
+    "href": "auth/implementation/data-access.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationImplementationData Access Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Implementation",
+      "Data Access"
+    ]
+  },
+  {
+    "objectID": "auth/implementation/session-mgmt.html",
+    "href": "auth/implementation/session-mgmt.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationImplementationSession Management Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Implementation",
+      "Session Management"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/components.html",
+    "href": "auth/architecture/components.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationArchitectureComponent Architecture Code",
     "crumbs": [
       "Documentation",
       "Authentication",
       "Architecture",
-      "Infrastructure"
-    ]
-  },
-  {
-    "objectID": "auth/index.html",
-    "href": "auth/index.html",
-    "title": "Authentication System Documentation",
-    "section": "",
-    "text": "This documentation covers the implementation of our authentication system using Next.js 14+, AWS Cognito, and TypeScript. The system provides secure user authentication, authorization, and session management for our web application.\n\n\n\nFrontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks\n\n\n\n\n\nSecure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#tech-stack",
-    "href": "auth/index.html#tech-stack",
-    "title": "Authentication System Documentation",
-    "section": "",
-    "text": "Frontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#key-features",
-    "href": "auth/index.html#key-features",
-    "title": "Authentication System Documentation",
-    "section": "",
-    "text": "Secure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#architecture",
-    "href": "auth/index.html#architecture",
-    "title": "Authentication System Documentation",
-    "section": "2.1 Architecture Overview",
-    "text": "2.1 Architecture Overview\n→ View Details\nUnderstanding the system’s architecture, including: - Client-server interaction - Authentication flow - Component relationships - Data flow patterns",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#config",
-    "href": "auth/index.html#config",
-    "title": "Authentication System Documentation",
-    "section": "2.2 Configuration & Setup",
-    "text": "2.2 Configuration & Setup\n→ View Details\nSetting up the required infrastructure: - AWS Parameter Store configuration - Cognito User Pool setup - Environment configuration - TypeScript types",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#flows",
-    "href": "auth/index.html#flows",
-    "title": "Authentication System Documentation",
-    "section": "2.3 Authentication Flows",
-    "text": "2.3 Authentication Flows\n\n2.3.1 Login Process\n→ View Details\nComplete login implementation: - Form handling - Validation - MFA support - Token management - Error handling\n\n\n2.3.2 Registration Process\n→ View Details\nUser registration implementation: - Form validation - Email verification - Automatic login - Error management",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#implementation",
-    "href": "auth/index.html#implementation",
-    "title": "Authentication System Documentation",
-    "section": "2.4 Implementation Details",
-    "text": "2.4 Implementation Details\n\n2.4.1 Components\n→ View Details\nReact component organization: - Form components - Client components - Server components - Shared utilities\n\n\n2.4.2 Middleware\n→ View Details\nProtection and routing: - Route protection - Auth middleware - Request handling - Cookie management\n\n\n2.4.3 Session Management\n→ View Details\nSession handling strategy: - Token management - Session types - Cookie handling - Refresh logic\n\n\n2.4.4 Data Access\n→ View Details\nData handling patterns: - Authorization - Data access layer - Transfer objects - Caching strategy\n\n\n2.4.5 Security\n→ View Details\nSecurity implementations: - Best practices - Protection mechanisms - Rate limiting - Testing approaches",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#code-organization",
-    "href": "auth/index.html#code-organization",
-    "title": "Authentication System Documentation",
-    "section": "4.1 Code Organization",
-    "text": "4.1 Code Organization\nsrc/\n├── app/\n│   ├── (auth)/\n│   │   ├── login/\n│   │   └── signup/\n│   └── api/\n├── components/\n│   └── forms/\n│       ├── login/\n│       └── signup/\n└── lib/\n    ├── auth/\n    ├── validations/\n    └── config/",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#best-practices",
-    "href": "auth/index.html#best-practices",
-    "title": "Authentication System Documentation",
-    "section": "4.2 Best Practices",
-    "text": "4.2 Best Practices\n\nType Safety\n\nUse TypeScript interfaces for all data structures\nImplement Zod schemas for validation\nMaintain strict type checking\n\nSecurity\n\nFollow AWS security best practices\nImplement proper error handling\nUse secure session management\nApply rate limiting\n\nCode Quality\n\nWrite unit tests for critical paths\nMaintain consistent error handling\nFollow component organization patterns\nUse proper TypeScript practices",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Overview"
+      "Component Architecture"
     ]
   },
   {
@@ -317,16 +305,272 @@
     ]
   },
   {
-    "objectID": "auth/architecture/components.html",
-    "href": "auth/architecture/components.html",
+    "objectID": "auth/index.html",
+    "href": "auth/index.html",
+    "title": "Authentication System Documentation",
+    "section": "",
+    "text": "This documentation covers the implementation of our authentication system using Next.js 14+, AWS Cognito, and TypeScript. The system provides secure user authentication, authorization, and session management for our web application.\n\n\n\nFrontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks\n\n\n\n\n\nSecure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#tech-stack",
+    "href": "auth/index.html#tech-stack",
+    "title": "Authentication System Documentation",
+    "section": "",
+    "text": "Frontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#key-features",
+    "href": "auth/index.html#key-features",
+    "title": "Authentication System Documentation",
+    "section": "",
+    "text": "Secure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#architecture",
+    "href": "auth/index.html#architecture",
+    "title": "Authentication System Documentation",
+    "section": "2.1 Architecture Overview",
+    "text": "2.1 Architecture Overview\n→ View Details\nUnderstanding the system’s architecture, including: - Client-server interaction - Authentication flow - Component relationships - Data flow patterns",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#config",
+    "href": "auth/index.html#config",
+    "title": "Authentication System Documentation",
+    "section": "2.2 Configuration & Setup",
+    "text": "2.2 Configuration & Setup\n→ View Details\nSetting up the required infrastructure: - AWS Parameter Store configuration - Cognito User Pool setup - Environment configuration - TypeScript types",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#flows",
+    "href": "auth/index.html#flows",
+    "title": "Authentication System Documentation",
+    "section": "2.3 Authentication Flows",
+    "text": "2.3 Authentication Flows\n\n2.3.1 Login Process\n→ View Details\nComplete login implementation: - Form handling - Validation - MFA support - Token management - Error handling\n\n\n2.3.2 Registration Process\n→ View Details\nUser registration implementation: - Form validation - Email verification - Automatic login - Error management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#implementation",
+    "href": "auth/index.html#implementation",
+    "title": "Authentication System Documentation",
+    "section": "2.4 Implementation Details",
+    "text": "2.4 Implementation Details\n\n2.4.1 Components\n→ View Details\nReact component organization: - Form components - Client components - Server components - Shared utilities\n\n\n2.4.2 Middleware\n→ View Details\nProtection and routing: - Route protection - Auth middleware - Request handling - Cookie management\n\n\n2.4.3 Session Management\n→ View Details\nSession handling strategy: - Token management - Session types - Cookie handling - Refresh logic\n\n\n2.4.4 Data Access\n→ View Details\nData handling patterns: - Authorization - Data access layer - Transfer objects - Caching strategy\n\n\n2.4.5 Security\n→ View Details\nSecurity implementations: - Best practices - Protection mechanisms - Rate limiting - Testing approaches",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#code-organization",
+    "href": "auth/index.html#code-organization",
+    "title": "Authentication System Documentation",
+    "section": "4.1 Code Organization",
+    "text": "4.1 Code Organization\nsrc/\n├── app/\n│   ├── (auth)/\n│   │   ├── login/\n│   │   └── signup/\n│   └── api/\n├── components/\n│   └── forms/\n│       ├── login/\n│       └── signup/\n└── lib/\n    ├── auth/\n    ├── validations/\n    └── config/",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#best-practices",
+    "href": "auth/index.html#best-practices",
+    "title": "Authentication System Documentation",
+    "section": "4.2 Best Practices",
+    "text": "4.2 Best Practices\n\nType Safety\n\nUse TypeScript interfaces for all data structures\nImplement Zod schemas for validation\nMaintain strict type checking\n\nSecurity\n\nFollow AWS security best practices\nImplement proper error handling\nUse secure session management\nApply rate limiting\n\nCode Quality\n\nWrite unit tests for critical paths\nMaintain consistent error handling\nFollow component organization patterns\nUse proper TypeScript practices",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/setup/index.html",
+    "href": "auth/setup/index.html",
     "title": "",
     "section": "",
-    "text": "DocumentationAuthenticationArchitectureComponent Architecture Code",
+    "text": "DocumentationAuthenticationSetupOverview Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Setup",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/setup/terraform/cognito.html",
+    "href": "auth/setup/terraform/cognito.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationSetupInfrastructureCognito Setup Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Setup",
+      "Infrastructure",
+      "Cognito Setup"
+    ]
+  },
+  {
+    "objectID": "auth/setup/terraform/index.html",
+    "href": "auth/setup/terraform/index.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "auth/features/index.html",
+    "href": "auth/features/index.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "auth/setup/terraform/monitoring.html",
+    "href": "auth/setup/terraform/monitoring.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationSetupInfrastructureMonitoring Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Setup",
+      "Infrastructure",
+      "Monitoring"
+    ]
+  },
+  {
+    "objectID": "auth/setup/terraform/parameter-store.html",
+    "href": "auth/setup/terraform/parameter-store.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationSetupInfrastructureParameter Store Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Setup",
+      "Infrastructure",
+      "Parameter Store"
+    ]
+  },
+  {
+    "objectID": "auth/setup/terraform/iam.html",
+    "href": "auth/setup/terraform/iam.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationSetupInfrastructureIAM Configuration Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Setup",
+      "Infrastructure",
+      "IAM Configuration"
+    ]
+  },
+  {
+    "objectID": "auth/setup/config-setup.html",
+    "href": "auth/setup/config-setup.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationSetupApplication Config Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Setup",
+      "Application Config"
+    ]
+  },
+  {
+    "objectID": "auth/security.html",
+    "href": "auth/security.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationSecurity Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Security"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/infrastructure.html",
+    "href": "auth/architecture/infrastructure.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationArchitectureInfrastructure Code",
     "crumbs": [
       "Documentation",
       "Authentication",
       "Architecture",
-      "Component Architecture"
+      "Infrastructure"
+    ]
+  },
+  {
+    "objectID": "auth/architecture.html",
+    "href": "auth/architecture.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "auth/implementation/index.html",
+    "href": "auth/implementation/index.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "auth/implementation/middleware.html",
+    "href": "auth/implementation/middleware.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationImplementationMiddleware Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Implementation",
+      "Middleware"
+    ]
+  },
+  {
+    "objectID": "auth/implementation/signup-flow.html",
+    "href": "auth/implementation/signup-flow.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationImplementationSignup Flow Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Implementation",
+      "Signup Flow"
     ]
   },
   {
@@ -335,6 +579,18 @@
     "title": "Plan",
     "section": "",
     "text": "auth/\n├── _index.qmd                # Overview of auth system and navigation\n├── architecture/\n│   ├── _index.qmd           # High-level system architecture\n│   ├── components.qmd       # Component architecture details\n│   └── infrastructure.qmd   # Infrastructure architecture & Terraform setup\n├── setup/\n│   ├── _index.qmd           # Setup overview\n│   ├── terraform/\n│   │   ├── cognito.qmd      # Cognito User Pool provisioning\n│   │   ├── parameter-store.qmd # SSM Parameter Store setup\n│   │   ├── iam.qmd          # IAM roles and policies\n│   │   └── monitoring.qmd   # CloudWatch and alerts\n│   └── config-setup.qmd     # Application configuration\n├── implementation/\n│   ├── login-flow.qmd       # Login process\n│   ├── signup-flow.qmd      # Registration process\n│   ├── components.qmd       # React components\n│   ├── middleware.qmd       # Route protection\n│   ├── session-mgmt.qmd     # Session handling\n│   └── data-access.qmd      # Data access patterns\n└── security.qmd             # Security best practices"
+  },
+  {
+    "objectID": "features/analytics.html",
+    "href": "features/analytics.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationFeaturesAnalytics Code",
+    "crumbs": [
+      "Documentation",
+      "Features",
+      "Analytics"
+    ]
   },
   {
     "objectID": "index.html",
@@ -444,6 +700,47 @@
     "text": "Special thanks to all contributors and maintainers who have helped make this project possible.\n\nLast updated: 01-14-2025\nNote: This documentation is continuously updated. For the latest information, please check the repository regularly.",
     "crumbs": [
       "Overview"
+    ]
+  },
+  {
+    "objectID": "support/common-issues.html",
+    "href": "support/common-issues.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "deployment/cicd.html",
+    "href": "deployment/cicd.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationDeploymentCI/CD Code",
+    "crumbs": [
+      "Documentation",
+      "Deployment",
+      "CI/CD"
+    ]
+  },
+  {
+    "objectID": "api/endpoints.html",
+    "href": "api/endpoints.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAPIEndpoints Code",
+    "crumbs": [
+      "Documentation",
+      "API",
+      "Endpoints"
+    ]
+  },
+  {
+    "objectID": "documentation-roadmap.html",
+    "href": "documentation-roadmap.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "Documentation Roadmap"
     ]
   }
 ]
