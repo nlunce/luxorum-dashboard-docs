@@ -73,8 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-e25cc82807363e79c52e96bc8b7855f1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-840f70856a7ff1f06d9eb6f2184c23ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8d4225f7dbf7257de85cf464ad30f7c1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-dad2c69aaa48be192da196aaa40ebc43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7b8708260d4d286026261092a75b8f7f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -152,6 +152,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./documentation-roadmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documentation Roadmap</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -179,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./auth/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -194,20 +200,203 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./auth/architecture/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">High-level system architecture</span></a>
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./auth/architecture/components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Component architecture details</span></a>
+ <span class="menu-text">Component Architecture</span></a>
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Infrastructure architecture &amp; Terraform setup</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./auth/architecture/infrastructure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infrastructure</span></a>
+  </div>
+</li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/setup/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/setup/terraform/cognito.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cognito Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/setup/terraform/parameter-store.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parameter Store</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/setup/terraform/iam.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IAM Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/setup/terraform/monitoring.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Monitoring</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/setup/config-setup.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Application Config</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Implementation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/implementation/login-flow.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Login Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/implementation/signup-flow.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Signup Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/implementation/components.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Components</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/implementation/middleware.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Middleware</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/implementation/session-mgmt.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session Management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/implementation/data-access.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Access</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./auth/security.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Security</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Features</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./features/dashboard.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./features/analytics.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analytics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">API</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/endpoints.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Endpoints</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deployment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./deployment/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./deployment/cicd.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CI/CD</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -249,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Next.js Authentication Flow with Cognito and Zod</h1>
+<div class="quarto-title-block"><div><h1 class="title">Next.js Authentication Flow with Cognito and Zod</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Implementation Guide using App Router, TypeScript, and AWS Cognito</p>
 </div>
 
@@ -286,83 +475,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="3"><span class="header-section-number">3</span> Configuration Setup</h1>
 <section id="aws-parameter-store-setup" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="aws-parameter-store-setup"><span class="header-section-number">3.1</span> AWS Parameter Store Setup</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// lib/config/parameterStore.ts</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { SSMClient<span class="op">,</span> GetParameterCommand } <span class="im">from</span> <span class="st">"@aws-sdk/client-ssm"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ssmClient <span class="op">=</span> <span class="kw">new</span> <span class="fu">SSMClient</span>({</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  region<span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">AWS_REGION</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">getParameter</span>(name<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> withDecryption <span class="op">=</span> <span class="kw">true</span>) {</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> command <span class="op">=</span> <span class="kw">new</span> <span class="fu">GetParameterCommand</span>({</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    Name<span class="op">:</span> name<span class="op">,</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    WithDecryption<span class="op">:</span> withDecryption</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">try</span> {</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> ssmClient<span class="op">.</span><span class="fu">send</span>(command)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response<span class="op">.</span><span class="at">Parameter</span><span class="op">?.</span><span class="at">Value</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">catch</span> (error) {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="vs">`Error fetching parameter </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">:`</span><span class="op">,</span> error)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span> error</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">// Usage in environment configuration</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">loadSecureConfig</span>() {</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    cognitoUserPoolId<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/user-pool-id'</span>)<span class="op">,</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    cognitoClientId<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/client-id'</span>)<span class="op">,</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    cognitoDomain<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/domain'</span>)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">// lib/config/parameterStore.ts</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> { SSMClient<span class="op">,</span> GetParameterCommand } <span class="im">from</span> <span class="st">"@aws-sdk/client-ssm"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">const</span> ssmClient <span class="op">=</span> <span class="kw">new</span> <span class="fu">SSMClient</span>({</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  region<span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">AWS_REGION</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>})</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">getParameter</span>(name<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> withDecryption <span class="op">=</span> <span class="kw">true</span>) {</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="kw">const</span> command <span class="op">=</span> <span class="kw">new</span> <span class="fu">GetParameterCommand</span>({</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    Name<span class="op">:</span> name<span class="op">,</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>    WithDecryption<span class="op">:</span> withDecryption</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  })</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="cf">try</span> {</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> ssmClient<span class="op">.</span><span class="fu">send</span>(command)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="cf">return</span> response<span class="op">.</span><span class="at">Parameter</span><span class="op">?.</span><span class="at">Value</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>  } <span class="cf">catch</span> (error) {</span>
+<span id="cb1-18"><a href="#cb1-18"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="vs">`Error fetching parameter </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">:`</span><span class="op">,</span> error)</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="cf">throw</span> error</span>
+<span id="cb1-20"><a href="#cb1-20"></a>  }</span>
+<span id="cb1-21"><a href="#cb1-21"></a>}</span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="co">// Usage in environment configuration</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">loadSecureConfig</span>() {</span>
+<span id="cb1-25"><a href="#cb1-25"></a>  <span class="cf">return</span> {</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    cognitoUserPoolId<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/user-pool-id'</span>)<span class="op">,</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>    cognitoClientId<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/client-id'</span>)<span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>    cognitoDomain<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/domain'</span>)</span>
+<span id="cb1-29"><a href="#cb1-29"></a>  }</span>
+<span id="cb1-30"><a href="#cb1-30"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="environment-variables" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="environment-variables"><span class="header-section-number">3.2</span> Environment Variables</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// .env.local</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>AWS_REGION<span class="op">=</span><span class="st">"us-east-1"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>AWS_ACCESS_KEY_ID<span class="op">=</span><span class="st">"your-access-key"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>AWS_SECRET_ACCESS_KEY<span class="op">=</span><span class="st">"your-secret-key"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">// .env.local</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>AWS_REGION<span class="op">=</span><span class="st">"us-east-1"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>AWS_ACCESS_KEY_ID<span class="op">=</span><span class="st">"your-access-key"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>AWS_SECRET_ACCESS_KEY<span class="op">=</span><span class="st">"your-secret-key"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="cognito-configuration" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="cognito-configuration"><span class="header-section-number">3.3</span> Cognito Configuration</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// lib/auth/cognito.ts</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { CognitoUserPool } <span class="im">from</span> <span class="st">'amazon-cognito-identity-js'</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { loadSecureConfig } <span class="im">from</span> <span class="st">'../config/parameterStore'</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> userPool<span class="op">:</span> CognitoUserPool <span class="op">|</span> <span class="dt">null</span> <span class="op">=</span> <span class="kw">null</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">getUserPool</span>() {</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>userPool) {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> config <span class="op">=</span> <span class="cf">await</span> <span class="fu">loadSecureConfig</span>()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    userPool <span class="op">=</span> <span class="kw">new</span> <span class="fu">CognitoUserPool</span>({</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      UserPoolId<span class="op">:</span> config<span class="op">.</span><span class="at">cognitoUserPoolId</span><span class="op">,</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      ClientId<span class="op">:</span> config<span class="op">.</span><span class="at">cognitoClientId</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> userPool</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">// lib/auth/cognito.ts</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> { CognitoUserPool } <span class="im">from</span> <span class="st">'amazon-cognito-identity-js'</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="im">import</span> { loadSecureConfig } <span class="im">from</span> <span class="st">'../config/parameterStore'</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">let</span> userPool<span class="op">:</span> CognitoUserPool <span class="op">|</span> <span class="dt">null</span> <span class="op">=</span> <span class="kw">null</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">getUserPool</span>() {</span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="cf">if</span> (<span class="op">!</span>userPool) {</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="kw">const</span> config <span class="op">=</span> <span class="cf">await</span> <span class="fu">loadSecureConfig</span>()</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    userPool <span class="op">=</span> <span class="kw">new</span> <span class="fu">CognitoUserPool</span>({</span>
+<span id="cb3-11"><a href="#cb3-11"></a>      UserPoolId<span class="op">:</span> config<span class="op">.</span><span class="at">cognitoUserPoolId</span><span class="op">,</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>      ClientId<span class="op">:</span> config<span class="op">.</span><span class="at">cognitoClientId</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>    })</span>
+<span id="cb3-14"><a href="#cb3-14"></a>  }</span>
+<span id="cb3-15"><a href="#cb3-15"></a>  <span class="cf">return</span> userPool</span>
+<span id="cb3-16"><a href="#cb3-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="form-validation-schemas" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="form-validation-schemas"><span class="header-section-number">3.4</span> Form Validation Schemas</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// lib/validations/auth.ts</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { z } <span class="im">from</span> <span class="st">'zod'</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> loginSchema <span class="op">=</span> z<span class="op">.</span><span class="fu">object</span>({</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  email<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">email</span>(<span class="st">'Invalid email address'</span>)<span class="op">,</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  password<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">min</span>(<span class="dv">8</span><span class="op">,</span> <span class="st">'Password must be at least 8 characters'</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> signupSchema <span class="op">=</span> loginSchema<span class="op">.</span><span class="fu">extend</span>({</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  name<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">min</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">'Name must be at least 2 characters'</span>)<span class="op">,</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  confirmPassword<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">.</span><span class="fu">refine</span>((data) <span class="kw">=&gt;</span> data<span class="op">.</span><span class="at">password</span> <span class="op">===</span> data<span class="op">.</span><span class="at">confirmPassword</span><span class="op">,</span> {</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  message<span class="op">:</span> <span class="st">"Passwords don't match"</span><span class="op">,</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  path<span class="op">:</span> [<span class="st">"confirmPassword"</span>]</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="im">export type</span> LoginInput <span class="op">=</span> z<span class="op">.</span><span class="at">infer</span><span class="op">&lt;</span><span class="kw">typeof</span> loginSchema<span class="op">&gt;</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="im">export type</span> SignupInput <span class="op">=</span> z<span class="op">.</span><span class="at">infer</span><span class="op">&lt;</span><span class="kw">typeof</span> signupSchema<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">// lib/validations/auth.ts</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="im">import</span> { z } <span class="im">from</span> <span class="st">'zod'</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="im">export</span> <span class="kw">const</span> loginSchema <span class="op">=</span> z<span class="op">.</span><span class="fu">object</span>({</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  email<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">email</span>(<span class="st">'Invalid email address'</span>)<span class="op">,</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  password<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">min</span>(<span class="dv">8</span><span class="op">,</span> <span class="st">'Password must be at least 8 characters'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>})</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="im">export</span> <span class="kw">const</span> signupSchema <span class="op">=</span> loginSchema<span class="op">.</span><span class="fu">extend</span>({</span>
+<span id="cb4-10"><a href="#cb4-10"></a>  name<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">min</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">'Name must be at least 2 characters'</span>)<span class="op">,</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  confirmPassword<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()</span>
+<span id="cb4-12"><a href="#cb4-12"></a>})<span class="op">.</span><span class="fu">refine</span>((data) <span class="kw">=&gt;</span> data<span class="op">.</span><span class="at">password</span> <span class="op">===</span> data<span class="op">.</span><span class="at">confirmPassword</span><span class="op">,</span> {</span>
+<span id="cb4-13"><a href="#cb4-13"></a>  message<span class="op">:</span> <span class="st">"Passwords don't match"</span><span class="op">,</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>  path<span class="op">:</span> [<span class="st">"confirmPassword"</span>]</span>
+<span id="cb4-15"><a href="#cb4-15"></a>})</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="im">export type</span> LoginInput <span class="op">=</span> z<span class="op">.</span><span class="at">infer</span><span class="op">&lt;</span><span class="kw">typeof</span> loginSchema<span class="op">&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="im">export type</span> SignupInput <span class="op">=</span> z<span class="op">.</span><span class="at">infer</span><span class="op">&lt;</span><span class="kw">typeof</span> signupSchema<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="component-structure" class="level1" data-number="4">
@@ -381,79 +570,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 │       └── types.ts</code></pre>
 <section id="signup-form-implementation" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="signup-form-implementation"><span class="header-section-number">4.1</span> Signup Form Implementation</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// components/forms/signup/SignupForm.tsx</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">'use client'</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { useFormState<span class="op">,</span> useFormStatus } <span class="im">from</span> <span class="st">'react-dom'</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { SignupFormFields } <span class="im">from</span> <span class="st">'./SignupFormFields'</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { SignupFormActions } <span class="im">from</span> <span class="st">'./SignupFormActions'</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { signup } <span class="im">from</span> <span class="st">'@/app/actions/auth'</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> initialState <span class="op">=</span> {</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  errors<span class="op">:</span> <span class="dt">null</span><span class="op">,</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  message<span class="op">:</span> <span class="dt">null</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupForm</span>() {</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> [state<span class="op">,</span> formAction] <span class="op">=</span> <span class="fu">useFormState</span>(signup<span class="op">,</span> initialState)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> { pending } <span class="op">=</span> <span class="fu">useFormStatus</span>()</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>form action<span class="op">=</span>{formAction} className<span class="op">=</span><span class="st">"space-y-6"</span><span class="op">&gt;</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>SignupFormFields errors<span class="op">=</span>{state<span class="op">.</span><span class="at">errors</span>} <span class="op">/&gt;</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>SignupFormActions pending<span class="op">=</span>{pending} <span class="op">/&gt;</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      {state<span class="op">.</span><span class="at">message</span> <span class="op">&amp;&amp;</span> (</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500"</span><span class="op">&gt;</span>{state<span class="op">.</span><span class="at">message</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      )}</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co">// components/forms/signup/SignupFormFields.tsx</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupFormFields</span>({ errors }) {</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">"space-y-4"</span><span class="op">&gt;</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>input</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>          <span class="kw">type</span><span class="op">=</span><span class="st">"text"</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>          name<span class="op">=</span><span class="st">"name"</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>          placeholder<span class="op">=</span><span class="st">"Full Name"</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>          className<span class="op">=</span><span class="st">"w-full p-2 border rounded"</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">/&gt;</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        {errors<span class="op">?.</span><span class="at">name</span> <span class="op">&amp;&amp;</span> (</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500 text-sm"</span><span class="op">&gt;</span>{errors<span class="op">.</span><span class="at">name</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>        )}</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>input</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>          <span class="kw">type</span><span class="op">=</span><span class="st">"email"</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>          name<span class="op">=</span><span class="st">"email"</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>          placeholder<span class="op">=</span><span class="st">"Email"</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>          className<span class="op">=</span><span class="st">"w-full p-2 border rounded"</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="op">/&gt;</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        {errors<span class="op">?.</span><span class="at">email</span> <span class="op">&amp;&amp;</span> (</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500 text-sm"</span><span class="op">&gt;</span>{errors<span class="op">.</span><span class="at">email</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        )}</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>      {<span class="co">/* Additional fields */</span>}</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="co">// components/forms/signup/SignupFormActions.tsx</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupFormActions</span>({ pending }) {</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">"flex justify-end space-x-4"</span><span class="op">&gt;</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>button</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>        <span class="kw">type</span><span class="op">=</span><span class="st">"submit"</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>        disabled<span class="op">=</span>{pending}</span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>        className<span class="op">=</span><span class="st">"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>      <span class="op">&gt;</span></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>        {pending <span class="op">?</span> <span class="st">'Signing up...'</span> <span class="op">:</span> <span class="st">'Sign Up'</span>}</span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">// components/forms/signup/SignupForm.tsx</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="st">'use client'</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="im">import</span> { useFormState<span class="op">,</span> useFormStatus } <span class="im">from</span> <span class="st">'react-dom'</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="im">import</span> { SignupFormFields } <span class="im">from</span> <span class="st">'./SignupFormFields'</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="im">import</span> { SignupFormActions } <span class="im">from</span> <span class="st">'./SignupFormActions'</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="im">import</span> { signup } <span class="im">from</span> <span class="st">'@/app/actions/auth'</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="kw">const</span> initialState <span class="op">=</span> {</span>
+<span id="cb6-10"><a href="#cb6-10"></a>  errors<span class="op">:</span> <span class="dt">null</span><span class="op">,</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>  message<span class="op">:</span> <span class="dt">null</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>}</span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupForm</span>() {</span>
+<span id="cb6-15"><a href="#cb6-15"></a>  <span class="kw">const</span> [state<span class="op">,</span> formAction] <span class="op">=</span> <span class="fu">useFormState</span>(signup<span class="op">,</span> initialState)</span>
+<span id="cb6-16"><a href="#cb6-16"></a>  <span class="kw">const</span> { pending } <span class="op">=</span> <span class="fu">useFormStatus</span>()</span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a>  <span class="cf">return</span> (</span>
+<span id="cb6-19"><a href="#cb6-19"></a>    <span class="op">&lt;</span>form action<span class="op">=</span>{formAction} className<span class="op">=</span><span class="st">"space-y-6"</span><span class="op">&gt;</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a>      <span class="op">&lt;</span>SignupFormFields errors<span class="op">=</span>{state<span class="op">.</span><span class="at">errors</span>} <span class="op">/&gt;</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a>      <span class="op">&lt;</span>SignupFormActions pending<span class="op">=</span>{pending} <span class="op">/&gt;</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a>      {state<span class="op">.</span><span class="at">message</span> <span class="op">&amp;&amp;</span> (</span>
+<span id="cb6-23"><a href="#cb6-23"></a>        <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500"</span><span class="op">&gt;</span>{state<span class="op">.</span><span class="at">message</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a>      )}</span>
+<span id="cb6-25"><a href="#cb6-25"></a>    <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a>  )</span>
+<span id="cb6-27"><a href="#cb6-27"></a>}</span>
+<span id="cb6-28"><a href="#cb6-28"></a></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">// components/forms/signup/SignupFormFields.tsx</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupFormFields</span>({ errors }) {</span>
+<span id="cb6-31"><a href="#cb6-31"></a>  <span class="cf">return</span> (</span>
+<span id="cb6-32"><a href="#cb6-32"></a>    <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">"space-y-4"</span><span class="op">&gt;</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a>      <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a>        <span class="op">&lt;</span>input</span>
+<span id="cb6-35"><a href="#cb6-35"></a>          <span class="kw">type</span><span class="op">=</span><span class="st">"text"</span></span>
+<span id="cb6-36"><a href="#cb6-36"></a>          name<span class="op">=</span><span class="st">"name"</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a>          placeholder<span class="op">=</span><span class="st">"Full Name"</span></span>
+<span id="cb6-38"><a href="#cb6-38"></a>          className<span class="op">=</span><span class="st">"w-full p-2 border rounded"</span></span>
+<span id="cb6-39"><a href="#cb6-39"></a>        <span class="op">/&gt;</span></span>
+<span id="cb6-40"><a href="#cb6-40"></a>        {errors<span class="op">?.</span><span class="at">name</span> <span class="op">&amp;&amp;</span> (</span>
+<span id="cb6-41"><a href="#cb6-41"></a>          <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500 text-sm"</span><span class="op">&gt;</span>{errors<span class="op">.</span><span class="at">name</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb6-42"><a href="#cb6-42"></a>        )}</span>
+<span id="cb6-43"><a href="#cb6-43"></a>      <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb6-44"><a href="#cb6-44"></a>      <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb6-45"><a href="#cb6-45"></a>        <span class="op">&lt;</span>input</span>
+<span id="cb6-46"><a href="#cb6-46"></a>          <span class="kw">type</span><span class="op">=</span><span class="st">"email"</span></span>
+<span id="cb6-47"><a href="#cb6-47"></a>          name<span class="op">=</span><span class="st">"email"</span></span>
+<span id="cb6-48"><a href="#cb6-48"></a>          placeholder<span class="op">=</span><span class="st">"Email"</span></span>
+<span id="cb6-49"><a href="#cb6-49"></a>          className<span class="op">=</span><span class="st">"w-full p-2 border rounded"</span></span>
+<span id="cb6-50"><a href="#cb6-50"></a>        <span class="op">/&gt;</span></span>
+<span id="cb6-51"><a href="#cb6-51"></a>        {errors<span class="op">?.</span><span class="at">email</span> <span class="op">&amp;&amp;</span> (</span>
+<span id="cb6-52"><a href="#cb6-52"></a>          <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500 text-sm"</span><span class="op">&gt;</span>{errors<span class="op">.</span><span class="at">email</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb6-53"><a href="#cb6-53"></a>        )}</span>
+<span id="cb6-54"><a href="#cb6-54"></a>      <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb6-55"><a href="#cb6-55"></a>      {<span class="co">/* Additional fields */</span>}</span>
+<span id="cb6-56"><a href="#cb6-56"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb6-57"><a href="#cb6-57"></a>  )</span>
+<span id="cb6-58"><a href="#cb6-58"></a>}</span>
+<span id="cb6-59"><a href="#cb6-59"></a></span>
+<span id="cb6-60"><a href="#cb6-60"></a><span class="co">// components/forms/signup/SignupFormActions.tsx</span></span>
+<span id="cb6-61"><a href="#cb6-61"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupFormActions</span>({ pending }) {</span>
+<span id="cb6-62"><a href="#cb6-62"></a>  <span class="cf">return</span> (</span>
+<span id="cb6-63"><a href="#cb6-63"></a>    <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">"flex justify-end space-x-4"</span><span class="op">&gt;</span></span>
+<span id="cb6-64"><a href="#cb6-64"></a>      <span class="op">&lt;</span>button</span>
+<span id="cb6-65"><a href="#cb6-65"></a>        <span class="kw">type</span><span class="op">=</span><span class="st">"submit"</span></span>
+<span id="cb6-66"><a href="#cb6-66"></a>        disabled<span class="op">=</span>{pending}</span>
+<span id="cb6-67"><a href="#cb6-67"></a>        className<span class="op">=</span><span class="st">"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"</span></span>
+<span id="cb6-68"><a href="#cb6-68"></a>      <span class="op">&gt;</span></span>
+<span id="cb6-69"><a href="#cb6-69"></a>        {pending <span class="op">?</span> <span class="st">'Signing up...'</span> <span class="op">:</span> <span class="st">'Sign Up'</span>}</span>
+<span id="cb6-70"><a href="#cb6-70"></a>      <span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb6-71"><a href="#cb6-71"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb6-72"><a href="#cb6-72"></a>  )</span>
+<span id="cb6-73"><a href="#cb6-73"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>[Previous sections remain the same from Server Actions onwards…]</p>
 </section>
 </section>
@@ -461,36 +650,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="5"><span class="header-section-number">5</span> Security Considerations</h1>
 <section id="parameter-store-access" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="parameter-store-access"><span class="header-section-number">5.1</span> Parameter Store Access</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Configuration for AWS Parameter Store access</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> parameterStorePolicy <span class="op">=</span> {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  Version<span class="op">:</span> <span class="st">"2012-10-17"</span><span class="op">,</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  Statement<span class="op">:</span> [</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    {</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      Effect<span class="op">:</span> <span class="st">"Allow"</span><span class="op">,</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      Action<span class="op">:</span> [</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ssm:GetParameter"</span><span class="op">,</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ssm:GetParameters"</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      ]<span class="op">,</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      Resource<span class="op">:</span> [</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"arn:aws:ssm:region:account-id:parameter/auth/*"</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>      ]</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">// Configuration for AWS Parameter Store access</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">const</span> parameterStorePolicy <span class="op">=</span> {</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  Version<span class="op">:</span> <span class="st">"2012-10-17"</span><span class="op">,</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  Statement<span class="op">:</span> [</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    {</span>
+<span id="cb7-6"><a href="#cb7-6"></a>      Effect<span class="op">:</span> <span class="st">"Allow"</span><span class="op">,</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>      Action<span class="op">:</span> [</span>
+<span id="cb7-8"><a href="#cb7-8"></a>        <span class="st">"ssm:GetParameter"</span><span class="op">,</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>        <span class="st">"ssm:GetParameters"</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>      ]<span class="op">,</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>      Resource<span class="op">:</span> [</span>
+<span id="cb7-12"><a href="#cb7-12"></a>        <span class="st">"arn:aws:ssm:region:account-id:parameter/auth/*"</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>      ]</span>
+<span id="cb7-14"><a href="#cb7-14"></a>    }</span>
+<span id="cb7-15"><a href="#cb7-15"></a>  ]</span>
+<span id="cb7-16"><a href="#cb7-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="environment-specific-parameters" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="environment-specific-parameters"><span class="header-section-number">5.2</span> Environment Specific Parameters</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Development</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ssm put-parameter <span class="dt">\</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"/auth/dev/cognito/user-pool-id"</span> <span class="dt">\</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--value</span> <span class="st">"your-dev-pool-id"</span> <span class="dt">\</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--type</span> <span class="st">"SecureString"</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Production</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> ssm put-parameter <span class="dt">\</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--name</span> <span class="st">"/auth/prod/cognito/user-pool-id"</span> <span class="dt">\</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">--value</span> <span class="st">"your-prod-pool-id"</span> <span class="dt">\</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--type</span> <span class="st">"SecureString"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Development</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">aws</span> ssm put-parameter <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="at">--name</span> <span class="st">"/auth/dev/cognito/user-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="at">--value</span> <span class="st">"your-dev-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="at">--type</span> <span class="st">"SecureString"</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># Production</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="ex">aws</span> ssm put-parameter <span class="dt">\</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="at">--name</span> <span class="st">"/auth/prod/cognito/user-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="at">--value</span> <span class="st">"your-prod-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>  <span class="at">--type</span> <span class="st">"SecureString"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="deployment-considerations" class="level1" data-number="6">
@@ -503,28 +692,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Set up proper CORS settings</li>
 </ul></li>
 <li><p><strong>Security Headers</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// next.config.js</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> securityHeaders <span class="op">=</span> [</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    key<span class="op">:</span> <span class="st">'X-Frame-Options'</span><span class="op">,</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    value<span class="op">:</span> <span class="st">'DENY'</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    key<span class="op">:</span> <span class="st">'Content-Security-Policy'</span><span class="op">,</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    value<span class="op">:</span> <span class="st">"default-src 'self'"</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> {</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">async</span> <span class="fu">headers</span>() {</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      {</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        source<span class="op">:</span> <span class="st">'/:path*'</span><span class="op">,</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        headers<span class="op">:</span> securityHeaders</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">// next.config.js</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">const</span> securityHeaders <span class="op">=</span> [</span>
+<span id="cb9-3"><a href="#cb9-3"></a>  {</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    key<span class="op">:</span> <span class="st">'X-Frame-Options'</span><span class="op">,</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>    value<span class="op">:</span> <span class="st">'DENY'</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  }<span class="op">,</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>  {</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    key<span class="op">:</span> <span class="st">'Content-Security-Policy'</span><span class="op">,</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>    value<span class="op">:</span> <span class="st">"default-src 'self'"</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>  }</span>
+<span id="cb9-11"><a href="#cb9-11"></a>]</span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> {</span>
+<span id="cb9-14"><a href="#cb9-14"></a>  <span class="kw">async</span> <span class="fu">headers</span>() {</span>
+<span id="cb9-15"><a href="#cb9-15"></a>    <span class="cf">return</span> [</span>
+<span id="cb9-16"><a href="#cb9-16"></a>      {</span>
+<span id="cb9-17"><a href="#cb9-17"></a>        source<span class="op">:</span> <span class="st">'/:path*'</span><span class="op">,</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a>        headers<span class="op">:</span> securityHeaders</span>
+<span id="cb9-19"><a href="#cb9-19"></a>      }</span>
+<span id="cb9-20"><a href="#cb9-20"></a>    ]</span>
+<span id="cb9-21"><a href="#cb9-21"></a>  }</span>
+<span id="cb9-22"><a href="#cb9-22"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><strong>Monitoring</strong></p>
 <ul>
 <li>Set up AWS CloudWatch for Cognito monitoring</li>
@@ -533,6 +722,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 
+
+<!-- -->
 
 </section>
 
@@ -768,6 +959,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -1097,7 +1339,295 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="an">title:</span><span class="co"> "Next.js Authentication Flow with Cognito and Zod"</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="an">subtitle:</span><span class="co"> "Implementation Guide using App Router, TypeScript, and AWS Cognito"</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="an">format:</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">  html:</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">    toc: true</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">    number-sections: true</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">    highlight-style: github</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">---</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="fu"># Architecture Overview</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="al">![](./authentication-overview.jpg)</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="fu"># Technology Stack</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="ss">- </span>Next.js 14+ with App Router</span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="ss">- </span>TypeScript</span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="ss">- </span>AWS Cognito User Pools</span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="ss">- </span>AWS Parameter Store</span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="ss">- </span>Zod for validation</span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="ss">- </span>React Server Components</span>
+<span id="cb10-23"><a href="#cb10-23"></a></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="fu"># Configuration Setup</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a></span>
+<span id="cb10-26"><a href="#cb10-26"></a><span class="fu">## AWS Parameter Store Setup</span></span>
+<span id="cb10-27"><a href="#cb10-27"></a></span>
+<span id="cb10-28"><a href="#cb10-28"></a><span class="in">```typescript</span></span>
+<span id="cb10-29"><a href="#cb10-29"></a><span class="co">// lib/config/parameterStore.ts</span></span>
+<span id="cb10-30"><a href="#cb10-30"></a><span class="im">import</span> { SSMClient<span class="op">,</span> GetParameterCommand } <span class="im">from</span> <span class="st">"@aws-sdk/client-ssm"</span></span>
+<span id="cb10-31"><a href="#cb10-31"></a></span>
+<span id="cb10-32"><a href="#cb10-32"></a><span class="kw">const</span> ssmClient <span class="op">=</span> <span class="kw">new</span> <span class="fu">SSMClient</span>({</span>
+<span id="cb10-33"><a href="#cb10-33"></a>  region<span class="op">:</span> <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">AWS_REGION</span></span>
+<span id="cb10-34"><a href="#cb10-34"></a>})</span>
+<span id="cb10-35"><a href="#cb10-35"></a></span>
+<span id="cb10-36"><a href="#cb10-36"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">getParameter</span>(name<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> withDecryption <span class="op">=</span> <span class="kw">true</span>) {</span>
+<span id="cb10-37"><a href="#cb10-37"></a>  <span class="kw">const</span> command <span class="op">=</span> <span class="kw">new</span> <span class="fu">GetParameterCommand</span>({</span>
+<span id="cb10-38"><a href="#cb10-38"></a>    Name<span class="op">:</span> name<span class="op">,</span></span>
+<span id="cb10-39"><a href="#cb10-39"></a>    WithDecryption<span class="op">:</span> withDecryption</span>
+<span id="cb10-40"><a href="#cb10-40"></a>  })</span>
+<span id="cb10-41"><a href="#cb10-41"></a></span>
+<span id="cb10-42"><a href="#cb10-42"></a>  <span class="cf">try</span> {</span>
+<span id="cb10-43"><a href="#cb10-43"></a>    <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> ssmClient<span class="op">.</span><span class="fu">send</span>(command)</span>
+<span id="cb10-44"><a href="#cb10-44"></a>    <span class="cf">return</span> response<span class="op">.</span><span class="at">Parameter</span><span class="op">?.</span><span class="at">Value</span></span>
+<span id="cb10-45"><a href="#cb10-45"></a>  } <span class="cf">catch</span> (error) {</span>
+<span id="cb10-46"><a href="#cb10-46"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="vs">`Error fetching parameter </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">:`</span><span class="op">,</span> error)</span>
+<span id="cb10-47"><a href="#cb10-47"></a>    <span class="cf">throw</span> error</span>
+<span id="cb10-48"><a href="#cb10-48"></a>  }</span>
+<span id="cb10-49"><a href="#cb10-49"></a>}</span>
+<span id="cb10-50"><a href="#cb10-50"></a></span>
+<span id="cb10-51"><a href="#cb10-51"></a><span class="co">// Usage in environment configuration</span></span>
+<span id="cb10-52"><a href="#cb10-52"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">loadSecureConfig</span>() {</span>
+<span id="cb10-53"><a href="#cb10-53"></a>  <span class="cf">return</span> {</span>
+<span id="cb10-54"><a href="#cb10-54"></a>    cognitoUserPoolId<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/user-pool-id'</span>)<span class="op">,</span></span>
+<span id="cb10-55"><a href="#cb10-55"></a>    cognitoClientId<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/client-id'</span>)<span class="op">,</span></span>
+<span id="cb10-56"><a href="#cb10-56"></a>    cognitoDomain<span class="op">:</span> <span class="cf">await</span> <span class="fu">getParameter</span>(<span class="st">'/auth/cognito/domain'</span>)</span>
+<span id="cb10-57"><a href="#cb10-57"></a>  }</span>
+<span id="cb10-58"><a href="#cb10-58"></a>}</span>
+<span id="cb10-59"><a href="#cb10-59"></a><span class="in">```</span></span>
+<span id="cb10-60"><a href="#cb10-60"></a></span>
+<span id="cb10-61"><a href="#cb10-61"></a><span class="fu">## Environment Variables</span></span>
+<span id="cb10-62"><a href="#cb10-62"></a></span>
+<span id="cb10-63"><a href="#cb10-63"></a><span class="in">```typescript</span></span>
+<span id="cb10-64"><a href="#cb10-64"></a><span class="co">// .env.local</span></span>
+<span id="cb10-65"><a href="#cb10-65"></a>AWS_REGION<span class="op">=</span><span class="st">"us-east-1"</span></span>
+<span id="cb10-66"><a href="#cb10-66"></a>AWS_ACCESS_KEY_ID<span class="op">=</span><span class="st">"your-access-key"</span></span>
+<span id="cb10-67"><a href="#cb10-67"></a>AWS_SECRET_ACCESS_KEY<span class="op">=</span><span class="st">"your-secret-key"</span></span>
+<span id="cb10-68"><a href="#cb10-68"></a><span class="in">```</span></span>
+<span id="cb10-69"><a href="#cb10-69"></a></span>
+<span id="cb10-70"><a href="#cb10-70"></a><span class="fu">## Cognito Configuration</span></span>
+<span id="cb10-71"><a href="#cb10-71"></a></span>
+<span id="cb10-72"><a href="#cb10-72"></a><span class="in">```typescript</span></span>
+<span id="cb10-73"><a href="#cb10-73"></a><span class="co">// lib/auth/cognito.ts</span></span>
+<span id="cb10-74"><a href="#cb10-74"></a><span class="im">import</span> { CognitoUserPool } <span class="im">from</span> <span class="st">'amazon-cognito-identity-js'</span></span>
+<span id="cb10-75"><a href="#cb10-75"></a><span class="im">import</span> { loadSecureConfig } <span class="im">from</span> <span class="st">'../config/parameterStore'</span></span>
+<span id="cb10-76"><a href="#cb10-76"></a></span>
+<span id="cb10-77"><a href="#cb10-77"></a><span class="kw">let</span> userPool<span class="op">:</span> CognitoUserPool <span class="op">|</span> <span class="dt">null</span> <span class="op">=</span> <span class="kw">null</span></span>
+<span id="cb10-78"><a href="#cb10-78"></a></span>
+<span id="cb10-79"><a href="#cb10-79"></a><span class="im">export</span> <span class="kw">async</span> <span class="kw">function</span> <span class="fu">getUserPool</span>() {</span>
+<span id="cb10-80"><a href="#cb10-80"></a>  <span class="cf">if</span> (<span class="op">!</span>userPool) {</span>
+<span id="cb10-81"><a href="#cb10-81"></a>    <span class="kw">const</span> config <span class="op">=</span> <span class="cf">await</span> <span class="fu">loadSecureConfig</span>()</span>
+<span id="cb10-82"><a href="#cb10-82"></a>    userPool <span class="op">=</span> <span class="kw">new</span> <span class="fu">CognitoUserPool</span>({</span>
+<span id="cb10-83"><a href="#cb10-83"></a>      UserPoolId<span class="op">:</span> config<span class="op">.</span><span class="at">cognitoUserPoolId</span><span class="op">,</span></span>
+<span id="cb10-84"><a href="#cb10-84"></a>      ClientId<span class="op">:</span> config<span class="op">.</span><span class="at">cognitoClientId</span></span>
+<span id="cb10-85"><a href="#cb10-85"></a>    })</span>
+<span id="cb10-86"><a href="#cb10-86"></a>  }</span>
+<span id="cb10-87"><a href="#cb10-87"></a>  <span class="cf">return</span> userPool</span>
+<span id="cb10-88"><a href="#cb10-88"></a>}</span>
+<span id="cb10-89"><a href="#cb10-89"></a><span class="in">```</span></span>
+<span id="cb10-90"><a href="#cb10-90"></a></span>
+<span id="cb10-91"><a href="#cb10-91"></a><span class="fu">## Form Validation Schemas</span></span>
+<span id="cb10-92"><a href="#cb10-92"></a></span>
+<span id="cb10-93"><a href="#cb10-93"></a><span class="in">```typescript</span></span>
+<span id="cb10-94"><a href="#cb10-94"></a><span class="co">// lib/validations/auth.ts</span></span>
+<span id="cb10-95"><a href="#cb10-95"></a><span class="im">import</span> { z } <span class="im">from</span> <span class="st">'zod'</span></span>
+<span id="cb10-96"><a href="#cb10-96"></a></span>
+<span id="cb10-97"><a href="#cb10-97"></a><span class="im">export</span> <span class="kw">const</span> loginSchema <span class="op">=</span> z<span class="op">.</span><span class="fu">object</span>({</span>
+<span id="cb10-98"><a href="#cb10-98"></a>  email<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">email</span>(<span class="st">'Invalid email address'</span>)<span class="op">,</span></span>
+<span id="cb10-99"><a href="#cb10-99"></a>  password<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">min</span>(<span class="dv">8</span><span class="op">,</span> <span class="st">'Password must be at least 8 characters'</span>)</span>
+<span id="cb10-100"><a href="#cb10-100"></a>})</span>
+<span id="cb10-101"><a href="#cb10-101"></a></span>
+<span id="cb10-102"><a href="#cb10-102"></a><span class="im">export</span> <span class="kw">const</span> signupSchema <span class="op">=</span> loginSchema<span class="op">.</span><span class="fu">extend</span>({</span>
+<span id="cb10-103"><a href="#cb10-103"></a>  name<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()<span class="op">.</span><span class="fu">min</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">'Name must be at least 2 characters'</span>)<span class="op">,</span></span>
+<span id="cb10-104"><a href="#cb10-104"></a>  confirmPassword<span class="op">:</span> z<span class="op">.</span><span class="fu">string</span>()</span>
+<span id="cb10-105"><a href="#cb10-105"></a>})<span class="op">.</span><span class="fu">refine</span>((data) <span class="kw">=&gt;</span> data<span class="op">.</span><span class="at">password</span> <span class="op">===</span> data<span class="op">.</span><span class="at">confirmPassword</span><span class="op">,</span> {</span>
+<span id="cb10-106"><a href="#cb10-106"></a>  message<span class="op">:</span> <span class="st">"Passwords don't match"</span><span class="op">,</span></span>
+<span id="cb10-107"><a href="#cb10-107"></a>  path<span class="op">:</span> [<span class="st">"confirmPassword"</span>]</span>
+<span id="cb10-108"><a href="#cb10-108"></a>})</span>
+<span id="cb10-109"><a href="#cb10-109"></a></span>
+<span id="cb10-110"><a href="#cb10-110"></a><span class="im">export type</span> LoginInput <span class="op">=</span> z<span class="op">.</span><span class="at">infer</span><span class="op">&lt;</span><span class="kw">typeof</span> loginSchema<span class="op">&gt;</span></span>
+<span id="cb10-111"><a href="#cb10-111"></a><span class="im">export type</span> SignupInput <span class="op">=</span> z<span class="op">.</span><span class="at">infer</span><span class="op">&lt;</span><span class="kw">typeof</span> signupSchema<span class="op">&gt;</span></span>
+<span id="cb10-112"><a href="#cb10-112"></a><span class="in">```</span></span>
+<span id="cb10-113"><a href="#cb10-113"></a></span>
+<span id="cb10-114"><a href="#cb10-114"></a><span class="fu"># Component Structure</span></span>
+<span id="cb10-115"><a href="#cb10-115"></a></span>
+<span id="cb10-116"><a href="#cb10-116"></a><span class="in">```</span></span>
+<span id="cb10-117"><a href="#cb10-117"></a><span class="in">components/</span></span>
+<span id="cb10-118"><a href="#cb10-118"></a><span class="in">├── forms/</span></span>
+<span id="cb10-119"><a href="#cb10-119"></a><span class="in">│   ├── signup/</span></span>
+<span id="cb10-120"><a href="#cb10-120"></a><span class="in">│   │   ├── SignupForm.tsx</span></span>
+<span id="cb10-121"><a href="#cb10-121"></a><span class="in">│   │   ├── SignupFormFields.tsx</span></span>
+<span id="cb10-122"><a href="#cb10-122"></a><span class="in">│   │   ├── SignupFormActions.tsx</span></span>
+<span id="cb10-123"><a href="#cb10-123"></a><span class="in">│   │   └── types.ts</span></span>
+<span id="cb10-124"><a href="#cb10-124"></a><span class="in">│   └── login/</span></span>
+<span id="cb10-125"><a href="#cb10-125"></a><span class="in">│       ├── LoginForm.tsx</span></span>
+<span id="cb10-126"><a href="#cb10-126"></a><span class="in">│       ├── LoginFormFields.tsx</span></span>
+<span id="cb10-127"><a href="#cb10-127"></a><span class="in">│       ├── LoginFormActions.tsx</span></span>
+<span id="cb10-128"><a href="#cb10-128"></a><span class="in">│       └── types.ts</span></span>
+<span id="cb10-129"><a href="#cb10-129"></a><span class="in">```</span></span>
+<span id="cb10-130"><a href="#cb10-130"></a></span>
+<span id="cb10-131"><a href="#cb10-131"></a><span class="fu">## Signup Form Implementation</span></span>
+<span id="cb10-132"><a href="#cb10-132"></a></span>
+<span id="cb10-133"><a href="#cb10-133"></a><span class="in">```typescript</span></span>
+<span id="cb10-134"><a href="#cb10-134"></a><span class="co">// components/forms/signup/SignupForm.tsx</span></span>
+<span id="cb10-135"><a href="#cb10-135"></a><span class="st">'use client'</span></span>
+<span id="cb10-136"><a href="#cb10-136"></a></span>
+<span id="cb10-137"><a href="#cb10-137"></a><span class="im">import</span> { useFormState<span class="op">,</span> useFormStatus } <span class="im">from</span> <span class="st">'react-dom'</span></span>
+<span id="cb10-138"><a href="#cb10-138"></a><span class="im">import</span> { SignupFormFields } <span class="im">from</span> <span class="st">'./SignupFormFields'</span></span>
+<span id="cb10-139"><a href="#cb10-139"></a><span class="im">import</span> { SignupFormActions } <span class="im">from</span> <span class="st">'./SignupFormActions'</span></span>
+<span id="cb10-140"><a href="#cb10-140"></a><span class="im">import</span> { signup } <span class="im">from</span> <span class="st">'@/app/actions/auth'</span></span>
+<span id="cb10-141"><a href="#cb10-141"></a></span>
+<span id="cb10-142"><a href="#cb10-142"></a><span class="kw">const</span> initialState <span class="op">=</span> {</span>
+<span id="cb10-143"><a href="#cb10-143"></a>  errors<span class="op">:</span> <span class="dt">null</span><span class="op">,</span></span>
+<span id="cb10-144"><a href="#cb10-144"></a>  message<span class="op">:</span> <span class="dt">null</span></span>
+<span id="cb10-145"><a href="#cb10-145"></a>}</span>
+<span id="cb10-146"><a href="#cb10-146"></a></span>
+<span id="cb10-147"><a href="#cb10-147"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupForm</span>() {</span>
+<span id="cb10-148"><a href="#cb10-148"></a>  <span class="kw">const</span> [state<span class="op">,</span> formAction] <span class="op">=</span> <span class="fu">useFormState</span>(signup<span class="op">,</span> initialState)</span>
+<span id="cb10-149"><a href="#cb10-149"></a>  <span class="kw">const</span> { pending } <span class="op">=</span> <span class="fu">useFormStatus</span>()</span>
+<span id="cb10-150"><a href="#cb10-150"></a></span>
+<span id="cb10-151"><a href="#cb10-151"></a>  <span class="cf">return</span> (</span>
+<span id="cb10-152"><a href="#cb10-152"></a>    <span class="op">&lt;</span>form action<span class="op">=</span>{formAction} className<span class="op">=</span><span class="st">"space-y-6"</span><span class="op">&gt;</span></span>
+<span id="cb10-153"><a href="#cb10-153"></a>      <span class="op">&lt;</span>SignupFormFields errors<span class="op">=</span>{state<span class="op">.</span><span class="at">errors</span>} <span class="op">/&gt;</span></span>
+<span id="cb10-154"><a href="#cb10-154"></a>      <span class="op">&lt;</span>SignupFormActions pending<span class="op">=</span>{pending} <span class="op">/&gt;</span></span>
+<span id="cb10-155"><a href="#cb10-155"></a>      {state<span class="op">.</span><span class="at">message</span> <span class="op">&amp;&amp;</span> (</span>
+<span id="cb10-156"><a href="#cb10-156"></a>        <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500"</span><span class="op">&gt;</span>{state<span class="op">.</span><span class="at">message</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-157"><a href="#cb10-157"></a>      )}</span>
+<span id="cb10-158"><a href="#cb10-158"></a>    <span class="op">&lt;/</span>form<span class="op">&gt;</span></span>
+<span id="cb10-159"><a href="#cb10-159"></a>  )</span>
+<span id="cb10-160"><a href="#cb10-160"></a>}</span>
+<span id="cb10-161"><a href="#cb10-161"></a></span>
+<span id="cb10-162"><a href="#cb10-162"></a><span class="co">// components/forms/signup/SignupFormFields.tsx</span></span>
+<span id="cb10-163"><a href="#cb10-163"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupFormFields</span>({ errors }) {</span>
+<span id="cb10-164"><a href="#cb10-164"></a>  <span class="cf">return</span> (</span>
+<span id="cb10-165"><a href="#cb10-165"></a>    <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">"space-y-4"</span><span class="op">&gt;</span></span>
+<span id="cb10-166"><a href="#cb10-166"></a>      <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb10-167"><a href="#cb10-167"></a>        <span class="op">&lt;</span>input</span>
+<span id="cb10-168"><a href="#cb10-168"></a>          <span class="kw">type</span><span class="op">=</span><span class="st">"text"</span></span>
+<span id="cb10-169"><a href="#cb10-169"></a>          name<span class="op">=</span><span class="st">"name"</span></span>
+<span id="cb10-170"><a href="#cb10-170"></a>          placeholder<span class="op">=</span><span class="st">"Full Name"</span></span>
+<span id="cb10-171"><a href="#cb10-171"></a>          className<span class="op">=</span><span class="st">"w-full p-2 border rounded"</span></span>
+<span id="cb10-172"><a href="#cb10-172"></a>        <span class="op">/&gt;</span></span>
+<span id="cb10-173"><a href="#cb10-173"></a>        {errors<span class="op">?.</span><span class="at">name</span> <span class="op">&amp;&amp;</span> (</span>
+<span id="cb10-174"><a href="#cb10-174"></a>          <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500 text-sm"</span><span class="op">&gt;</span>{errors<span class="op">.</span><span class="at">name</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-175"><a href="#cb10-175"></a>        )}</span>
+<span id="cb10-176"><a href="#cb10-176"></a>      <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb10-177"><a href="#cb10-177"></a>      <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb10-178"><a href="#cb10-178"></a>        <span class="op">&lt;</span>input</span>
+<span id="cb10-179"><a href="#cb10-179"></a>          <span class="kw">type</span><span class="op">=</span><span class="st">"email"</span></span>
+<span id="cb10-180"><a href="#cb10-180"></a>          name<span class="op">=</span><span class="st">"email"</span></span>
+<span id="cb10-181"><a href="#cb10-181"></a>          placeholder<span class="op">=</span><span class="st">"Email"</span></span>
+<span id="cb10-182"><a href="#cb10-182"></a>          className<span class="op">=</span><span class="st">"w-full p-2 border rounded"</span></span>
+<span id="cb10-183"><a href="#cb10-183"></a>        <span class="op">/&gt;</span></span>
+<span id="cb10-184"><a href="#cb10-184"></a>        {errors<span class="op">?.</span><span class="at">email</span> <span class="op">&amp;&amp;</span> (</span>
+<span id="cb10-185"><a href="#cb10-185"></a>          <span class="op">&lt;</span>p className<span class="op">=</span><span class="st">"text-red-500 text-sm"</span><span class="op">&gt;</span>{errors<span class="op">.</span><span class="at">email</span>}<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-186"><a href="#cb10-186"></a>        )}</span>
+<span id="cb10-187"><a href="#cb10-187"></a>      <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb10-188"><a href="#cb10-188"></a>      {<span class="co">/* Additional fields */</span>}</span>
+<span id="cb10-189"><a href="#cb10-189"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb10-190"><a href="#cb10-190"></a>  )</span>
+<span id="cb10-191"><a href="#cb10-191"></a>}</span>
+<span id="cb10-192"><a href="#cb10-192"></a></span>
+<span id="cb10-193"><a href="#cb10-193"></a><span class="co">// components/forms/signup/SignupFormActions.tsx</span></span>
+<span id="cb10-194"><a href="#cb10-194"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">SignupFormActions</span>({ pending }) {</span>
+<span id="cb10-195"><a href="#cb10-195"></a>  <span class="cf">return</span> (</span>
+<span id="cb10-196"><a href="#cb10-196"></a>    <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">"flex justify-end space-x-4"</span><span class="op">&gt;</span></span>
+<span id="cb10-197"><a href="#cb10-197"></a>      <span class="op">&lt;</span>button</span>
+<span id="cb10-198"><a href="#cb10-198"></a>        <span class="kw">type</span><span class="op">=</span><span class="st">"submit"</span></span>
+<span id="cb10-199"><a href="#cb10-199"></a>        disabled<span class="op">=</span>{pending}</span>
+<span id="cb10-200"><a href="#cb10-200"></a>        className<span class="op">=</span><span class="st">"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"</span></span>
+<span id="cb10-201"><a href="#cb10-201"></a>      <span class="op">&gt;</span></span>
+<span id="cb10-202"><a href="#cb10-202"></a>        {pending <span class="op">?</span> <span class="st">'Signing up...'</span> <span class="op">:</span> <span class="st">'Sign Up'</span>}</span>
+<span id="cb10-203"><a href="#cb10-203"></a>      <span class="op">&lt;/</span>button<span class="op">&gt;</span></span>
+<span id="cb10-204"><a href="#cb10-204"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb10-205"><a href="#cb10-205"></a>  )</span>
+<span id="cb10-206"><a href="#cb10-206"></a>}</span>
+<span id="cb10-207"><a href="#cb10-207"></a><span class="in">```</span></span>
+<span id="cb10-208"><a href="#cb10-208"></a></span>
+<span id="cb10-209"><a href="#cb10-209"></a><span class="co">[</span><span class="ot">Previous sections remain the same from Server Actions onwards...</span><span class="co">]</span></span>
+<span id="cb10-210"><a href="#cb10-210"></a></span>
+<span id="cb10-211"><a href="#cb10-211"></a><span class="fu"># Security Considerations</span></span>
+<span id="cb10-212"><a href="#cb10-212"></a></span>
+<span id="cb10-213"><a href="#cb10-213"></a><span class="fu">## Parameter Store Access</span></span>
+<span id="cb10-214"><a href="#cb10-214"></a></span>
+<span id="cb10-215"><a href="#cb10-215"></a><span class="in">```typescript</span></span>
+<span id="cb10-216"><a href="#cb10-216"></a><span class="co">// Configuration for AWS Parameter Store access</span></span>
+<span id="cb10-217"><a href="#cb10-217"></a><span class="kw">const</span> parameterStorePolicy <span class="op">=</span> {</span>
+<span id="cb10-218"><a href="#cb10-218"></a>  Version<span class="op">:</span> <span class="st">"2012-10-17"</span><span class="op">,</span></span>
+<span id="cb10-219"><a href="#cb10-219"></a>  Statement<span class="op">:</span> [</span>
+<span id="cb10-220"><a href="#cb10-220"></a>    {</span>
+<span id="cb10-221"><a href="#cb10-221"></a>      Effect<span class="op">:</span> <span class="st">"Allow"</span><span class="op">,</span></span>
+<span id="cb10-222"><a href="#cb10-222"></a>      Action<span class="op">:</span> [</span>
+<span id="cb10-223"><a href="#cb10-223"></a>        <span class="st">"ssm:GetParameter"</span><span class="op">,</span></span>
+<span id="cb10-224"><a href="#cb10-224"></a>        <span class="st">"ssm:GetParameters"</span></span>
+<span id="cb10-225"><a href="#cb10-225"></a>      ]<span class="op">,</span></span>
+<span id="cb10-226"><a href="#cb10-226"></a>      Resource<span class="op">:</span> [</span>
+<span id="cb10-227"><a href="#cb10-227"></a>        <span class="st">"arn:aws:ssm:region:account-id:parameter/auth/*"</span></span>
+<span id="cb10-228"><a href="#cb10-228"></a>      ]</span>
+<span id="cb10-229"><a href="#cb10-229"></a>    }</span>
+<span id="cb10-230"><a href="#cb10-230"></a>  ]</span>
+<span id="cb10-231"><a href="#cb10-231"></a>}</span>
+<span id="cb10-232"><a href="#cb10-232"></a><span class="in">```</span></span>
+<span id="cb10-233"><a href="#cb10-233"></a></span>
+<span id="cb10-234"><a href="#cb10-234"></a><span class="fu">## Environment Specific Parameters</span></span>
+<span id="cb10-235"><a href="#cb10-235"></a></span>
+<span id="cb10-236"><a href="#cb10-236"></a><span class="in">```bash</span></span>
+<span id="cb10-237"><a href="#cb10-237"></a><span class="co"># Development</span></span>
+<span id="cb10-238"><a href="#cb10-238"></a><span class="ex">aws</span> ssm put-parameter <span class="dt">\</span></span>
+<span id="cb10-239"><a href="#cb10-239"></a>  <span class="at">--name</span> <span class="st">"/auth/dev/cognito/user-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb10-240"><a href="#cb10-240"></a>  <span class="at">--value</span> <span class="st">"your-dev-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb10-241"><a href="#cb10-241"></a>  <span class="at">--type</span> <span class="st">"SecureString"</span></span>
+<span id="cb10-242"><a href="#cb10-242"></a></span>
+<span id="cb10-243"><a href="#cb10-243"></a><span class="co"># Production</span></span>
+<span id="cb10-244"><a href="#cb10-244"></a><span class="ex">aws</span> ssm put-parameter <span class="dt">\</span></span>
+<span id="cb10-245"><a href="#cb10-245"></a>  <span class="at">--name</span> <span class="st">"/auth/prod/cognito/user-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb10-246"><a href="#cb10-246"></a>  <span class="at">--value</span> <span class="st">"your-prod-pool-id"</span> <span class="dt">\</span></span>
+<span id="cb10-247"><a href="#cb10-247"></a>  <span class="at">--type</span> <span class="st">"SecureString"</span></span>
+<span id="cb10-248"><a href="#cb10-248"></a><span class="in">```</span></span>
+<span id="cb10-249"><a href="#cb10-249"></a></span>
+<span id="cb10-250"><a href="#cb10-250"></a></span>
+<span id="cb10-251"><a href="#cb10-251"></a><span class="fu"># Deployment Considerations</span></span>
+<span id="cb10-252"><a href="#cb10-252"></a></span>
+<span id="cb10-253"><a href="#cb10-253"></a><span class="ss">1. </span>**Environment Configuration**</span>
+<span id="cb10-254"><a href="#cb10-254"></a><span class="ss">   - </span>Set up different Cognito User Pools for each environment</span>
+<span id="cb10-255"><a href="#cb10-255"></a><span class="ss">   - </span>Configure appropriate callback URLs</span>
+<span id="cb10-256"><a href="#cb10-256"></a><span class="ss">   - </span>Set up proper CORS settings</span>
+<span id="cb10-257"><a href="#cb10-257"></a></span>
+<span id="cb10-258"><a href="#cb10-258"></a><span class="ss">2. </span>**Security Headers**</span>
+<span id="cb10-259"><a href="#cb10-259"></a>   <span class="in">```typescript</span></span>
+<span id="cb10-260"><a href="#cb10-260"></a>   <span class="co">// next.config.js</span></span>
+<span id="cb10-261"><a href="#cb10-261"></a>   <span class="kw">const</span> securityHeaders <span class="op">=</span> [</span>
+<span id="cb10-262"><a href="#cb10-262"></a>     {</span>
+<span id="cb10-263"><a href="#cb10-263"></a>       key<span class="op">:</span> <span class="st">'X-Frame-Options'</span><span class="op">,</span></span>
+<span id="cb10-264"><a href="#cb10-264"></a>       value<span class="op">:</span> <span class="st">'DENY'</span></span>
+<span id="cb10-265"><a href="#cb10-265"></a>     }<span class="op">,</span></span>
+<span id="cb10-266"><a href="#cb10-266"></a>     {</span>
+<span id="cb10-267"><a href="#cb10-267"></a>       key<span class="op">:</span> <span class="st">'Content-Security-Policy'</span><span class="op">,</span></span>
+<span id="cb10-268"><a href="#cb10-268"></a>       value<span class="op">:</span> <span class="st">"default-src 'self'"</span></span>
+<span id="cb10-269"><a href="#cb10-269"></a>     }</span>
+<span id="cb10-270"><a href="#cb10-270"></a>   ]</span>
+<span id="cb10-271"><a href="#cb10-271"></a>   </span>
+<span id="cb10-272"><a href="#cb10-272"></a>   module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> {</span>
+<span id="cb10-273"><a href="#cb10-273"></a>     <span class="kw">async</span> <span class="fu">headers</span>() {</span>
+<span id="cb10-274"><a href="#cb10-274"></a>       <span class="cf">return</span> [</span>
+<span id="cb10-275"><a href="#cb10-275"></a>         {</span>
+<span id="cb10-276"><a href="#cb10-276"></a>           source<span class="op">:</span> <span class="st">'/:path*'</span><span class="op">,</span></span>
+<span id="cb10-277"><a href="#cb10-277"></a>           headers<span class="op">:</span> securityHeaders</span>
+<span id="cb10-278"><a href="#cb10-278"></a>         }</span>
+<span id="cb10-279"><a href="#cb10-279"></a>       ]</span>
+<span id="cb10-280"><a href="#cb10-280"></a>     }</span>
+<span id="cb10-281"><a href="#cb10-281"></a>   }</span>
+<span id="cb10-282"><a href="#cb10-282"></a>   <span class="in">```</span></span>
+<span id="cb10-283"><a href="#cb10-283"></a></span>
+<span id="cb10-284"><a href="#cb10-284"></a><span class="ss">3. </span>**Monitoring**</span>
+<span id="cb10-285"><a href="#cb10-285"></a><span class="ss">   - </span>Set up AWS CloudWatch for Cognito monitoring</span>
+<span id="cb10-286"><a href="#cb10-286"></a><span class="ss">   - </span>Implement logging for authentication attempts</span>
+<span id="cb10-287"><a href="#cb10-287"></a><span class="ss">   - </span>Track session statistics and user behavior</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

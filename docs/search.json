@@ -1,5 +1,342 @@
 [
   {
+    "objectID": "documentation-roadmap.html",
+    "href": "documentation-roadmap.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "Documentation Roadmap"
+    ]
+  },
+  {
+    "objectID": "auth-implementation-guide.html#aws-parameter-store-setup",
+    "href": "auth-implementation-guide.html#aws-parameter-store-setup",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "3.1 AWS Parameter Store Setup",
+    "text": "3.1 AWS Parameter Store Setup\n// lib/config/parameterStore.ts\nimport { SSMClient, GetParameterCommand } from \"@aws-sdk/client-ssm\"\n\nconst ssmClient = new SSMClient({\n  region: process.env.AWS_REGION\n})\n\nexport async function getParameter(name: string, withDecryption = true) {\n  const command = new GetParameterCommand({\n    Name: name,\n    WithDecryption: withDecryption\n  })\n\n  try {\n    const response = await ssmClient.send(command)\n    return response.Parameter?.Value\n  } catch (error) {\n    console.error(`Error fetching parameter ${name}:`, error)\n    throw error\n  }\n}\n\n// Usage in environment configuration\nexport async function loadSecureConfig() {\n  return {\n    cognitoUserPoolId: await getParameter('/auth/cognito/user-pool-id'),\n    cognitoClientId: await getParameter('/auth/cognito/client-id'),\n    cognitoDomain: await getParameter('/auth/cognito/domain')\n  }\n}"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#environment-variables",
+    "href": "auth-implementation-guide.html#environment-variables",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "3.2 Environment Variables",
+    "text": "3.2 Environment Variables\n// .env.local\nAWS_REGION=\"us-east-1\"\nAWS_ACCESS_KEY_ID=\"your-access-key\"\nAWS_SECRET_ACCESS_KEY=\"your-secret-key\""
+  },
+  {
+    "objectID": "auth-implementation-guide.html#cognito-configuration",
+    "href": "auth-implementation-guide.html#cognito-configuration",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "3.3 Cognito Configuration",
+    "text": "3.3 Cognito Configuration\n// lib/auth/cognito.ts\nimport { CognitoUserPool } from 'amazon-cognito-identity-js'\nimport { loadSecureConfig } from '../config/parameterStore'\n\nlet userPool: CognitoUserPool | null = null\n\nexport async function getUserPool() {\n  if (!userPool) {\n    const config = await loadSecureConfig()\n    userPool = new CognitoUserPool({\n      UserPoolId: config.cognitoUserPoolId,\n      ClientId: config.cognitoClientId\n    })\n  }\n  return userPool\n}"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#form-validation-schemas",
+    "href": "auth-implementation-guide.html#form-validation-schemas",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "3.4 Form Validation Schemas",
+    "text": "3.4 Form Validation Schemas\n// lib/validations/auth.ts\nimport { z } from 'zod'\n\nexport const loginSchema = z.object({\n  email: z.string().email('Invalid email address'),\n  password: z.string().min(8, 'Password must be at least 8 characters')\n})\n\nexport const signupSchema = loginSchema.extend({\n  name: z.string().min(2, 'Name must be at least 2 characters'),\n  confirmPassword: z.string()\n}).refine((data) =&gt; data.password === data.confirmPassword, {\n  message: \"Passwords don't match\",\n  path: [\"confirmPassword\"]\n})\n\nexport type LoginInput = z.infer&lt;typeof loginSchema&gt;\nexport type SignupInput = z.infer&lt;typeof signupSchema&gt;"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#signup-form-implementation",
+    "href": "auth-implementation-guide.html#signup-form-implementation",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "4.1 Signup Form Implementation",
+    "text": "4.1 Signup Form Implementation\n// components/forms/signup/SignupForm.tsx\n'use client'\n\nimport { useFormState, useFormStatus } from 'react-dom'\nimport { SignupFormFields } from './SignupFormFields'\nimport { SignupFormActions } from './SignupFormActions'\nimport { signup } from '@/app/actions/auth'\n\nconst initialState = {\n  errors: null,\n  message: null\n}\n\nexport function SignupForm() {\n  const [state, formAction] = useFormState(signup, initialState)\n  const { pending } = useFormStatus()\n\n  return (\n    &lt;form action={formAction} className=\"space-y-6\"&gt;\n      &lt;SignupFormFields errors={state.errors} /&gt;\n      &lt;SignupFormActions pending={pending} /&gt;\n      {state.message && (\n        &lt;p className=\"text-red-500\"&gt;{state.message}&lt;/p&gt;\n      )}\n    &lt;/form&gt;\n  )\n}\n\n// components/forms/signup/SignupFormFields.tsx\nexport function SignupFormFields({ errors }) {\n  return (\n    &lt;div className=\"space-y-4\"&gt;\n      &lt;div&gt;\n        &lt;input\n          type=\"text\"\n          name=\"name\"\n          placeholder=\"Full Name\"\n          className=\"w-full p-2 border rounded\"\n        /&gt;\n        {errors?.name && (\n          &lt;p className=\"text-red-500 text-sm\"&gt;{errors.name}&lt;/p&gt;\n        )}\n      &lt;/div&gt;\n      &lt;div&gt;\n        &lt;input\n          type=\"email\"\n          name=\"email\"\n          placeholder=\"Email\"\n          className=\"w-full p-2 border rounded\"\n        /&gt;\n        {errors?.email && (\n          &lt;p className=\"text-red-500 text-sm\"&gt;{errors.email}&lt;/p&gt;\n        )}\n      &lt;/div&gt;\n      {/* Additional fields */}\n    &lt;/div&gt;\n  )\n}\n\n// components/forms/signup/SignupFormActions.tsx\nexport function SignupFormActions({ pending }) {\n  return (\n    &lt;div className=\"flex justify-end space-x-4\"&gt;\n      &lt;button\n        type=\"submit\"\n        disabled={pending}\n        className=\"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50\"\n      &gt;\n        {pending ? 'Signing up...' : 'Sign Up'}\n      &lt;/button&gt;\n    &lt;/div&gt;\n  )\n}\n[Previous sections remain the same from Server Actions onwards…]"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#parameter-store-access",
+    "href": "auth-implementation-guide.html#parameter-store-access",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "5.1 Parameter Store Access",
+    "text": "5.1 Parameter Store Access\n// Configuration for AWS Parameter Store access\nconst parameterStorePolicy = {\n  Version: \"2012-10-17\",\n  Statement: [\n    {\n      Effect: \"Allow\",\n      Action: [\n        \"ssm:GetParameter\",\n        \"ssm:GetParameters\"\n      ],\n      Resource: [\n        \"arn:aws:ssm:region:account-id:parameter/auth/*\"\n      ]\n    }\n  ]\n}"
+  },
+  {
+    "objectID": "auth-implementation-guide.html#environment-specific-parameters",
+    "href": "auth-implementation-guide.html#environment-specific-parameters",
+    "title": "Next.js Authentication Flow with Cognito and Zod",
+    "section": "5.2 Environment Specific Parameters",
+    "text": "5.2 Environment Specific Parameters\n# Development\naws ssm put-parameter \\\n  --name \"/auth/dev/cognito/user-pool-id\" \\\n  --value \"your-dev-pool-id\" \\\n  --type \"SecureString\"\n\n# Production\naws ssm put-parameter \\\n  --name \"/auth/prod/cognito/user-pool-id\" \\\n  --value \"your-prod-pool-id\" \\\n  --type \"SecureString\""
+  },
+  {
+    "objectID": "auth/architecture.html",
+    "href": "auth/architecture.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "auth/architecture/infrastructure.html",
+    "href": "auth/architecture/infrastructure.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationArchitectureInfrastructure Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Infrastructure"
+    ]
+  },
+  {
+    "objectID": "auth/index.html",
+    "href": "auth/index.html",
+    "title": "Authentication System Documentation",
+    "section": "",
+    "text": "This documentation covers the implementation of our authentication system using Next.js 14+, AWS Cognito, and TypeScript. The system provides secure user authentication, authorization, and session management for our web application.\n\n\n\nFrontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks\n\n\n\n\n\nSecure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#tech-stack",
+    "href": "auth/index.html#tech-stack",
+    "title": "Authentication System Documentation",
+    "section": "",
+    "text": "Frontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#key-features",
+    "href": "auth/index.html#key-features",
+    "title": "Authentication System Documentation",
+    "section": "",
+    "text": "Secure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#architecture",
+    "href": "auth/index.html#architecture",
+    "title": "Authentication System Documentation",
+    "section": "2.1 Architecture Overview",
+    "text": "2.1 Architecture Overview\n→ View Details\nUnderstanding the system’s architecture, including: - Client-server interaction - Authentication flow - Component relationships - Data flow patterns",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#config",
+    "href": "auth/index.html#config",
+    "title": "Authentication System Documentation",
+    "section": "2.2 Configuration & Setup",
+    "text": "2.2 Configuration & Setup\n→ View Details\nSetting up the required infrastructure: - AWS Parameter Store configuration - Cognito User Pool setup - Environment configuration - TypeScript types",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#flows",
+    "href": "auth/index.html#flows",
+    "title": "Authentication System Documentation",
+    "section": "2.3 Authentication Flows",
+    "text": "2.3 Authentication Flows\n\n2.3.1 Login Process\n→ View Details\nComplete login implementation: - Form handling - Validation - MFA support - Token management - Error handling\n\n\n2.3.2 Registration Process\n→ View Details\nUser registration implementation: - Form validation - Email verification - Automatic login - Error management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#implementation",
+    "href": "auth/index.html#implementation",
+    "title": "Authentication System Documentation",
+    "section": "2.4 Implementation Details",
+    "text": "2.4 Implementation Details\n\n2.4.1 Components\n→ View Details\nReact component organization: - Form components - Client components - Server components - Shared utilities\n\n\n2.4.2 Middleware\n→ View Details\nProtection and routing: - Route protection - Auth middleware - Request handling - Cookie management\n\n\n2.4.3 Session Management\n→ View Details\nSession handling strategy: - Token management - Session types - Cookie handling - Refresh logic\n\n\n2.4.4 Data Access\n→ View Details\nData handling patterns: - Authorization - Data access layer - Transfer objects - Caching strategy\n\n\n2.4.5 Security\n→ View Details\nSecurity implementations: - Best practices - Protection mechanisms - Rate limiting - Testing approaches",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#code-organization",
+    "href": "auth/index.html#code-organization",
+    "title": "Authentication System Documentation",
+    "section": "4.1 Code Organization",
+    "text": "4.1 Code Organization\nsrc/\n├── app/\n│   ├── (auth)/\n│   │   ├── login/\n│   │   └── signup/\n│   └── api/\n├── components/\n│   └── forms/\n│       ├── login/\n│       └── signup/\n└── lib/\n    ├── auth/\n    ├── validations/\n    └── config/",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/index.html#best-practices",
+    "href": "auth/index.html#best-practices",
+    "title": "Authentication System Documentation",
+    "section": "4.2 Best Practices",
+    "text": "4.2 Best Practices\n\nType Safety\n\nUse TypeScript interfaces for all data structures\nImplement Zod schemas for validation\nMaintain strict type checking\n\nSecurity\n\nFollow AWS security best practices\nImplement proper error handling\nUse secure session management\nApply rate limiting\n\nCode Quality\n\nWrite unit tests for critical paths\nMaintain consistent error handling\nFollow component organization patterns\nUse proper TypeScript practices",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html",
+    "href": "auth/architecture/index.html",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "Our system follows a modern web architecture utilizing Next.js 14, AWS Cognito, and a robust authentication flow. The architecture is divided into three main domains:\n\n\n\nSystem Architecture Overview\n\n\n\n\n\n\nThe client domain handles user interactions and form management through:\n\nForm Components: Handles user input and validation\n&lt;form&gt; -&gt; useFormState() -&gt; useFormStatus()\nClient Components: Manages user interface and interactions\n\nRich interactive elements\nState management\nForm validation\n\n\n\n\n\nThe server domain processes requests and manages business logic via:\n\nServer Actions: Handles form submissions and data processing\nServer Components: Renders dynamic content\nMiddleware: Manages authentication and routing\nRoute Handlers: Controls API endpoints\n\n\n\n\nManages authentication, sessions, and data:\n\nAuthentication services (AWS Cognito)\nSession management (Stateless/Database)\nData access controls\nToken management\n\n\n\n\n\n\n\n\nInitial Authentication (Stage 1)\nsequenceDiagram\n    Client-&gt;&gt;Server: Submit Credentials\n    Server-&gt;&gt;Auth Provider: Validate\n    Auth Provider-&gt;&gt;Server: Token Response\n    Server-&gt;&gt;Client: Update State\nSession Management (Stage 2)\n\nToken generation and validation\nSession state management\nCookie handling\n\nAuthorization (Stage 3)\n\nAccess control\nData permissions\nResource management\n\n\n\n\n\n\n\n\n\nClient-side validation\nServer-side validation\nError handling\nState management\n\n\n\n\n\nAuthorization checks\nData transfer objects\nCaching strategy\nError boundaries\n\n\n\n\nHybrid Approach: - Stateless JWT tokens - Database sessions for sensitive operations - Automatic token refresh - Secure cookie management\n\n\n\n\n\n\n\nNext.js 14+ with App Router\nReact Server Components\nTypeScript\nTailwindCSS\n\n\n\n\n\nNext.js API Routes\nServer Actions\nAWS Services Integration\nPrisma ORM\n\n\n\n\n\nAWS Cognito User Pools\nJWT Token Management\nMFA Support\nEmail Verification\n\n\n\n\n\nAWS Parameter Store\nCloudWatch Monitoring\nTerraform IaC\nCI/CD Pipeline\n\n\n\n\n\n\n\n\nServer Component prioritization\nClient Component hydration\nCode splitting\nBundle optimization\n\n\n\n\n\nReact cache implementation\nData fetching patterns\nStale-while-revalidate\nEdge caching\n\n\n\n\n\n\n\n\nSecure cookie storage\nCSRF protection\nXSS prevention\nToken rotation\n\n\n\n\n\nMiddleware authentication\nRole-based access\nPermission validation\nError handling\n\n\n\n\n\n\n\nsrc/\n├── app/\n│   ├── api/             # All API routes\n│   │   ├── auth/        # Auth-related endpoints\n│   │   │   ├── login/\n│   │   │   │   └── route.ts\n│   │   │   ├── signup/\n│   │   │   │   └── route.ts\n│   │   │   └── verify/\n│   │   │       └── route.ts\n│   │   └── [...nextauth]/\n│   │       └── route.ts\n│   ├── (routes)/        # Page routes\n│   │   ├── login/\n│   │   │   └── page.tsx\n│   │   └── signup/\n│   │       └── page.tsx\n│   └── middleware.ts\n├── components/\n│   ├── forms/          # Form components\n│   │   ├── login/\n│   │   │   ├── LoginForm.tsx\n│   │   │   └── types.ts\n│   │   └── signup/\n│   │       ├── SignupForm.tsx\n│   │       └── types.ts\n│   └── ui/            # Shared UI components\n│       └── auth/\n│           └── AuthCard.tsx\n└── lib/\n    ├── auth/          # Auth utilities\n    │   ├── cognito.ts\n    │   ├── session.ts\n    │   └── validation.ts\n    └── utils/\n\n\n\n\nClient initiates request\nMiddleware processes request\nServer handles business logic\nAuth provider validates\nResponse returns to client\n\n\n\n\n\n\n\n\nAuthentication attempts\nError tracking\nPerformance metrics\nSecurity alerts\n\n\n\n\n\nRequest tracking\nError logging\nPerformance monitoring\nUser analytics\n\n\n\n\n\nFor detailed implementation guidance, refer to:\n\nComponent Architecture\nInfrastructure Setup\nSecurity Implementation",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#core-domains",
+    "href": "auth/architecture/index.html#core-domains",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "The client domain handles user interactions and form management through:\n\nForm Components: Handles user input and validation\n&lt;form&gt; -&gt; useFormState() -&gt; useFormStatus()\nClient Components: Manages user interface and interactions\n\nRich interactive elements\nState management\nForm validation\n\n\n\n\n\nThe server domain processes requests and manages business logic via:\n\nServer Actions: Handles form submissions and data processing\nServer Components: Renders dynamic content\nMiddleware: Manages authentication and routing\nRoute Handlers: Controls API endpoints\n\n\n\n\nManages authentication, sessions, and data:\n\nAuthentication services (AWS Cognito)\nSession management (Stateless/Database)\nData access controls\nToken management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#key-interactions",
+    "href": "auth/architecture/index.html#key-interactions",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "Initial Authentication (Stage 1)\nsequenceDiagram\n    Client-&gt;&gt;Server: Submit Credentials\n    Server-&gt;&gt;Auth Provider: Validate\n    Auth Provider-&gt;&gt;Server: Token Response\n    Server-&gt;&gt;Client: Update State\nSession Management (Stage 2)\n\nToken generation and validation\nSession state management\nCookie handling\n\nAuthorization (Stage 3)\n\nAccess control\nData permissions\nResource management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#core-features",
+    "href": "auth/architecture/index.html#core-features",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "Client-side validation\nServer-side validation\nError handling\nState management\n\n\n\n\n\nAuthorization checks\nData transfer objects\nCaching strategy\nError boundaries\n\n\n\n\nHybrid Approach: - Stateless JWT tokens - Database sessions for sensitive operations - Automatic token refresh - Secure cookie management",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#technology-stack-details",
+    "href": "auth/architecture/index.html#technology-stack-details",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "Next.js 14+ with App Router\nReact Server Components\nTypeScript\nTailwindCSS\n\n\n\n\n\nNext.js API Routes\nServer Actions\nAWS Services Integration\nPrisma ORM\n\n\n\n\n\nAWS Cognito User Pools\nJWT Token Management\nMFA Support\nEmail Verification\n\n\n\n\n\nAWS Parameter Store\nCloudWatch Monitoring\nTerraform IaC\nCI/CD Pipeline",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#performance-considerations",
+    "href": "auth/architecture/index.html#performance-considerations",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "Server Component prioritization\nClient Component hydration\nCode splitting\nBundle optimization\n\n\n\n\n\nReact cache implementation\nData fetching patterns\nStale-while-revalidate\nEdge caching",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#security-implementation",
+    "href": "auth/architecture/index.html#security-implementation",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "Secure cookie storage\nCSRF protection\nXSS prevention\nToken rotation\n\n\n\n\n\nMiddleware authentication\nRole-based access\nPermission validation\nError handling",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#development-workflow",
+    "href": "auth/architecture/index.html#development-workflow",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "src/\n├── app/\n│   ├── api/             # All API routes\n│   │   ├── auth/        # Auth-related endpoints\n│   │   │   ├── login/\n│   │   │   │   └── route.ts\n│   │   │   ├── signup/\n│   │   │   │   └── route.ts\n│   │   │   └── verify/\n│   │   │       └── route.ts\n│   │   └── [...nextauth]/\n│   │       └── route.ts\n│   ├── (routes)/        # Page routes\n│   │   ├── login/\n│   │   │   └── page.tsx\n│   │   └── signup/\n│   │       └── page.tsx\n│   └── middleware.ts\n├── components/\n│   ├── forms/          # Form components\n│   │   ├── login/\n│   │   │   ├── LoginForm.tsx\n│   │   │   └── types.ts\n│   │   └── signup/\n│   │       ├── SignupForm.tsx\n│   │       └── types.ts\n│   └── ui/            # Shared UI components\n│       └── auth/\n│           └── AuthCard.tsx\n└── lib/\n    ├── auth/          # Auth utilities\n    │   ├── cognito.ts\n    │   ├── session.ts\n    │   └── validation.ts\n    └── utils/\n\n\n\n\nClient initiates request\nMiddleware processes request\nServer handles business logic\nAuth provider validates\nResponse returns to client",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#monitoring-and-logging",
+    "href": "auth/architecture/index.html#monitoring-and-logging",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "Authentication attempts\nError tracking\nPerformance metrics\nSecurity alerts\n\n\n\n\n\nRequest tracking\nError logging\nPerformance monitoring\nUser analytics",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/index.html#next-steps",
+    "href": "auth/architecture/index.html#next-steps",
+    "title": "System Architecture Overview",
+    "section": "",
+    "text": "For detailed implementation guidance, refer to:\n\nComponent Architecture\nInfrastructure Setup\nSecurity Implementation",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "auth/architecture/components.html",
+    "href": "auth/architecture/components.html",
+    "title": "",
+    "section": "",
+    "text": "DocumentationAuthenticationArchitectureComponent Architecture Code",
+    "crumbs": [
+      "Documentation",
+      "Authentication",
+      "Architecture",
+      "Component Architecture"
+    ]
+  },
+  {
+    "objectID": "auth/plan.html",
+    "href": "auth/plan.html",
+    "title": "Plan",
+    "section": "",
+    "text": "auth/\n├── _index.qmd                # Overview of auth system and navigation\n├── architecture/\n│   ├── _index.qmd           # High-level system architecture\n│   ├── components.qmd       # Component architecture details\n│   └── infrastructure.qmd   # Infrastructure architecture & Terraform setup\n├── setup/\n│   ├── _index.qmd           # Setup overview\n│   ├── terraform/\n│   │   ├── cognito.qmd      # Cognito User Pool provisioning\n│   │   ├── parameter-store.qmd # SSM Parameter Store setup\n│   │   ├── iam.qmd          # IAM roles and policies\n│   │   └── monitoring.qmd   # CloudWatch and alerts\n│   └── config-setup.qmd     # Application configuration\n├── implementation/\n│   ├── login-flow.qmd       # Login process\n│   ├── signup-flow.qmd      # Registration process\n│   ├── components.qmd       # React components\n│   ├── middleware.qmd       # Route protection\n│   ├── session-mgmt.qmd     # Session handling\n│   └── data-access.qmd      # Data access patterns\n└── security.qmd             # Security best practices"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Luxorum Dashboard Documentation",
@@ -108,169 +445,5 @@
     "crumbs": [
       "Overview"
     ]
-  },
-  {
-    "objectID": "auth/plan.html",
-    "href": "auth/plan.html",
-    "title": "Plan",
-    "section": "",
-    "text": "auth/\n├── _index.qmd                # Overview of auth system and navigation\n├── architecture/\n│   ├── _index.qmd           # High-level system architecture\n│   ├── components.qmd       # Component architecture details\n│   └── infrastructure.qmd   # Infrastructure architecture & Terraform setup\n├── setup/\n│   ├── _index.qmd           # Setup overview\n│   ├── terraform/\n│   │   ├── cognito.qmd      # Cognito User Pool provisioning\n│   │   ├── parameter-store.qmd # SSM Parameter Store setup\n│   │   ├── iam.qmd          # IAM roles and policies\n│   │   └── monitoring.qmd   # CloudWatch and alerts\n│   └── config-setup.qmd     # Application configuration\n├── implementation/\n│   ├── login-flow.qmd       # Login process\n│   ├── signup-flow.qmd      # Registration process\n│   ├── components.qmd       # React components\n│   ├── middleware.qmd       # Route protection\n│   ├── session-mgmt.qmd     # Session handling\n│   └── data-access.qmd      # Data access patterns\n└── security.qmd             # Security best practices"
-  },
-  {
-    "objectID": "auth/index.html",
-    "href": "auth/index.html",
-    "title": "Authentication System Documentation",
-    "section": "",
-    "text": "This documentation covers the implementation of our authentication system using Next.js 14+, AWS Cognito, and TypeScript. The system provides secure user authentication, authorization, and session management for our web application.\n\n\n\nFrontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks\n\n\n\n\n\nSecure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#tech-stack",
-    "href": "auth/index.html#tech-stack",
-    "title": "Authentication System Documentation",
-    "section": "",
-    "text": "Frontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#key-features",
-    "href": "auth/index.html#key-features",
-    "title": "Authentication System Documentation",
-    "section": "",
-    "text": "Secure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#architecture",
-    "href": "auth/index.html#architecture",
-    "title": "Authentication System Documentation",
-    "section": "2.1 Architecture Overview",
-    "text": "2.1 Architecture Overview\n→ View Details\nUnderstanding the system’s architecture, including: - Client-server interaction - Authentication flow - Component relationships - Data flow patterns",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#config",
-    "href": "auth/index.html#config",
-    "title": "Authentication System Documentation",
-    "section": "2.2 Configuration & Setup",
-    "text": "2.2 Configuration & Setup\n→ View Details\nSetting up the required infrastructure: - AWS Parameter Store configuration - Cognito User Pool setup - Environment configuration - TypeScript types",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#flows",
-    "href": "auth/index.html#flows",
-    "title": "Authentication System Documentation",
-    "section": "2.3 Authentication Flows",
-    "text": "2.3 Authentication Flows\n\n2.3.1 Login Process\n→ View Details\nComplete login implementation: - Form handling - Validation - MFA support - Token management - Error handling\n\n\n2.3.2 Registration Process\n→ View Details\nUser registration implementation: - Form validation - Email verification - Automatic login - Error management",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#implementation",
-    "href": "auth/index.html#implementation",
-    "title": "Authentication System Documentation",
-    "section": "2.4 Implementation Details",
-    "text": "2.4 Implementation Details\n\n2.4.1 Components\n→ View Details\nReact component organization: - Form components - Client components - Server components - Shared utilities\n\n\n2.4.2 Middleware\n→ View Details\nProtection and routing: - Route protection - Auth middleware - Request handling - Cookie management\n\n\n2.4.3 Session Management\n→ View Details\nSession handling strategy: - Token management - Session types - Cookie handling - Refresh logic\n\n\n2.4.4 Data Access\n→ View Details\nData handling patterns: - Authorization - Data access layer - Transfer objects - Caching strategy\n\n\n2.4.5 Security\n→ View Details\nSecurity implementations: - Best practices - Protection mechanisms - Rate limiting - Testing approaches",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#code-organization",
-    "href": "auth/index.html#code-organization",
-    "title": "Authentication System Documentation",
-    "section": "4.1 Code Organization",
-    "text": "4.1 Code Organization\nsrc/\n├── app/\n│   ├── (auth)/\n│   │   ├── login/\n│   │   └── signup/\n│   └── api/\n├── components/\n│   └── forms/\n│       ├── login/\n│       └── signup/\n└── lib/\n    ├── auth/\n    ├── validations/\n    └── config/",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth/index.html#best-practices",
-    "href": "auth/index.html#best-practices",
-    "title": "Authentication System Documentation",
-    "section": "4.2 Best Practices",
-    "text": "4.2 Best Practices\n\nType Safety\n\nUse TypeScript interfaces for all data structures\nImplement Zod schemas for validation\nMaintain strict type checking\n\nSecurity\n\nFollow AWS security best practices\nImplement proper error handling\nUse secure session management\nApply rate limiting\n\nCode Quality\n\nWrite unit tests for critical paths\nMaintain consistent error handling\nFollow component organization patterns\nUse proper TypeScript practices",
-    "crumbs": [
-      "Documentation",
-      "Authentication",
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "auth-implementation-guide.html#aws-parameter-store-setup",
-    "href": "auth-implementation-guide.html#aws-parameter-store-setup",
-    "title": "Next.js Authentication Flow with Cognito and Zod",
-    "section": "3.1 AWS Parameter Store Setup",
-    "text": "3.1 AWS Parameter Store Setup\n// lib/config/parameterStore.ts\nimport { SSMClient, GetParameterCommand } from \"@aws-sdk/client-ssm\"\n\nconst ssmClient = new SSMClient({\n  region: process.env.AWS_REGION\n})\n\nexport async function getParameter(name: string, withDecryption = true) {\n  const command = new GetParameterCommand({\n    Name: name,\n    WithDecryption: withDecryption\n  })\n\n  try {\n    const response = await ssmClient.send(command)\n    return response.Parameter?.Value\n  } catch (error) {\n    console.error(`Error fetching parameter ${name}:`, error)\n    throw error\n  }\n}\n\n// Usage in environment configuration\nexport async function loadSecureConfig() {\n  return {\n    cognitoUserPoolId: await getParameter('/auth/cognito/user-pool-id'),\n    cognitoClientId: await getParameter('/auth/cognito/client-id'),\n    cognitoDomain: await getParameter('/auth/cognito/domain')\n  }\n}"
-  },
-  {
-    "objectID": "auth-implementation-guide.html#environment-variables",
-    "href": "auth-implementation-guide.html#environment-variables",
-    "title": "Next.js Authentication Flow with Cognito and Zod",
-    "section": "3.2 Environment Variables",
-    "text": "3.2 Environment Variables\n// .env.local\nAWS_REGION=\"us-east-1\"\nAWS_ACCESS_KEY_ID=\"your-access-key\"\nAWS_SECRET_ACCESS_KEY=\"your-secret-key\""
-  },
-  {
-    "objectID": "auth-implementation-guide.html#cognito-configuration",
-    "href": "auth-implementation-guide.html#cognito-configuration",
-    "title": "Next.js Authentication Flow with Cognito and Zod",
-    "section": "3.3 Cognito Configuration",
-    "text": "3.3 Cognito Configuration\n// lib/auth/cognito.ts\nimport { CognitoUserPool } from 'amazon-cognito-identity-js'\nimport { loadSecureConfig } from '../config/parameterStore'\n\nlet userPool: CognitoUserPool | null = null\n\nexport async function getUserPool() {\n  if (!userPool) {\n    const config = await loadSecureConfig()\n    userPool = new CognitoUserPool({\n      UserPoolId: config.cognitoUserPoolId,\n      ClientId: config.cognitoClientId\n    })\n  }\n  return userPool\n}"
-  },
-  {
-    "objectID": "auth-implementation-guide.html#form-validation-schemas",
-    "href": "auth-implementation-guide.html#form-validation-schemas",
-    "title": "Next.js Authentication Flow with Cognito and Zod",
-    "section": "3.4 Form Validation Schemas",
-    "text": "3.4 Form Validation Schemas\n// lib/validations/auth.ts\nimport { z } from 'zod'\n\nexport const loginSchema = z.object({\n  email: z.string().email('Invalid email address'),\n  password: z.string().min(8, 'Password must be at least 8 characters')\n})\n\nexport const signupSchema = loginSchema.extend({\n  name: z.string().min(2, 'Name must be at least 2 characters'),\n  confirmPassword: z.string()\n}).refine((data) =&gt; data.password === data.confirmPassword, {\n  message: \"Passwords don't match\",\n  path: [\"confirmPassword\"]\n})\n\nexport type LoginInput = z.infer&lt;typeof loginSchema&gt;\nexport type SignupInput = z.infer&lt;typeof signupSchema&gt;"
-  },
-  {
-    "objectID": "auth-implementation-guide.html#signup-form-implementation",
-    "href": "auth-implementation-guide.html#signup-form-implementation",
-    "title": "Next.js Authentication Flow with Cognito and Zod",
-    "section": "4.1 Signup Form Implementation",
-    "text": "4.1 Signup Form Implementation\n// components/forms/signup/SignupForm.tsx\n'use client'\n\nimport { useFormState, useFormStatus } from 'react-dom'\nimport { SignupFormFields } from './SignupFormFields'\nimport { SignupFormActions } from './SignupFormActions'\nimport { signup } from '@/app/actions/auth'\n\nconst initialState = {\n  errors: null,\n  message: null\n}\n\nexport function SignupForm() {\n  const [state, formAction] = useFormState(signup, initialState)\n  const { pending } = useFormStatus()\n\n  return (\n    &lt;form action={formAction} className=\"space-y-6\"&gt;\n      &lt;SignupFormFields errors={state.errors} /&gt;\n      &lt;SignupFormActions pending={pending} /&gt;\n      {state.message && (\n        &lt;p className=\"text-red-500\"&gt;{state.message}&lt;/p&gt;\n      )}\n    &lt;/form&gt;\n  )\n}\n\n// components/forms/signup/SignupFormFields.tsx\nexport function SignupFormFields({ errors }) {\n  return (\n    &lt;div className=\"space-y-4\"&gt;\n      &lt;div&gt;\n        &lt;input\n          type=\"text\"\n          name=\"name\"\n          placeholder=\"Full Name\"\n          className=\"w-full p-2 border rounded\"\n        /&gt;\n        {errors?.name && (\n          &lt;p className=\"text-red-500 text-sm\"&gt;{errors.name}&lt;/p&gt;\n        )}\n      &lt;/div&gt;\n      &lt;div&gt;\n        &lt;input\n          type=\"email\"\n          name=\"email\"\n          placeholder=\"Email\"\n          className=\"w-full p-2 border rounded\"\n        /&gt;\n        {errors?.email && (\n          &lt;p className=\"text-red-500 text-sm\"&gt;{errors.email}&lt;/p&gt;\n        )}\n      &lt;/div&gt;\n      {/* Additional fields */}\n    &lt;/div&gt;\n  )\n}\n\n// components/forms/signup/SignupFormActions.tsx\nexport function SignupFormActions({ pending }) {\n  return (\n    &lt;div className=\"flex justify-end space-x-4\"&gt;\n      &lt;button\n        type=\"submit\"\n        disabled={pending}\n        className=\"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50\"\n      &gt;\n        {pending ? 'Signing up...' : 'Sign Up'}\n      &lt;/button&gt;\n    &lt;/div&gt;\n  )\n}\n[Previous sections remain the same from Server Actions onwards…]"
-  },
-  {
-    "objectID": "auth-implementation-guide.html#parameter-store-access",
-    "href": "auth-implementation-guide.html#parameter-store-access",
-    "title": "Next.js Authentication Flow with Cognito and Zod",
-    "section": "5.1 Parameter Store Access",
-    "text": "5.1 Parameter Store Access\n// Configuration for AWS Parameter Store access\nconst parameterStorePolicy = {\n  Version: \"2012-10-17\",\n  Statement: [\n    {\n      Effect: \"Allow\",\n      Action: [\n        \"ssm:GetParameter\",\n        \"ssm:GetParameters\"\n      ],\n      Resource: [\n        \"arn:aws:ssm:region:account-id:parameter/auth/*\"\n      ]\n    }\n  ]\n}"
-  },
-  {
-    "objectID": "auth-implementation-guide.html#environment-specific-parameters",
-    "href": "auth-implementation-guide.html#environment-specific-parameters",
-    "title": "Next.js Authentication Flow with Cognito and Zod",
-    "section": "5.2 Environment Specific Parameters",
-    "text": "5.2 Environment Specific Parameters\n# Development\naws ssm put-parameter \\\n  --name \"/auth/dev/cognito/user-pool-id\" \\\n  --value \"your-dev-pool-id\" \\\n  --type \"SecureString\"\n\n# Production\naws ssm put-parameter \\\n  --name \"/auth/prod/cognito/user-pool-id\" \\\n  --value \"your-prod-pool-id\" \\\n  --type \"SecureString\""
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>High-level system architecture – Luxorum Dashboard Docs</title>
+<title>System Architecture Overview – Luxorum Dashboard Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -35,12 +69,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0626ff4d7a71b55c8707dcae1d04a9b6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-e25cc82807363e79c52e96bc8b7855f1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-b2511bcbb01c2159fd96a78deb42ffd9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-dad2c69aaa48be192da196aaa40ebc43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7b8708260d4d286026261092a75b8f7f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../getting-started.qmd">Documentation</a></li><li class="breadcrumb-item"><a href="../../auth/index.html">Authentication</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">Architecture</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">High-level system architecture</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../getting-started.html">Documentation</a></li><li class="breadcrumb-item"><a href="../../auth/index.html">Authentication</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">Architecture</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,6 +150,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../documentation-roadmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documentation Roadmap</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -127,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../getting-started.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../../getting-started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting Started</span></a>
   </div>
 </li>
@@ -143,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../auth/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -158,20 +198,203 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../auth/architecture/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">High-level system architecture</span></a>
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../auth/architecture/components.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Component architecture details</span></a>
+ <span class="menu-text">Component Architecture</span></a>
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Infrastructure architecture &amp; Terraform setup</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/architecture/infrastructure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infrastructure</span></a>
+  </div>
+</li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/setup/terraform/cognito.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cognito Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/setup/terraform/parameter-store.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parameter Store</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/setup/terraform/iam.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IAM Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/setup/terraform/monitoring.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Monitoring</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/setup/config-setup.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Application Config</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Implementation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/implementation/login-flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Login Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/implementation/signup-flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Signup Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/implementation/components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Components</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/implementation/middleware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Middleware</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/implementation/session-mgmt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session Management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/implementation/data-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Access</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../auth/security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Security</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">Features</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../features/dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dashboard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../features/analytics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analytics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">API</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../api/endpoints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Endpoints</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">Deployment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../deployment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../deployment/cicd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CI/CD</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -181,15 +404,68 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#architecture-overview" id="toc-architecture-overview" class="nav-link active" data-scroll-target="#architecture-overview">Architecture Overview</a>
+  <ul class="collapse">
+  <li><a href="#core-domains" id="toc-core-domains" class="nav-link" data-scroll-target="#core-domains">Core Domains</a>
+  <ul class="collapse">
+  <li><a href="#client-layer-react-features" id="toc-client-layer-react-features" class="nav-link" data-scroll-target="#client-layer-react-features">1. Client Layer (React Features)</a></li>
+  <li><a href="#server-layer-next.js-features" id="toc-server-layer-next.js-features" class="nav-link" data-scroll-target="#server-layer-next.js-features">2. Server Layer (Next.js Features)</a></li>
+  <li><a href="#auth-providerdatabase-layer" id="toc-auth-providerdatabase-layer" class="nav-link" data-scroll-target="#auth-providerdatabase-layer">3. Auth Provider/Database Layer</a></li>
+  </ul></li>
+  <li><a href="#key-interactions" id="toc-key-interactions" class="nav-link" data-scroll-target="#key-interactions">Key Interactions</a>
+  <ul class="collapse">
+  <li><a href="#authentication-flow" id="toc-authentication-flow" class="nav-link" data-scroll-target="#authentication-flow">Authentication Flow</a></li>
+  </ul></li>
+  <li><a href="#core-features" id="toc-core-features" class="nav-link" data-scroll-target="#core-features">Core Features</a>
+  <ul class="collapse">
+  <li><a href="#form-processing" id="toc-form-processing" class="nav-link" data-scroll-target="#form-processing">1. Form Processing</a></li>
+  <li><a href="#data-access-layer" id="toc-data-access-layer" class="nav-link" data-scroll-target="#data-access-layer">2. Data Access Layer</a></li>
+  <li><a href="#session-management" id="toc-session-management" class="nav-link" data-scroll-target="#session-management">3. Session Management</a></li>
+  </ul></li>
+  <li><a href="#technology-stack-details" id="toc-technology-stack-details" class="nav-link" data-scroll-target="#technology-stack-details">Technology Stack Details</a>
+  <ul class="collapse">
+  <li><a href="#frontend" id="toc-frontend" class="nav-link" data-scroll-target="#frontend">Frontend</a></li>
+  <li><a href="#backend" id="toc-backend" class="nav-link" data-scroll-target="#backend">Backend</a></li>
+  <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
+  <li><a href="#infrastructure" id="toc-infrastructure" class="nav-link" data-scroll-target="#infrastructure">Infrastructure</a></li>
+  </ul></li>
+  <li><a href="#performance-considerations" id="toc-performance-considerations" class="nav-link" data-scroll-target="#performance-considerations">Performance Considerations</a>
+  <ul class="collapse">
+  <li><a href="#react-optimization" id="toc-react-optimization" class="nav-link" data-scroll-target="#react-optimization">React Optimization</a></li>
+  <li><a href="#caching-strategy" id="toc-caching-strategy" class="nav-link" data-scroll-target="#caching-strategy">Caching Strategy</a></li>
+  </ul></li>
+  <li><a href="#security-implementation" id="toc-security-implementation" class="nav-link" data-scroll-target="#security-implementation">Security Implementation</a>
+  <ul class="collapse">
+  <li><a href="#token-management" id="toc-token-management" class="nav-link" data-scroll-target="#token-management">Token Management</a></li>
+  <li><a href="#route-protection" id="toc-route-protection" class="nav-link" data-scroll-target="#route-protection">Route Protection</a></li>
+  </ul></li>
+  <li><a href="#development-workflow" id="toc-development-workflow" class="nav-link" data-scroll-target="#development-workflow">Development Workflow</a>
+  <ul class="collapse">
+  <li><a href="#component-organization" id="toc-component-organization" class="nav-link" data-scroll-target="#component-organization">Component Organization</a></li>
+  <li><a href="#request-flow" id="toc-request-flow" class="nav-link" data-scroll-target="#request-flow">Request Flow</a></li>
+  </ul></li>
+  <li><a href="#monitoring-and-logging" id="toc-monitoring-and-logging" class="nav-link" data-scroll-target="#monitoring-and-logging">Monitoring and Logging</a>
+  <ul class="collapse">
+  <li><a href="#aws-cloudwatch-integration" id="toc-aws-cloudwatch-integration" class="nav-link" data-scroll-target="#aws-cloudwatch-integration">AWS CloudWatch Integration</a></li>
+  <li><a href="#application-monitoring" id="toc-application-monitoring" class="nav-link" data-scroll-target="#application-monitoring">Application Monitoring</a></li>
+  </ul></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../getting-started.qmd">Documentation</a></li><li class="breadcrumb-item"><a href="../../auth/index.html">Authentication</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">Architecture</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">High-level system architecture</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../getting-started.html">Documentation</a></li><li class="breadcrumb-item"><a href="../../auth/index.html">Authentication</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">Architecture</a></li><li class="breadcrumb-item"><a href="../../auth/architecture/index.html">Overview</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">High-level system architecture</h1>
+<div class="quarto-title-block"><div><h1 class="title">System Architecture Overview</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">High-Level Architecture Design of Luxorum Dashboard</p>
 </div>
 
 
@@ -206,8 +482,270 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="architecture-overview" class="level1">
+<h1>Architecture Overview</h1>
+<p>Our system follows a modern web architecture utilizing Next.js 14, AWS Cognito, and a robust authentication flow. The architecture is divided into three main domains:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/authentication-overview.jpg" class="img-fluid figure-img"></p>
+<figcaption>System Architecture Overview</figcaption>
+</figure>
+</div>
+<section id="core-domains" class="level2">
+<h2 class="anchored" data-anchor-id="core-domains">Core Domains</h2>
+<section id="client-layer-react-features" class="level3">
+<h3 class="anchored" data-anchor-id="client-layer-react-features">1. Client Layer (React Features)</h3>
+<p>The client domain handles user interactions and form management through:</p>
+<ul>
+<li><p><strong>Form Components</strong>: Handles user input and validation</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource typescript number-lines code-with-copy"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">&lt;</span>form<span class="op">&gt;</span> <span class="op">-&gt;</span> <span class="fu">useFormState</span>() <span class="op">-&gt;</span> <span class="fu">useFormStatus</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Client Components</strong>: Manages user interface and interactions</p>
+<ul>
+<li>Rich interactive elements</li>
+<li>State management</li>
+<li>Form validation</li>
+</ul></li>
+</ul>
+</section>
+<section id="server-layer-next.js-features" class="level3">
+<h3 class="anchored" data-anchor-id="server-layer-next.js-features">2. Server Layer (Next.js Features)</h3>
+<p>The server domain processes requests and manages business logic via:</p>
+<ul>
+<li><strong>Server Actions</strong>: Handles form submissions and data processing</li>
+<li><strong>Server Components</strong>: Renders dynamic content</li>
+<li><strong>Middleware</strong>: Manages authentication and routing</li>
+<li><strong>Route Handlers</strong>: Controls API endpoints</li>
+</ul>
+</section>
+<section id="auth-providerdatabase-layer" class="level3">
+<h3 class="anchored" data-anchor-id="auth-providerdatabase-layer">3. Auth Provider/Database Layer</h3>
+<p>Manages authentication, sessions, and data:</p>
+<ul>
+<li>Authentication services (AWS Cognito)</li>
+<li>Session management (Stateless/Database)</li>
+<li>Data access controls</li>
+<li>Token management</li>
+</ul>
+</section>
+</section>
+<section id="key-interactions" class="level2">
+<h2 class="anchored" data-anchor-id="key-interactions">Key Interactions</h2>
+<section id="authentication-flow" class="level3">
+<h3 class="anchored" data-anchor-id="authentication-flow">Authentication Flow</h3>
+<ol type="1">
+<li><p><strong>Initial Authentication</strong> (Stage 1)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource mermaid number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>sequenceDiagram</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    Client-&gt;&gt;Server: Submit Credentials</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    Server-&gt;&gt;Auth Provider: Validate</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    Auth Provider-&gt;&gt;Server: Token Response</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    Server-&gt;&gt;Client: Update State</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Session Management</strong> (Stage 2)</p>
+<ul>
+<li>Token generation and validation</li>
+<li>Session state management</li>
+<li>Cookie handling</li>
+</ul></li>
+<li><p><strong>Authorization</strong> (Stage 3)</p>
+<ul>
+<li>Access control</li>
+<li>Data permissions</li>
+<li>Resource management</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="core-features" class="level2">
+<h2 class="anchored" data-anchor-id="core-features">Core Features</h2>
+<section id="form-processing" class="level3">
+<h3 class="anchored" data-anchor-id="form-processing">1. Form Processing</h3>
+<ul>
+<li>Client-side validation</li>
+<li>Server-side validation</li>
+<li>Error handling</li>
+<li>State management</li>
+</ul>
+</section>
+<section id="data-access-layer" class="level3">
+<h3 class="anchored" data-anchor-id="data-access-layer">2. Data Access Layer</h3>
+<ul>
+<li>Authorization checks</li>
+<li>Data transfer objects</li>
+<li>Caching strategy</li>
+<li>Error boundaries</li>
+</ul>
+</section>
+<section id="session-management" class="level3">
+<h3 class="anchored" data-anchor-id="session-management">3. Session Management</h3>
+<p><strong>Hybrid Approach:</strong> - Stateless JWT tokens - Database sessions for sensitive operations - Automatic token refresh - Secure cookie management</p>
+</section>
+</section>
+<section id="technology-stack-details" class="level2">
+<h2 class="anchored" data-anchor-id="technology-stack-details">Technology Stack Details</h2>
+<section id="frontend" class="level3">
+<h3 class="anchored" data-anchor-id="frontend">Frontend</h3>
+<ul>
+<li>Next.js 14+ with App Router</li>
+<li>React Server Components</li>
+<li>TypeScript</li>
+<li>TailwindCSS</li>
+</ul>
+</section>
+<section id="backend" class="level3">
+<h3 class="anchored" data-anchor-id="backend">Backend</h3>
+<ul>
+<li>Next.js API Routes</li>
+<li>Server Actions</li>
+<li>AWS Services Integration</li>
+<li>Prisma ORM</li>
+</ul>
+</section>
+<section id="authentication" class="level3">
+<h3 class="anchored" data-anchor-id="authentication">Authentication</h3>
+<ul>
+<li>AWS Cognito User Pools</li>
+<li>JWT Token Management</li>
+<li>MFA Support</li>
+<li>Email Verification</li>
+</ul>
+</section>
+<section id="infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="infrastructure">Infrastructure</h3>
+<ul>
+<li>AWS Parameter Store</li>
+<li>CloudWatch Monitoring</li>
+<li>Terraform IaC</li>
+<li>CI/CD Pipeline</li>
+</ul>
+</section>
+</section>
+<section id="performance-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="performance-considerations">Performance Considerations</h2>
+<section id="react-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="react-optimization">React Optimization</h3>
+<ul>
+<li>Server Component prioritization</li>
+<li>Client Component hydration</li>
+<li>Code splitting</li>
+<li>Bundle optimization</li>
+</ul>
+</section>
+<section id="caching-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="caching-strategy">Caching Strategy</h3>
+<ul>
+<li>React cache implementation</li>
+<li>Data fetching patterns</li>
+<li>Stale-while-revalidate</li>
+<li>Edge caching</li>
+</ul>
+</section>
+</section>
+<section id="security-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="security-implementation">Security Implementation</h2>
+<section id="token-management" class="level3">
+<h3 class="anchored" data-anchor-id="token-management">Token Management</h3>
+<ul>
+<li>Secure cookie storage</li>
+<li>CSRF protection</li>
+<li>XSS prevention</li>
+<li>Token rotation</li>
+</ul>
+</section>
+<section id="route-protection" class="level3">
+<h3 class="anchored" data-anchor-id="route-protection">Route Protection</h3>
+<ul>
+<li>Middleware authentication</li>
+<li>Role-based access</li>
+<li>Permission validation</li>
+<li>Error handling</li>
+</ul>
+</section>
+</section>
+<section id="development-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="development-workflow">Development Workflow</h2>
+<section id="component-organization" class="level3">
+<h3 class="anchored" data-anchor-id="component-organization">Component Organization</h3>
+<pre><code>src/
+├── app/
+│   ├── api/             # All API routes
+│   │   ├── auth/        # Auth-related endpoints
+│   │   │   ├── login/
+│   │   │   │   └── route.ts
+│   │   │   ├── signup/
+│   │   │   │   └── route.ts
+│   │   │   └── verify/
+│   │   │       └── route.ts
+│   │   └── [...nextauth]/
+│   │       └── route.ts
+│   ├── (routes)/        # Page routes
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   └── signup/
+│   │       └── page.tsx
+│   └── middleware.ts
+├── components/
+│   ├── forms/          # Form components
+│   │   ├── login/
+│   │   │   ├── LoginForm.tsx
+│   │   │   └── types.ts
+│   │   └── signup/
+│   │       ├── SignupForm.tsx
+│   │       └── types.ts
+│   └── ui/            # Shared UI components
+│       └── auth/
+│           └── AuthCard.tsx
+└── lib/
+    ├── auth/          # Auth utilities
+    │   ├── cognito.ts
+    │   ├── session.ts
+    │   └── validation.ts
+    └── utils/</code></pre>
+</section>
+<section id="request-flow" class="level3">
+<h3 class="anchored" data-anchor-id="request-flow">Request Flow</h3>
+<ol type="1">
+<li>Client initiates request</li>
+<li>Middleware processes request</li>
+<li>Server handles business logic</li>
+<li>Auth provider validates</li>
+<li>Response returns to client</li>
+</ol>
+</section>
+</section>
+<section id="monitoring-and-logging" class="level2">
+<h2 class="anchored" data-anchor-id="monitoring-and-logging">Monitoring and Logging</h2>
+<section id="aws-cloudwatch-integration" class="level3">
+<h3 class="anchored" data-anchor-id="aws-cloudwatch-integration">AWS CloudWatch Integration</h3>
+<ul>
+<li>Authentication attempts</li>
+<li>Error tracking</li>
+<li>Performance metrics</li>
+<li>Security alerts</li>
+</ul>
+</section>
+<section id="application-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="application-monitoring">Application Monitoring</h3>
+<ul>
+<li>Request tracking</li>
+<li>Error logging</li>
+<li>Performance monitoring</li>
+<li>User analytics</li>
+</ul>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>For detailed implementation guidance, refer to:</p>
+<ol type="1">
+<li><a href="../../auth/architecture/components.html">Component Architecture</a></li>
+<li><a href="../../auth/architecture/infrastructure.html">Infrastructure Setup</a></li>
+<li><a href="../../auth/security.html">Security Implementation</a></li>
+</ol>
 
 
+<!-- -->
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -441,6 +979,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -770,7 +1359,216 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "System Architecture Overview"</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="an">subtitle:</span><span class="co"> "High-Level Architecture Design of Luxorum Dashboard"</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">---</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu"># Architecture Overview</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a>Our system follows a modern web architecture utilizing Next.js 14, AWS Cognito, and a robust authentication flow. The architecture is divided into three main domains:</span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="al">![System Architecture Overview](../images/authentication-overview.jpg)</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="fu">## Core Domains</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">### 1. Client Layer (React Features)</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>The client domain handles user interactions and form management through:</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="ss">- </span>**Form Components**: Handles user input and validation</span>
+<span id="cb4-18"><a href="#cb4-18"></a>  <span class="in">```typescript</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>  <span class="op">&lt;</span>form<span class="op">&gt;</span> <span class="op">-&gt;</span> <span class="fu">useFormState</span>() <span class="op">-&gt;</span> <span class="fu">useFormStatus</span>()</span>
+<span id="cb4-20"><a href="#cb4-20"></a>  <span class="in">```</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="ss">- </span>**Client Components**: Manages user interface and interactions</span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="ss">  - </span>Rich interactive elements</span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="ss">  - </span>State management</span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="ss">  - </span>Form validation</span>
+<span id="cb4-26"><a href="#cb4-26"></a></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="fu">### 2. Server Layer (Next.js Features)</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>The server domain processes requests and manages business logic via:</span>
+<span id="cb4-29"><a href="#cb4-29"></a></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="ss">- </span>**Server Actions**: Handles form submissions and data processing</span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="ss">- </span>**Server Components**: Renders dynamic content</span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="ss">- </span>**Middleware**: Manages authentication and routing</span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="ss">- </span>**Route Handlers**: Controls API endpoints</span>
+<span id="cb4-34"><a href="#cb4-34"></a></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="fu">### 3. Auth Provider/Database Layer</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a>Manages authentication, sessions, and data:</span>
+<span id="cb4-37"><a href="#cb4-37"></a></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="ss">- </span>Authentication services (AWS Cognito)</span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="ss">- </span>Session management (Stateless/Database)</span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="ss">- </span>Data access controls</span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="ss">- </span>Token management</span>
+<span id="cb4-42"><a href="#cb4-42"></a></span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="fu">## Key Interactions</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a></span>
+<span id="cb4-45"><a href="#cb4-45"></a><span class="fu">### Authentication Flow</span></span>
+<span id="cb4-46"><a href="#cb4-46"></a><span class="ss">1. </span>**Initial Authentication** (Stage 1)</span>
+<span id="cb4-47"><a href="#cb4-47"></a>   <span class="in">```mermaid</span></span>
+<span id="cb4-48"><a href="#cb4-48"></a><span class="in">   sequenceDiagram</span></span>
+<span id="cb4-49"><a href="#cb4-49"></a><span class="in">       Client-&gt;&gt;Server: Submit Credentials</span></span>
+<span id="cb4-50"><a href="#cb4-50"></a><span class="in">       Server-&gt;&gt;Auth Provider: Validate</span></span>
+<span id="cb4-51"><a href="#cb4-51"></a><span class="in">       Auth Provider-&gt;&gt;Server: Token Response</span></span>
+<span id="cb4-52"><a href="#cb4-52"></a><span class="in">       Server-&gt;&gt;Client: Update State</span></span>
+<span id="cb4-53"><a href="#cb4-53"></a><span class="in">   ```</span></span>
+<span id="cb4-54"><a href="#cb4-54"></a></span>
+<span id="cb4-55"><a href="#cb4-55"></a><span class="ss">2. </span>**Session Management** (Stage 2)</span>
+<span id="cb4-56"><a href="#cb4-56"></a><span class="ss">   - </span>Token generation and validation</span>
+<span id="cb4-57"><a href="#cb4-57"></a><span class="ss">   - </span>Session state management</span>
+<span id="cb4-58"><a href="#cb4-58"></a><span class="ss">   - </span>Cookie handling</span>
+<span id="cb4-59"><a href="#cb4-59"></a></span>
+<span id="cb4-60"><a href="#cb4-60"></a><span class="ss">3. </span>**Authorization** (Stage 3)</span>
+<span id="cb4-61"><a href="#cb4-61"></a><span class="ss">   - </span>Access control</span>
+<span id="cb4-62"><a href="#cb4-62"></a><span class="ss">   - </span>Data permissions</span>
+<span id="cb4-63"><a href="#cb4-63"></a><span class="ss">   - </span>Resource management</span>
+<span id="cb4-64"><a href="#cb4-64"></a></span>
+<span id="cb4-65"><a href="#cb4-65"></a><span class="fu">## Core Features</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a></span>
+<span id="cb4-67"><a href="#cb4-67"></a><span class="fu">### 1. Form Processing</span></span>
+<span id="cb4-68"><a href="#cb4-68"></a><span class="ss">- </span>Client-side validation</span>
+<span id="cb4-69"><a href="#cb4-69"></a><span class="ss">- </span>Server-side validation</span>
+<span id="cb4-70"><a href="#cb4-70"></a><span class="ss">- </span>Error handling</span>
+<span id="cb4-71"><a href="#cb4-71"></a><span class="ss">- </span>State management</span>
+<span id="cb4-72"><a href="#cb4-72"></a></span>
+<span id="cb4-73"><a href="#cb4-73"></a><span class="fu">### 2. Data Access Layer</span></span>
+<span id="cb4-74"><a href="#cb4-74"></a><span class="ss">- </span>Authorization checks</span>
+<span id="cb4-75"><a href="#cb4-75"></a><span class="ss">- </span>Data transfer objects</span>
+<span id="cb4-76"><a href="#cb4-76"></a><span class="ss">- </span>Caching strategy</span>
+<span id="cb4-77"><a href="#cb4-77"></a><span class="ss">- </span>Error boundaries</span>
+<span id="cb4-78"><a href="#cb4-78"></a></span>
+<span id="cb4-79"><a href="#cb4-79"></a><span class="fu">### 3. Session Management</span></span>
+<span id="cb4-80"><a href="#cb4-80"></a>**Hybrid Approach:**</span>
+<span id="cb4-81"><a href="#cb4-81"></a><span class="ss">- </span>Stateless JWT tokens</span>
+<span id="cb4-82"><a href="#cb4-82"></a><span class="ss">- </span>Database sessions for sensitive operations</span>
+<span id="cb4-83"><a href="#cb4-83"></a><span class="ss">- </span>Automatic token refresh</span>
+<span id="cb4-84"><a href="#cb4-84"></a><span class="ss">- </span>Secure cookie management</span>
+<span id="cb4-85"><a href="#cb4-85"></a></span>
+<span id="cb4-86"><a href="#cb4-86"></a><span class="fu">## Technology Stack Details</span></span>
+<span id="cb4-87"><a href="#cb4-87"></a></span>
+<span id="cb4-88"><a href="#cb4-88"></a><span class="fu">### Frontend</span></span>
+<span id="cb4-89"><a href="#cb4-89"></a><span class="ss">- </span>Next.js 14+ with App Router</span>
+<span id="cb4-90"><a href="#cb4-90"></a><span class="ss">- </span>React Server Components</span>
+<span id="cb4-91"><a href="#cb4-91"></a><span class="ss">- </span>TypeScript</span>
+<span id="cb4-92"><a href="#cb4-92"></a><span class="ss">- </span>TailwindCSS</span>
+<span id="cb4-93"><a href="#cb4-93"></a></span>
+<span id="cb4-94"><a href="#cb4-94"></a><span class="fu">### Backend</span></span>
+<span id="cb4-95"><a href="#cb4-95"></a><span class="ss">- </span>Next.js API Routes</span>
+<span id="cb4-96"><a href="#cb4-96"></a><span class="ss">- </span>Server Actions</span>
+<span id="cb4-97"><a href="#cb4-97"></a><span class="ss">- </span>AWS Services Integration</span>
+<span id="cb4-98"><a href="#cb4-98"></a><span class="ss">- </span>Prisma ORM</span>
+<span id="cb4-99"><a href="#cb4-99"></a></span>
+<span id="cb4-100"><a href="#cb4-100"></a><span class="fu">### Authentication</span></span>
+<span id="cb4-101"><a href="#cb4-101"></a><span class="ss">- </span>AWS Cognito User Pools</span>
+<span id="cb4-102"><a href="#cb4-102"></a><span class="ss">- </span>JWT Token Management</span>
+<span id="cb4-103"><a href="#cb4-103"></a><span class="ss">- </span>MFA Support</span>
+<span id="cb4-104"><a href="#cb4-104"></a><span class="ss">- </span>Email Verification</span>
+<span id="cb4-105"><a href="#cb4-105"></a></span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="fu">### Infrastructure</span></span>
+<span id="cb4-107"><a href="#cb4-107"></a><span class="ss">- </span>AWS Parameter Store</span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="ss">- </span>CloudWatch Monitoring</span>
+<span id="cb4-109"><a href="#cb4-109"></a><span class="ss">- </span>Terraform IaC</span>
+<span id="cb4-110"><a href="#cb4-110"></a><span class="ss">- </span>CI/CD Pipeline</span>
+<span id="cb4-111"><a href="#cb4-111"></a></span>
+<span id="cb4-112"><a href="#cb4-112"></a><span class="fu">## Performance Considerations</span></span>
+<span id="cb4-113"><a href="#cb4-113"></a></span>
+<span id="cb4-114"><a href="#cb4-114"></a><span class="fu">### React Optimization</span></span>
+<span id="cb4-115"><a href="#cb4-115"></a><span class="ss">- </span>Server Component prioritization</span>
+<span id="cb4-116"><a href="#cb4-116"></a><span class="ss">- </span>Client Component hydration</span>
+<span id="cb4-117"><a href="#cb4-117"></a><span class="ss">- </span>Code splitting</span>
+<span id="cb4-118"><a href="#cb4-118"></a><span class="ss">- </span>Bundle optimization</span>
+<span id="cb4-119"><a href="#cb4-119"></a></span>
+<span id="cb4-120"><a href="#cb4-120"></a><span class="fu">### Caching Strategy</span></span>
+<span id="cb4-121"><a href="#cb4-121"></a><span class="ss">- </span>React cache implementation</span>
+<span id="cb4-122"><a href="#cb4-122"></a><span class="ss">- </span>Data fetching patterns</span>
+<span id="cb4-123"><a href="#cb4-123"></a><span class="ss">- </span>Stale-while-revalidate</span>
+<span id="cb4-124"><a href="#cb4-124"></a><span class="ss">- </span>Edge caching</span>
+<span id="cb4-125"><a href="#cb4-125"></a></span>
+<span id="cb4-126"><a href="#cb4-126"></a><span class="fu">## Security Implementation</span></span>
+<span id="cb4-127"><a href="#cb4-127"></a></span>
+<span id="cb4-128"><a href="#cb4-128"></a><span class="fu">### Token Management</span></span>
+<span id="cb4-129"><a href="#cb4-129"></a><span class="ss">- </span>Secure cookie storage</span>
+<span id="cb4-130"><a href="#cb4-130"></a><span class="ss">- </span>CSRF protection</span>
+<span id="cb4-131"><a href="#cb4-131"></a><span class="ss">- </span>XSS prevention</span>
+<span id="cb4-132"><a href="#cb4-132"></a><span class="ss">- </span>Token rotation</span>
+<span id="cb4-133"><a href="#cb4-133"></a></span>
+<span id="cb4-134"><a href="#cb4-134"></a><span class="fu">### Route Protection</span></span>
+<span id="cb4-135"><a href="#cb4-135"></a><span class="ss">- </span>Middleware authentication</span>
+<span id="cb4-136"><a href="#cb4-136"></a><span class="ss">- </span>Role-based access</span>
+<span id="cb4-137"><a href="#cb4-137"></a><span class="ss">- </span>Permission validation</span>
+<span id="cb4-138"><a href="#cb4-138"></a><span class="ss">- </span>Error handling</span>
+<span id="cb4-139"><a href="#cb4-139"></a></span>
+<span id="cb4-140"><a href="#cb4-140"></a><span class="fu">## Development Workflow</span></span>
+<span id="cb4-141"><a href="#cb4-141"></a></span>
+<span id="cb4-142"><a href="#cb4-142"></a><span class="fu">### Component Organization</span></span>
+<span id="cb4-143"><a href="#cb4-143"></a><span class="in">```</span></span>
+<span id="cb4-144"><a href="#cb4-144"></a><span class="in">src/</span></span>
+<span id="cb4-145"><a href="#cb4-145"></a><span class="in">├── app/</span></span>
+<span id="cb4-146"><a href="#cb4-146"></a><span class="in">│   ├── api/             # All API routes</span></span>
+<span id="cb4-147"><a href="#cb4-147"></a><span class="in">│   │   ├── auth/        # Auth-related endpoints</span></span>
+<span id="cb4-148"><a href="#cb4-148"></a><span class="in">│   │   │   ├── login/</span></span>
+<span id="cb4-149"><a href="#cb4-149"></a><span class="in">│   │   │   │   └── route.ts</span></span>
+<span id="cb4-150"><a href="#cb4-150"></a><span class="in">│   │   │   ├── signup/</span></span>
+<span id="cb4-151"><a href="#cb4-151"></a><span class="in">│   │   │   │   └── route.ts</span></span>
+<span id="cb4-152"><a href="#cb4-152"></a><span class="in">│   │   │   └── verify/</span></span>
+<span id="cb4-153"><a href="#cb4-153"></a><span class="in">│   │   │       └── route.ts</span></span>
+<span id="cb4-154"><a href="#cb4-154"></a><span class="in">│   │   └── [...nextauth]/</span></span>
+<span id="cb4-155"><a href="#cb4-155"></a><span class="in">│   │       └── route.ts</span></span>
+<span id="cb4-156"><a href="#cb4-156"></a><span class="in">│   ├── (routes)/        # Page routes</span></span>
+<span id="cb4-157"><a href="#cb4-157"></a><span class="in">│   │   ├── login/</span></span>
+<span id="cb4-158"><a href="#cb4-158"></a><span class="in">│   │   │   └── page.tsx</span></span>
+<span id="cb4-159"><a href="#cb4-159"></a><span class="in">│   │   └── signup/</span></span>
+<span id="cb4-160"><a href="#cb4-160"></a><span class="in">│   │       └── page.tsx</span></span>
+<span id="cb4-161"><a href="#cb4-161"></a><span class="in">│   └── middleware.ts</span></span>
+<span id="cb4-162"><a href="#cb4-162"></a><span class="in">├── components/</span></span>
+<span id="cb4-163"><a href="#cb4-163"></a><span class="in">│   ├── forms/          # Form components</span></span>
+<span id="cb4-164"><a href="#cb4-164"></a><span class="in">│   │   ├── login/</span></span>
+<span id="cb4-165"><a href="#cb4-165"></a><span class="in">│   │   │   ├── LoginForm.tsx</span></span>
+<span id="cb4-166"><a href="#cb4-166"></a><span class="in">│   │   │   └── types.ts</span></span>
+<span id="cb4-167"><a href="#cb4-167"></a><span class="in">│   │   └── signup/</span></span>
+<span id="cb4-168"><a href="#cb4-168"></a><span class="in">│   │       ├── SignupForm.tsx</span></span>
+<span id="cb4-169"><a href="#cb4-169"></a><span class="in">│   │       └── types.ts</span></span>
+<span id="cb4-170"><a href="#cb4-170"></a><span class="in">│   └── ui/            # Shared UI components</span></span>
+<span id="cb4-171"><a href="#cb4-171"></a><span class="in">│       └── auth/</span></span>
+<span id="cb4-172"><a href="#cb4-172"></a><span class="in">│           └── AuthCard.tsx</span></span>
+<span id="cb4-173"><a href="#cb4-173"></a><span class="in">└── lib/</span></span>
+<span id="cb4-174"><a href="#cb4-174"></a><span class="in">    ├── auth/          # Auth utilities</span></span>
+<span id="cb4-175"><a href="#cb4-175"></a><span class="in">    │   ├── cognito.ts</span></span>
+<span id="cb4-176"><a href="#cb4-176"></a><span class="in">    │   ├── session.ts</span></span>
+<span id="cb4-177"><a href="#cb4-177"></a><span class="in">    │   └── validation.ts</span></span>
+<span id="cb4-178"><a href="#cb4-178"></a><span class="in">    └── utils/</span></span>
+<span id="cb4-179"><a href="#cb4-179"></a><span class="in">```</span></span>
+<span id="cb4-180"><a href="#cb4-180"></a></span>
+<span id="cb4-181"><a href="#cb4-181"></a><span class="fu">### Request Flow</span></span>
+<span id="cb4-182"><a href="#cb4-182"></a><span class="ss">1. </span>Client initiates request</span>
+<span id="cb4-183"><a href="#cb4-183"></a><span class="ss">2. </span>Middleware processes request</span>
+<span id="cb4-184"><a href="#cb4-184"></a><span class="ss">3. </span>Server handles business logic</span>
+<span id="cb4-185"><a href="#cb4-185"></a><span class="ss">4. </span>Auth provider validates</span>
+<span id="cb4-186"><a href="#cb4-186"></a><span class="ss">5. </span>Response returns to client</span>
+<span id="cb4-187"><a href="#cb4-187"></a></span>
+<span id="cb4-188"><a href="#cb4-188"></a><span class="fu">## Monitoring and Logging</span></span>
+<span id="cb4-189"><a href="#cb4-189"></a></span>
+<span id="cb4-190"><a href="#cb4-190"></a><span class="fu">### AWS CloudWatch Integration</span></span>
+<span id="cb4-191"><a href="#cb4-191"></a><span class="ss">- </span>Authentication attempts</span>
+<span id="cb4-192"><a href="#cb4-192"></a><span class="ss">- </span>Error tracking</span>
+<span id="cb4-193"><a href="#cb4-193"></a><span class="ss">- </span>Performance metrics</span>
+<span id="cb4-194"><a href="#cb4-194"></a><span class="ss">- </span>Security alerts</span>
+<span id="cb4-195"><a href="#cb4-195"></a></span>
+<span id="cb4-196"><a href="#cb4-196"></a><span class="fu">### Application Monitoring</span></span>
+<span id="cb4-197"><a href="#cb4-197"></a><span class="ss">- </span>Request tracking</span>
+<span id="cb4-198"><a href="#cb4-198"></a><span class="ss">- </span>Error logging</span>
+<span id="cb4-199"><a href="#cb4-199"></a><span class="ss">- </span>Performance monitoring</span>
+<span id="cb4-200"><a href="#cb4-200"></a><span class="ss">- </span>User analytics</span>
+<span id="cb4-201"><a href="#cb4-201"></a></span>
+<span id="cb4-202"><a href="#cb4-202"></a><span class="fu">## Next Steps</span></span>
+<span id="cb4-203"><a href="#cb4-203"></a></span>
+<span id="cb4-204"><a href="#cb4-204"></a>For detailed implementation guidance, refer to:</span>
+<span id="cb4-205"><a href="#cb4-205"></a></span>
+<span id="cb4-206"><a href="#cb4-206"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">Component Architecture</span><span class="co">](./components.qmd)</span></span>
+<span id="cb4-207"><a href="#cb4-207"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">Infrastructure Setup</span><span class="co">](./infrastructure.qmd)</span></span>
+<span id="cb4-208"><a href="#cb4-208"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">Security Implementation</span><span class="co">](../security.qmd)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
