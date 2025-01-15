@@ -20,15 +20,66 @@ website:
             href: getting-started.qmd
           - section: "Authentication"
             contents:
-            - text: "Introduction"
-              href: auth/index.html
-            - section: "Architecture"
-              contents:
-                - text: "High-level system architecture"
-                  href: auth/architecture/index.html
-                - text: "Component architecture details"
-                  href: auth/architecture/components.html
-                - text: "Infrastructure architecture & Terraform setup"               
+              - text: "Overview"
+                href: auth/_index.qmd
+              - section: "Architecture"
+                contents:
+                  - text: "Overview"
+                    href: auth/architecture/_index.qmd
+                  - text: "Component Architecture"
+                    href: auth/architecture/components.qmd
+                  - text: "Infrastructure"
+                    href: auth/architecture/infrastructure.qmd
+              - section: "Setup"
+                contents:
+                  - text: "Overview"
+                    href: auth/setup/_index.qmd
+                  - section: "Infrastructure"
+                    contents:
+                      - text: "Cognito Setup"
+                        href: auth/setup/terraform/cognito.qmd
+                      - text: "Parameter Store"
+                        href: auth/setup/terraform/parameter-store.qmd
+                      - text: "IAM Configuration"
+                        href: auth/setup/terraform/iam.qmd
+                      - text: "Monitoring"
+                        href: auth/setup/terraform/monitoring.qmd
+                  - text: "Application Config"
+                    href: auth/setup/config-setup.qmd
+              - section: "Implementation"
+                contents:
+                  - text: "Login Flow"
+                    href: auth/implementation/login-flow.qmd
+                  - text: "Signup Flow"
+                    href: auth/implementation/signup-flow.qmd
+                  - text: "Components"
+                    href: auth/implementation/components.qmd
+                  - text: "Middleware"
+                    href: auth/implementation/middleware.qmd
+                  - text: "Session Management"
+                    href: auth/implementation/session-mgmt.qmd
+                  - text: "Data Access"
+                    href: auth/implementation/data-access.qmd
+              - text: "Security"
+                href: auth/security.qmd
+          - section: "Features"
+            contents:
+              - text: "Dashboard"
+                href: features/dashboard.qmd
+              - text: "Analytics"
+                href: features/analytics.qmd
+          - section: "API"
+            contents:
+              - text: "Overview"
+                href: api/index.qmd
+              - text: "Endpoints"
+                href: api/endpoints.qmd
+          - section: "Deployment"
+            contents:
+              - text: "Overview"
+                href: deployment/index.qmd
+              - text: "CI/CD"
+                href: deployment/cicd.qmd
 
 format:
   html:
@@ -38,3 +89,9 @@ format:
     css: styles.css
     toc: true
     toc-location: right
+    code-fold: true
+    code-summary: "Show code"
+    code-tools: true
+    code-copy: true
+    code-line-numbers: true
+    highlight-style: github
