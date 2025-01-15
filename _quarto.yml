@@ -21,11 +21,11 @@ website:
           - section: "Authentication"
             contents:
               - text: "Overview"
-                href: auth/_index.qmd
+                href: auth/index.qmd
               - section: "Architecture"
                 contents:
                   - text: "Overview"
-                    href: auth/architecture/_index.qmd
+                    href: auth/architecture/index.qmd
                   - text: "Component Architecture"
                     href: auth/architecture/components.qmd
                   - text: "Infrastructure"
@@ -33,7 +33,7 @@ website:
               - section: "Setup"
                 contents:
                   - text: "Overview"
-                    href: auth/setup/_index.qmd
+                    href: auth/setup/index.qmd
                   - section: "Infrastructure"
                     contents:
                       - text: "Cognito Setup"
