@@ -11,38 +11,84 @@ format:
 # Architecture Overview
 
 ![](./authentication-overview.jpg)
+
 # Technology Stack
 
 - Next.js 14+ with App Router
 - TypeScript
 - AWS Cognito User Pools
+- AWS Parameter Store
 - Zod for validation
 - React Server Components
 
 # Configuration Setup
 
+## AWS Parameter Store Setup
+
+```typescript
+// lib/config/parameterStore.ts
+import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"
+
+const ssmClient = new SSMClient({
+  region: process.env.AWS_REGION
+})
+
+export async function getParameter(name: string, withDecryption = true) {
+  const command = new GetParameterCommand({
+    Name: name,
+    WithDecryption: withDecryption
+  })
+
+  try {
+    const response = await ssmClient.send(command)
+    return response.Parameter?.Value
+  } catch (error) {
+    console.error(`Error fetching parameter ${name}:`, error)
+    throw error
+  }
+}
+
+// Usage in environment configuration
+export async function loadSecureConfig() {
+  return {
+    cognitoUserPoolId: await getParameter('/auth/cognito/user-pool-id'),
+    cognitoClientId: await getParameter('/auth/cognito/client-id'),
+    cognitoDomain: await getParameter('/auth/cognito/domain')
+  }
+}
+```
+
 ## Environment Variables
 
 ```typescript
 // .env.local
-NEXT_PUBLIC_COGNITO_USER_POOL_ID="region_poolid"
-NEXT_PUBLIC_COGNITO_CLIENT_ID="clientid"
-NEXT_PUBLIC_COGNITO_DOMAIN="domain.auth.region.amazoncognito.com"
+AWS_REGION="us-east-1"
+AWS_ACCESS_KEY_ID="your-access-key"
+AWS_SECRET_ACCESS_KEY="your-secret-key"
 ```
 
 ## Cognito Configuration
 
 ```typescript
-// lib/cognito.ts
+// lib/auth/cognito.ts
 import { CognitoUserPool } from 'amazon-cognito-identity-js'
+import { loadSecureConfig } from '../config/parameterStore'
 
-export const userPool = new CognitoUserPool({
-  UserPoolId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID!,
-  ClientId: process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID!
-})
+let userPool: CognitoUserPool | null = null
+
+export async function getUserPool() {
+  if (!userPool) {
+    const config = await loadSecureConfig()
+    userPool = new CognitoUserPool({
+      UserPoolId: config.cognitoUserPoolId,
+      ClientId: config.cognitoClientId
+    })
+  }
+  return userPool
+}
 ```
 
-## Zod Schemas
+## Form Validation Schemas
 
 ```typescript
 // lib/validations/auth.ts
@@ -65,332 +111,142 @@ export type LoginInput = z.infer<typeof loginSchema>
 export type SignupInput = z.infer<typeof signupSchema>
 ```
 
-# Client-Side Implementation
+# Component Structure
 
-## Auth Form Component
+```
+components/
+├── forms/
+│   ├── signup/
+│   │   ├── SignupForm.tsx
+│   │   ├── SignupFormFields.tsx
+│   │   ├── SignupFormActions.tsx
+│   │   └── types.ts
+│   └── login/
+│       ├── LoginForm.tsx
+│       ├── LoginFormFields.tsx
+│       ├── LoginFormActions.tsx
+│       └── types.ts
+```
+
+## Signup Form Implementation
 
 ```typescript
-// components/AuthForm.tsx
+// components/forms/signup/SignupForm.tsx
 'use client'
 
 import { useFormState, useFormStatus } from 'react-dom'
-import { loginSchema, type LoginInput } from '@/lib/validations/auth'
+import { SignupFormFields } from './SignupFormFields'
+import { SignupFormActions } from './SignupFormActions'
+import { signup } from '@/app/actions/auth'
 
 const initialState = {
   errors: null,
   message: null
 }
 
-export function AuthForm() {
-  const [state, formAction] = useFormState(login, initialState)
+export function SignupForm() {
+  const [state, formAction] = useFormState(signup, initialState)
   const { pending } = useFormStatus()
 
   return (
-    <form action={formAction} className="space-y-4">
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        className="w-full p-2 border rounded"
-      />
-      {state.errors?.email && (
-        <p className="text-red-500">{state.errors.email}</p>
+    <form action={formAction} className="space-y-6">
+      <SignupFormFields errors={state.errors} />
+      <SignupFormActions pending={pending} />
+      {state.message && (
+        <p className="text-red-500">{state.message}</p>
       )}
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        className="w-full p-2 border rounded"
-      />
-      {state.errors?.password && (
-        <p className="text-red-500">{state.errors.password}</p>
-      )}
+    </form>
+  )
+}
+
+// components/forms/signup/SignupFormFields.tsx
+export function SignupFormFields({ errors }) {
+  return (
+    <div className="space-y-4">
+      <div>
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          className="w-full p-2 border rounded"
+        />
+        {errors?.name && (
+          <p className="text-red-500 text-sm">{errors.name}</p>
+        )}
+      </div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          className="w-full p-2 border rounded"
+        />
+        {errors?.email && (
+          <p className="text-red-500 text-sm">{errors.email}</p>
+        )}
+      </div>
+      {/* Additional fields */}
+    </div>
+  )
+}
+
+// components/forms/signup/SignupFormActions.tsx
+export function SignupFormActions({ pending }) {
+  return (
+    <div className="flex justify-end space-x-4">
       <button
         type="submit"
         disabled={pending}
-        className="w-full bg-blue-500 text-white p-2 rounded"
+        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
       >
-        {pending ? 'Loading...' : 'Login'}
+        {pending ? 'Signing up...' : 'Sign Up'}
       </button>
-    </form>
+    </div>
   )
 }
 ```
 
-# Server-Side Implementation
+[Previous sections remain the same from Server Actions onwards...]
 
-## App Router Structure
+# Security Considerations
 
-```
-app/
-├── (auth)/
-│   ├── login/
-│   │   ├── page.tsx
-│   │   └── actions.ts
-│   └── signup/
-│       ├── page.tsx
-│       └── actions.ts
-├── api/
-│   └── auth/
-│       └── [...nextauth]/
-│           └── route.ts
-└── middleware.ts
-```
-
-## Server Actions
+## Parameter Store Access
 
 ```typescript
-// app/(auth)/login/actions.ts
-'use server'
-
-import { cookies } from 'next/headers'
-import { loginSchema } from '@/lib/validations/auth'
-import { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js'
-import { userPool } from '@/lib/cognito'
-import { redirect } from 'next/navigation'
-
-export async function login(prevState: any, formData: FormData) {
-  const rawInput = {
-    email: formData.get('email'),
-    password: formData.get('password')
-  }
-  
-  // Validate input with Zod
-  const validationResult = loginSchema.safeParse(rawInput)
-  
-  if (!validationResult.success) {
-    return {
-      errors: validationResult.error.flatten().fieldErrors,
-      message: 'Invalid input'
+// Configuration for AWS Parameter Store access
+const parameterStorePolicy = {
+  Version: "2012-10-17",
+  Statement: [
+    {
+      Effect: "Allow",
+      Action: [
+        "ssm:GetParameter",
+        "ssm:GetParameters"
+      ],
+      Resource: [
+        "arn:aws:ssm:region:account-id:parameter/auth/*"
+      ]
     }
-  }
-  
-  const { email, password } = validationResult.data
-  
-  try {
-    const authenticationDetails = new AuthenticationDetails({
-      Username: email,
-      Password: password
-    })
-    
-    const cognitoUser = new CognitoUser({
-      Username: email,
-      Pool: userPool
-    })
-    
-    const session = await new Promise((resolve, reject) => {
-      cognitoUser.authenticateUser(authenticationDetails, {
-        onSuccess: resolve,
-        onFailure: reject
-      })
-    })
-    
-    // Set session cookie
-    cookies().set('session', session.getIdToken().getJwtToken(), {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax'
-    })
-    
-    redirect('/dashboard')
-  } catch (error) {
-    return {
-      errors: null,
-      message: 'Invalid credentials'
-    }
-  }
+  ]
 }
 ```
 
-## Middleware
+## Environment Specific Parameters
 
-```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import { CognitoJwtVerifier } from 'aws-jwt-verify'
+```bash
+# Development
+aws ssm put-parameter \
+  --name "/auth/dev/cognito/user-pool-id" \
+  --value "your-dev-pool-id" \
+  --type "SecureString"
 
-const jwtVerifier = CognitoJwtVerifier.create({
-  userPoolId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID!,
-  clientId: process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID!,
-  tokenUse: 'id'
-})
-
-export async function middleware(request: NextRequest) {
-  const token = request.cookies.get('session')?.value
-  
-  if (!token) {
-    return NextResponse.redirect(new URL('/login', request.url))
-  }
-  
-  try {
-    await jwtVerifier.verify(token)
-    return NextResponse.next()
-  } catch {
-    return NextResponse.redirect(new URL('/login', request.url))
-  }
-}
-
-export const config = {
-  matcher: ['/dashboard/:path*']
-}
+# Production
+aws ssm put-parameter \
+  --name "/auth/prod/cognito/user-pool-id" \
+  --value "your-prod-pool-id" \
+  --type "SecureString"
 ```
 
-# Authorization & Data Access
-
-## Protected API Routes
-
-```typescript
-// app/api/protected/route.ts
-import { NextRequest } from 'next/server'
-import { cookies } from 'next/headers'
-import { verifyToken } from '@/lib/auth'
-
-export async function GET(request: NextRequest) {
-  const token = cookies().get('session')?.value
-  
-  if (!token) {
-    return Response.json(
-      { error: 'Unauthorized' },
-      { status: 401 }
-    )
-  }
-  
-  try {
-    const decoded = await verifyToken(token)
-    // Access data based on user permissions
-    return Response.json({ data: 'Protected data' })
-  } catch {
-    return Response.json(
-      { error: 'Invalid token' },
-      { status: 401 }
-    )
-  }
-}
-```
-
-## Data Transfer Objects
-
-```typescript
-// lib/dto.ts
-import { z } from 'zod'
-
-const metadataSchema = z.object({
-  timestamp: z.string(),
-  requestId: z.string(),
-  userId: z.string()
-})
-
-export function createDTO<T>(
-  data: T,
-  userId: string
-) {
-  return {
-    data,
-    metadata: {
-      timestamp: new Date().toISOString(),
-      requestId: crypto.randomUUID(),
-      userId
-    }
-  }
-}
-
-export type DTOMetadata = z.infer<typeof metadataSchema>
-```
-
-# Session Management
-
-## Cognito Session Handling
-
-```typescript
-// lib/session.ts
-import { CognitoUserSession } from 'amazon-cognito-identity-js'
-
-export class SessionManager {
-  static async refreshSession(
-    cognitoUser: CognitoUser
-  ): Promise<CognitoUserSession> {
-    return new Promise((resolve, reject) => {
-      cognitoUser.getSession((err: Error | null, session: CognitoUserSession) => {
-        if (err) {
-          reject(err)
-          return
-        }
-        
-        if (!session.isValid()) {
-          cognitoUser.refreshSession(
-            session.getRefreshToken(),
-            (err, newSession) => {
-              if (err) {
-                reject(err)
-                return
-              }
-              resolve(newSession)
-            }
-          )
-        } else {
-          resolve(session)
-        }
-      })
-    })
-  }
-}
-```
-
-# Error Handling
-
-```typescript
-// lib/errors.ts
-export class AuthError extends Error {
-  constructor(
-    public code: string,
-    message: string
-  ) {
-    super(message)
-    this.name = 'AuthError'
-  }
-}
-
-export function handleCognitoError(error: any) {
-  switch (error.code) {
-    case 'NotAuthorizedException':
-      return new AuthError('INVALID_CREDENTIALS', 'Invalid email or password')
-    case 'UserNotConfirmedException':
-      return new AuthError('UNCONFIRMED_USER', 'Please verify your email')
-    default:
-      return new AuthError('UNKNOWN', 'An unexpected error occurred')
-  }
-}
-```
-
-# Testing Strategy
-
-```typescript
-// __tests__/auth.test.ts
-import { loginSchema } from '@/lib/validations/auth'
-
-describe('Auth Validation', () => {
-  test('validates correct login input', () => {
-    const input = {
-      email: 'test@example.com',
-      password: 'password123'
-    }
-    
-    const result = loginSchema.safeParse(input)
-    expect(result.success).toBe(true)
-  })
-  
-  test('fails on invalid email', () => {
-    const input = {
-      email: 'invalid-email',
-      password: 'password123'
-    }
-    
-    const result = loginSchema.safeParse(input)
-    expect(result.success).toBe(false)
-  })
-})
-```
 
 # Deployment Considerations
 
