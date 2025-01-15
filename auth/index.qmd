@@ -1,0 +1,196 @@
+---
+title: "Authentication System Documentation"
+subtitle: "Next.js, Cognito, and TypeScript Implementation Guide"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    highlight-style: github
+---
+
+# Overview {#overview}
+
+This documentation covers the implementation of our authentication system using Next.js 14+, AWS Cognito, and TypeScript. The system provides secure user authentication, authorization, and session management for our web application.
+
+## Technology Stack {#tech-stack}
+
+- **Frontend**: Next.js 14+ with App Router
+- **Authentication**: AWS Cognito User Pools
+- **Configuration**: AWS Parameter Store
+- **Language**: TypeScript
+- **Validation**: Zod
+- **State Management**: React Server Components + Client Hooks
+
+## Key Features {#key-features}
+
+- Secure user registration and login
+- Multi-factor authentication (MFA)
+- Email verification
+- Session management
+- Route protection
+- Authorization controls
+- Secure token handling
+- Form validation
+- Error management
+
+# Documentation Structure {#structure}
+
+## Architecture Overview {#architecture}
+[→ View Details](architecture.qmd)
+
+Understanding the system's architecture, including:
+- Client-server interaction
+- Authentication flow
+- Component relationships
+- Data flow patterns
+
+## Configuration & Setup {#config}
+[→ View Details](config-setup.qmd)
+
+Setting up the required infrastructure:
+- AWS Parameter Store configuration
+- Cognito User Pool setup
+- Environment configuration
+- TypeScript types
+
+## Authentication Flows {#flows}
+
+### Login Process {#login}
+[→ View Details](login-flow.qmd)
+
+Complete login implementation:
+- Form handling
+- Validation
+- MFA support
+- Token management
+- Error handling
+
+### Registration Process {#signup}
+[→ View Details](signup-flow.qmd)
+
+User registration implementation:
+- Form validation
+- Email verification
+- Automatic login
+- Error management
+
+## Implementation Details {#implementation}
+
+### Components {#components}
+[→ View Details](components.qmd)
+
+React component organization:
+- Form components
+- Client components
+- Server components
+- Shared utilities
+
+### Middleware {#middleware}
+[→ View Details](middleware.qmd)
+
+Protection and routing:
+- Route protection
+- Auth middleware
+- Request handling
+- Cookie management
+
+### Session Management {#session}
+[→ View Details](session-mgmt.qmd)
+
+Session handling strategy:
+- Token management
+- Session types
+- Cookie handling
+- Refresh logic
+
+### Data Access {#data-access}
+[→ View Details](data-access.qmd)
+
+Data handling patterns:
+- Authorization
+- Data access layer
+- Transfer objects
+- Caching strategy
+
+### Security {#security}
+[→ View Details](security.qmd)
+
+Security implementations:
+- Best practices
+- Protection mechanisms
+- Rate limiting
+- Testing approaches
+
+# Getting Started {#getting-started}
+
+1. Begin with the [Architecture Overview](architecture.qmd) to understand the system design
+2. Follow the [Configuration & Setup](config-setup.qmd) guide to set up required services
+3. Implement core flows using the [Login](login-flow.qmd) and [Signup](signup-flow.qmd) guides
+4. Add security measures following the [Security](security.qmd) documentation
+
+# Development Guidelines {#guidelines}
+
+## Code Organization
+
+```
+src/
+├── app/
+│   ├── (auth)/
+│   │   ├── login/
+│   │   └── signup/
+│   └── api/
+├── components/
+│   └── forms/
+│       ├── login/
+│       └── signup/
+└── lib/
+    ├── auth/
+    ├── validations/
+    └── config/
+```
+
+## Best Practices
+
+1. **Type Safety**
+   - Use TypeScript interfaces for all data structures
+   - Implement Zod schemas for validation
+   - Maintain strict type checking
+
+2. **Security**
+   - Follow AWS security best practices
+   - Implement proper error handling
+   - Use secure session management
+   - Apply rate limiting
+
+3. **Code Quality**
+   - Write unit tests for critical paths
+   - Maintain consistent error handling
+   - Follow component organization patterns
+   - Use proper TypeScript practices
+
+# Troubleshooting {#troubleshooting}
+
+Common issues and their solutions:
+
+1. **Configuration Issues**
+   - Verify AWS credentials
+   - Check Parameter Store access
+   - Validate Cognito settings
+
+2. **Authentication Errors**
+   - Validate token handling
+   - Check MFA configuration
+   - Verify email settings
+
+3. **Performance Concerns**
+   - Review caching strategy
+   - Check token refresh timing
+   - Monitor API call frequency
+
+# Additional Resources {#resources}
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [AWS Cognito Guide](https://docs.aws.amazon.com/cognito)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs)
+- [Zod Documentation](https://zod.dev)

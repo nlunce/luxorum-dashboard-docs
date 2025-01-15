@@ -18,8 +18,8 @@ website:
         contents:
           - text: "Getting Started"
             href: getting-started.qmd
-          - text: "Features"
-            href: features.qmd
+          - text: "Authentication"
+            href: auth/index.html
           - text: "Deployment"
             href: deployment.qmd
           - text: "API Reference"
