@@ -1,0 +1,29 @@
+---
+title: "Plan"
+---
+
+```
+auth/
+├── _index.qmd                # Overview of auth system and navigation
+├── architecture/
+│   ├── _index.qmd           # High-level system architecture
+│   ├── components.qmd       # Component architecture details
+│   └── infrastructure.qmd   # Infrastructure architecture & Terraform setup
+├── setup/
+│   ├── _index.qmd           # Setup overview
+│   ├── terraform/
+│   │   ├── cognito.qmd      # Cognito User Pool provisioning
+│   │   ├── parameter-store.qmd # SSM Parameter Store setup
+│   │   ├── iam.qmd          # IAM roles and policies
+│   │   └── monitoring.qmd   # CloudWatch and alerts
+│   └── config-setup.qmd     # Application configuration
+├── implementation/
+│   ├── login-flow.qmd       # Login process
+│   ├── signup-flow.qmd      # Registration process
+│   ├── components.qmd       # React components
+│   ├── middleware.qmd       # Route protection
+│   ├── session-mgmt.qmd     # Session handling
+│   └── data-access.qmd      # Data access patterns
+└── security.qmd             # Security best practices
+
+```

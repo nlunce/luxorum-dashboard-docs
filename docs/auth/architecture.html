@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Authentication System Documentation – Luxorum Dashboard Docs</title>
+<title>architecture – Luxorum Dashboard Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,12 +35,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0626ff4d7a71b55c8707dcae1d04a9b6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-e25cc82807363e79c52e96bc8b7855f1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-840f70856a7ff1f06d9eb6f2184c23ad.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8d4225f7dbf7257de85cf464ad30f7c1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b2511bcbb01c2159fd96a78deb42ffd9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +82,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../getting-started.qmd">Documentation</a></li><li class="breadcrumb-item"><a href="../auth/index.html">Authentication</a></li><li class="breadcrumb-item"><a href="../auth/index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Luxorum Dashboard Docs
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,16 +135,16 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Authentication</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../auth/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../auth/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -181,240 +183,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a>
-  <ul class="collapse">
-  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack"><span class="header-section-number">1.1</span> Technology Stack</a></li>
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features"><span class="header-section-number">1.2</span> Key Features</a></li>
-  </ul></li>
-  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure"><span class="header-section-number">2</span> Documentation Structure</a>
-  <ul class="collapse">
-  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture"><span class="header-section-number">2.1</span> Architecture Overview</a></li>
-  <li><a href="#config" id="toc-config" class="nav-link" data-scroll-target="#config"><span class="header-section-number">2.2</span> Configuration &amp; Setup</a></li>
-  <li><a href="#flows" id="toc-flows" class="nav-link" data-scroll-target="#flows"><span class="header-section-number">2.3</span> Authentication Flows</a>
-  <ul class="collapse">
-  <li><a href="#login" id="toc-login" class="nav-link" data-scroll-target="#login"><span class="header-section-number">2.3.1</span> Login Process</a></li>
-  <li><a href="#signup" id="toc-signup" class="nav-link" data-scroll-target="#signup"><span class="header-section-number">2.3.2</span> Registration Process</a></li>
-  </ul></li>
-  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation"><span class="header-section-number">2.4</span> Implementation Details</a>
-  <ul class="collapse">
-  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components"><span class="header-section-number">2.4.1</span> Components</a></li>
-  <li><a href="#middleware" id="toc-middleware" class="nav-link" data-scroll-target="#middleware"><span class="header-section-number">2.4.2</span> Middleware</a></li>
-  <li><a href="#session" id="toc-session" class="nav-link" data-scroll-target="#session"><span class="header-section-number">2.4.3</span> Session Management</a></li>
-  <li><a href="#data-access" id="toc-data-access" class="nav-link" data-scroll-target="#data-access"><span class="header-section-number">2.4.4</span> Data Access</a></li>
-  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security"><span class="header-section-number">2.4.5</span> Security</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">3</span> Getting Started</a></li>
-  <li><a href="#guidelines" id="toc-guidelines" class="nav-link" data-scroll-target="#guidelines"><span class="header-section-number">4</span> Development Guidelines</a>
-  <ul class="collapse">
-  <li><a href="#code-organization" id="toc-code-organization" class="nav-link" data-scroll-target="#code-organization"><span class="header-section-number">4.1</span> Code Organization</a></li>
-  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices"><span class="header-section-number">4.2</span> Best Practices</a></li>
-  </ul></li>
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting"><span class="header-section-number">5</span> Troubleshooting</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="header-section-number">6</span> Additional Resources</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../getting-started.qmd">Documentation</a></li><li class="breadcrumb-item"><a href="../auth/index.html">Authentication</a></li><li class="breadcrumb-item"><a href="../auth/index.html">Introduction</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Authentication System Documentation</h1>
-<p class="subtitle lead">Next.js, Cognito, and TypeScript Implementation Guide</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
 
-
-<section id="overview" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Overview</h1>
-<p>This documentation covers the implementation of our authentication system using Next.js 14+, AWS Cognito, and TypeScript. The system provides secure user authentication, authorization, and session management for our web application.</p>
-<section id="tech-stack" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="tech-stack"><span class="header-section-number">1.1</span> Technology Stack</h2>
-<ul>
-<li><strong>Frontend</strong>: Next.js 14+ with App Router</li>
-<li><strong>Authentication</strong>: AWS Cognito User Pools</li>
-<li><strong>Configuration</strong>: AWS Parameter Store</li>
-<li><strong>Language</strong>: TypeScript</li>
-<li><strong>Validation</strong>: Zod</li>
-<li><strong>State Management</strong>: React Server Components + Client Hooks</li>
-</ul>
-</section>
-<section id="key-features" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="key-features"><span class="header-section-number">1.2</span> Key Features</h2>
-<ul>
-<li>Secure user registration and login</li>
-<li>Multi-factor authentication (MFA)</li>
-<li>Email verification</li>
-<li>Session management</li>
-<li>Route protection</li>
-<li>Authorization controls</li>
-<li>Secure token handling</li>
-<li>Form validation</li>
-<li>Error management</li>
-</ul>
-</section>
-</section>
-<section id="structure" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Documentation Structure</h1>
-<section id="architecture" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="architecture"><span class="header-section-number">2.1</span> Architecture Overview</h2>
-<p><a href="../auth/architecture.html">→ View Details</a></p>
-<p>Understanding the system’s architecture, including: - Client-server interaction - Authentication flow - Component relationships - Data flow patterns</p>
-</section>
-<section id="config" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="config"><span class="header-section-number">2.2</span> Configuration &amp; Setup</h2>
-<p><a href="config-setup.qmd">→ View Details</a></p>
-<p>Setting up the required infrastructure: - AWS Parameter Store configuration - Cognito User Pool setup - Environment configuration - TypeScript types</p>
-</section>
-<section id="flows" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="flows"><span class="header-section-number">2.3</span> Authentication Flows</h2>
-<section id="login" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="login"><span class="header-section-number">2.3.1</span> Login Process</h3>
-<p><a href="login-flow.qmd">→ View Details</a></p>
-<p>Complete login implementation: - Form handling - Validation - MFA support - Token management - Error handling</p>
-</section>
-<section id="signup" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="signup"><span class="header-section-number">2.3.2</span> Registration Process</h3>
-<p><a href="signup-flow.qmd">→ View Details</a></p>
-<p>User registration implementation: - Form validation - Email verification - Automatic login - Error management</p>
-</section>
-</section>
-<section id="implementation" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="implementation"><span class="header-section-number">2.4</span> Implementation Details</h2>
-<section id="components" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="components"><span class="header-section-number">2.4.1</span> Components</h3>
-<p><a href="components.qmd">→ View Details</a></p>
-<p>React component organization: - Form components - Client components - Server components - Shared utilities</p>
-</section>
-<section id="middleware" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="middleware"><span class="header-section-number">2.4.2</span> Middleware</h3>
-<p><a href="middleware.qmd">→ View Details</a></p>
-<p>Protection and routing: - Route protection - Auth middleware - Request handling - Cookie management</p>
-</section>
-<section id="session" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="session"><span class="header-section-number">2.4.3</span> Session Management</h3>
-<p><a href="session-mgmt.qmd">→ View Details</a></p>
-<p>Session handling strategy: - Token management - Session types - Cookie handling - Refresh logic</p>
-</section>
-<section id="data-access" class="level3" data-number="2.4.4">
-<h3 data-number="2.4.4" class="anchored" data-anchor-id="data-access"><span class="header-section-number">2.4.4</span> Data Access</h3>
-<p><a href="data-access.qmd">→ View Details</a></p>
-<p>Data handling patterns: - Authorization - Data access layer - Transfer objects - Caching strategy</p>
-</section>
-<section id="security" class="level3" data-number="2.4.5">
-<h3 data-number="2.4.5" class="anchored" data-anchor-id="security"><span class="header-section-number">2.4.5</span> Security</h3>
-<p><a href="security.qmd">→ View Details</a></p>
-<p>Security implementations: - Best practices - Protection mechanisms - Rate limiting - Testing approaches</p>
-</section>
-</section>
-</section>
-<section id="getting-started" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Getting Started</h1>
-<ol type="1">
-<li>Begin with the <a href="../auth/architecture.html">Architecture Overview</a> to understand the system design</li>
-<li>Follow the <a href="config-setup.qmd">Configuration &amp; Setup</a> guide to set up required services</li>
-<li>Implement core flows using the <a href="login-flow.qmd">Login</a> and <a href="signup-flow.qmd">Signup</a> guides</li>
-<li>Add security measures following the <a href="security.qmd">Security</a> documentation</li>
-</ol>
-</section>
-<section id="guidelines" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Development Guidelines</h1>
-<section id="code-organization" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="code-organization"><span class="header-section-number">4.1</span> Code Organization</h2>
-<pre><code>src/
-├── app/
-│   ├── (auth)/
-│   │   ├── login/
-│   │   └── signup/
-│   └── api/
-├── components/
-│   └── forms/
-│       ├── login/
-│       └── signup/
-└── lib/
-    ├── auth/
-    ├── validations/
-    └── config/</code></pre>
-</section>
-<section id="best-practices" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="best-practices"><span class="header-section-number">4.2</span> Best Practices</h2>
-<ol type="1">
-<li><strong>Type Safety</strong>
-<ul>
-<li>Use TypeScript interfaces for all data structures</li>
-<li>Implement Zod schemas for validation</li>
-<li>Maintain strict type checking</li>
-</ul></li>
-<li><strong>Security</strong>
-<ul>
-<li>Follow AWS security best practices</li>
-<li>Implement proper error handling</li>
-<li>Use secure session management</li>
-<li>Apply rate limiting</li>
-</ul></li>
-<li><strong>Code Quality</strong>
-<ul>
-<li>Write unit tests for critical paths</li>
-<li>Maintain consistent error handling</li>
-<li>Follow component organization patterns</li>
-<li>Use proper TypeScript practices</li>
-</ul></li>
-</ol>
-</section>
-</section>
-<section id="troubleshooting" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Troubleshooting</h1>
-<p>Common issues and their solutions:</p>
-<ol type="1">
-<li><strong>Configuration Issues</strong>
-<ul>
-<li>Verify AWS credentials</li>
-<li>Check Parameter Store access</li>
-<li>Validate Cognito settings</li>
-</ul></li>
-<li><strong>Authentication Errors</strong>
-<ul>
-<li>Validate token handling</li>
-<li>Check MFA configuration</li>
-<li>Verify email settings</li>
-</ul></li>
-<li><strong>Performance Concerns</strong>
-<ul>
-<li>Review caching strategy</li>
-<li>Check token refresh timing</li>
-<li>Monitor API call frequency</li>
-</ul></li>
-</ol>
-</section>
-<section id="resources" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Additional Resources</h1>
-<ul>
-<li><a href="https://nextjs.org/docs">Next.js Documentation</a></li>
-<li><a href="https://docs.aws.amazon.com/cognito">AWS Cognito Guide</a></li>
-<li><a href="https://www.typescriptlang.org/docs">TypeScript Handbook</a></li>
-<li><a href="https://zod.dev">Zod Documentation</a></li>
-</ul>
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

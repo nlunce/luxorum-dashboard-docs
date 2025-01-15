@@ -18,12 +18,17 @@ website:
         contents:
           - text: "Getting Started"
             href: getting-started.qmd
-          - text: "Authentication"
-            href: auth/index.html
-          - text: "Deployment"
-            href: deployment.qmd
-          - text: "API Reference"
-            href: api-reference.qmd
+          - section: "Authentication"
+            contents:
+            - text: "Introduction"
+              href: auth/index.html
+            - section: "Architecture"
+              contents:
+                - text: "High-level system architecture"
+                  href: auth/architecture/index.html
+                - text: "Component architecture details"
+                  href: auth/architecture/components.html
+                - text: "Infrastructure architecture & Terraform setup"               
 
 format:
   html:

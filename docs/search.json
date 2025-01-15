@@ -110,6 +110,13 @@
     ]
   },
   {
+    "objectID": "auth/plan.html",
+    "href": "auth/plan.html",
+    "title": "Plan",
+    "section": "",
+    "text": "auth/\n├── _index.qmd                # Overview of auth system and navigation\n├── architecture/\n│   ├── _index.qmd           # High-level system architecture\n│   ├── components.qmd       # Component architecture details\n│   └── infrastructure.qmd   # Infrastructure architecture & Terraform setup\n├── setup/\n│   ├── _index.qmd           # Setup overview\n│   ├── terraform/\n│   │   ├── cognito.qmd      # Cognito User Pool provisioning\n│   │   ├── parameter-store.qmd # SSM Parameter Store setup\n│   │   ├── iam.qmd          # IAM roles and policies\n│   │   └── monitoring.qmd   # CloudWatch and alerts\n│   └── config-setup.qmd     # Application configuration\n├── implementation/\n│   ├── login-flow.qmd       # Login process\n│   ├── signup-flow.qmd      # Registration process\n│   ├── components.qmd       # React components\n│   ├── middleware.qmd       # Route protection\n│   ├── session-mgmt.qmd     # Session handling\n│   └── data-access.qmd      # Data access patterns\n└── security.qmd             # Security best practices"
+  },
+  {
     "objectID": "auth/index.html",
     "href": "auth/index.html",
     "title": "Authentication System Documentation",
@@ -117,7 +124,8 @@
     "text": "This documentation covers the implementation of our authentication system using Next.js 14+, AWS Cognito, and TypeScript. The system provides secure user authentication, authorization, and session management for our web application.\n\n\n\nFrontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks\n\n\n\n\n\nSecure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -128,7 +136,8 @@
     "text": "Frontend: Next.js 14+ with App Router\nAuthentication: AWS Cognito User Pools\nConfiguration: AWS Parameter Store\nLanguage: TypeScript\nValidation: Zod\nState Management: React Server Components + Client Hooks",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -139,7 +148,8 @@
     "text": "Secure user registration and login\nMulti-factor authentication (MFA)\nEmail verification\nSession management\nRoute protection\nAuthorization controls\nSecure token handling\nForm validation\nError management",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -150,7 +160,8 @@
     "text": "2.1 Architecture Overview\n→ View Details\nUnderstanding the system’s architecture, including: - Client-server interaction - Authentication flow - Component relationships - Data flow patterns",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -161,7 +172,8 @@
     "text": "2.2 Configuration & Setup\n→ View Details\nSetting up the required infrastructure: - AWS Parameter Store configuration - Cognito User Pool setup - Environment configuration - TypeScript types",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -172,7 +184,8 @@
     "text": "2.3 Authentication Flows\n\n2.3.1 Login Process\n→ View Details\nComplete login implementation: - Form handling - Validation - MFA support - Token management - Error handling\n\n\n2.3.2 Registration Process\n→ View Details\nUser registration implementation: - Form validation - Email verification - Automatic login - Error management",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -183,7 +196,8 @@
     "text": "2.4 Implementation Details\n\n2.4.1 Components\n→ View Details\nReact component organization: - Form components - Client components - Server components - Shared utilities\n\n\n2.4.2 Middleware\n→ View Details\nProtection and routing: - Route protection - Auth middleware - Request handling - Cookie management\n\n\n2.4.3 Session Management\n→ View Details\nSession handling strategy: - Token management - Session types - Cookie handling - Refresh logic\n\n\n2.4.4 Data Access\n→ View Details\nData handling patterns: - Authorization - Data access layer - Transfer objects - Caching strategy\n\n\n2.4.5 Security\n→ View Details\nSecurity implementations: - Best practices - Protection mechanisms - Rate limiting - Testing approaches",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -194,7 +208,8 @@
     "text": "4.1 Code Organization\nsrc/\n├── app/\n│   ├── (auth)/\n│   │   ├── login/\n│   │   └── signup/\n│   └── api/\n├── components/\n│   └── forms/\n│       ├── login/\n│       └── signup/\n└── lib/\n    ├── auth/\n    ├── validations/\n    └── config/",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
@@ -205,7 +220,8 @@
     "text": "4.2 Best Practices\n\nType Safety\n\nUse TypeScript interfaces for all data structures\nImplement Zod schemas for validation\nMaintain strict type checking\n\nSecurity\n\nFollow AWS security best practices\nImplement proper error handling\nUse secure session management\nApply rate limiting\n\nCode Quality\n\nWrite unit tests for critical paths\nMaintain consistent error handling\nFollow component organization patterns\nUse proper TypeScript practices",
     "crumbs": [
       "Documentation",
-      "Authentication"
+      "Authentication",
+      "Introduction"
     ]
   },
   {
